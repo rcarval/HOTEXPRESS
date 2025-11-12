@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>HE_Subir_Documento</members>
+        <members>HE_Subir_DocumentoTEST</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>HE_Subir_Documento</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Detalles_Master__c.Estado_Aduana__c</members>
+        <name>CustomField</name>
+    </types>
+    <version>65.0</version>
+</Package>
+
