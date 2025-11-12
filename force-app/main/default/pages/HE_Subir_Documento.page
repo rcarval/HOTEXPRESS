@@ -85,7 +85,7 @@ var output = document.getElementById("fileOutput");
 output.textContent = e.target.result;
     
 };
-reader.readAsText(file);
+reader.readAsText(file, 'ISO-8859-1');
 }
     </script> 
             </head>
