@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Forma_de_Facturacion__c</fullName>
+    <label>Forma de Facturación</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fin de Mes</fullName>
+                <default>false</default>
+                <label>Fin de Mes</label>
+            </value>
+            <value>
+                <fullName>Fin de Mes y Quincena</fullName>
+                <default>false</default>
+                <label>Fin de Mes y Quincena</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

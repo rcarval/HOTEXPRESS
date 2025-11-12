@@ -1,0 +1,11 @@
+<apex:page standardController="Master__c"  extensions="HE_Generar_CSV_Controler"  action="{!GenerarCSV}" >
+    <apex:form >
+    <apex:pageBlock >
+        <apex:commandButton value="GenerarCSV" action="{!GenerarCSV}" reRender="seccion" />
+        <apex:pageBlockSection id="seccion" rendered="true">
+      
+        
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

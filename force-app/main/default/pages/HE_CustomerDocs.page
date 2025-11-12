@@ -1,0 +1,1 @@
+<apex:page controller="HE_Mis_Documentos" cache="false" contentType="text/json; charset=utf-8" showHeader="false" standardStylesheets="false" sidebar="false" action="{!attachments}">{!resultJSON2}</apex:page>

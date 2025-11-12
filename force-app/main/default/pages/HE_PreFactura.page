@@ -1,0 +1,163 @@
+<apex:page controller="HE_PreFactura" showHeader="false" renderAs="PDF" applyBodyTag="false" applyHtmlTag="false" language=" es_VE" action="{!cargar}">   
+    <html>
+        <head>
+            <style type="text/css">
+                @page{
+                margin-bottom:0.9cm;
+                margin-top:2.2cm;
+                margin-left:0.7cm;
+                margin-right:0.9cm;
+                @top-center{
+                content: element(header);
+                }
+                }
+                div.header{
+                padding:0px;
+                margin-bottom:0px;
+                margin-top:10px;
+                position: running(header);
+                }
+                div.content{
+                margin-top:0px;
+                }
+                .tabla td {
+                border-spacing:1px;
+                width: 0cm; height:0cm;
+                }
+                .tabla td{
+                padding:0px;
+                }
+                .tabla1{
+                border: 1px solid #000000;
+                border-collapse: collapse;      
+                }
+                td, tr{
+                border: 1px solid #000000;
+                padding:0px;
+                }
+                p {
+                display: block;
+                }
+                .a6{ font-size: 11px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: -11px;font-weight: bold;}
+                .a7{ font-size: 7px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: 5px;}
+                .a8{ font-size: 9px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a9{ font-size: 11px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px; font-weight: bold;}
+                .a10{ font-size: 11px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a11{ font-size: 13px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a12{ font-size: 25px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a14{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a15{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a16{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 10px; margin-right: 5px; font-weight: bold;}
+                .selected{ background-color: yellow;}
+                .pExtra{
+                margin-left: 5px;
+                margin-right: 5px;
+                }
+                .bordered{ border: 1px solid #000000; } 
+                .borderLeft{ border-top: none; border-bottom: none; border-right: none; border-left:  1px solid #000000 !important; } 
+                .borderRight{ border-top: none; border-bottom: none; border-left: none; border-right:  1px solid #000000 !important; } 
+                .noborder{ border: none !important; }
+                .noborder td, .noborder td{ border: none !important; }
+                .colored{ color: #000000;background-color: #999999; }
+                .colored1{ color: #000000;}
+                .colored2{ color: #c0c0c0;font-weight: bold;}
+                .mar2{ margin-top:35px;}
+            </style>
+        </head>
+        <body>
+            
+            <!-------------------------------------inicio del header---------------------------------------->
+            <div class="header ">
+                <table class="tabla" align="center" width="100%" >
+                    <table    width="100%">
+                        <tr >
+                            <th align="center" colspan="5" ><span class="a14">Pre-Factura</span></th>
+                            
+                        </tr>
+                    </table >
+                </table>
+            </div> 
+            <div class="content">
+                <!-------------------------------------fin del header---------------------------------------->            
+                
+                <!-------------------------------------datos cliente---------------------------------------->
+                <table   border=""    align="center" width="100%" >
+                    <tr class="colored">
+                        <td align="center"  colspan="10" ><span class="a16">Datos del cliente</span></td>
+                    </tr>
+                    
+                    
+                    
+                    <tr class="colored1" border="0">
+                        <th align="left" colspan="3"> <span   class="a6">Nombre: </span></th>
+                        <td align="Center" colspan="7"><span   class="a6">{!acc.name}</span> </td>
+                    </tr>
+                    <tr class="colored1" border="0">
+                        <th align="left" colspan="3"> <span   class="a6">RUT: </span></th>
+                        <td align="Center" colspan="7"><span   class="a6">{!acc.rut__c}</span> </td>
+                    </tr>
+                    <tr class="colored1" border="0">
+                        <th align="left" colspan="3"> <span   class="a6">Direcíon: </span></th>
+                        <td align="Center" colspan="7"><span   class="a6">{!acc.Billingstreet}</span> </td>
+                    </tr>
+                    <tr class="colored1" border="0">
+                        <th align="left" colspan="3"> <span   class="a6">Razón Social: </span></th>
+                        <td align="Center" colspan="7"><span   class="a6">{!acc.name}</span> </td>
+                     </tr>
+                    <tr class="colored1" border="0">
+                        <th align="left" colspan="3"> <span   class="a6">condicion comercial: </span></th>
+                        <td align="Center" colspan="7"><span   class="a6">{!acc.Condicion_Comercial_Global__c}</span> </td>
+                     </tr>
+                     
+                    
+                    
+                    <tr><th height="15px"></th></tr>
+                </table>
+                <!-------------------------------------fin datos cliente---------------------------------------->
+                
+                <!-------------------------------------  Productos ---------------------------------------->
+                
+                <table class="tabla1" align="center" width="100%">
+                    <tr class="colored">
+                        <td align="left" colspan="11" ><span class="a16">Productos</span></td>
+                    </tr>
+                    
+                    <tr class="colored">
+                        
+                        <td align="center"><span class="a10">N° Guia</span></td>
+                        <td align="center"><span class="a10">descripcion</span></td>
+                        <td align="center"><span class="a10">monto USD</span></td>
+                        <td align="center"><span class="a10">monto CLP</span></td>
+                        <td align="center"><span class="a10">Valor Dolar</span></td>
+                        
+                    </tr>
+                    
+                   
+                    <apex:repeat value="{!prefac}" var="ltcs" id="ltcs">
+                    <tr class="colored1">
+                        <td align="center" ><span class="a14">{!ltcs.Ngactura} </span></td>
+                        <td align="center" ><span class="a14"> {!ltcs.descripcion}</span></td>
+                        <td align="center" ><span class="a14"> {!ltcs.montoUSD}</span></td>
+                        <td align="center" ><span class="a14"> {!ltcs.montoCLP}</span></td>
+                        <td align="center"><span class="a14"> {!ltcs.Valordolar}</span></td>
+                        
+                    </tr>
+                    </apex:repeat>
+                    <tr class="colored1">
+                        <th align="center"  colspan="2"><span class="a14">Total</span></th>
+                        <td align="center" ><span class="a14">{!totalUSD} </span></td>
+                        <td align="center" ><span class="a14">{!totalCLP}</span></td>
+                        <td align="center"  colspan="1"><span class="a14"></span></td>
+                        
+                    </tr>
+                    <tr><th height=" 25px"></th></tr>
+                </table>
+                <!-------------------------------------fin producto---------------------------------------->
+     
+                
+             
+                
+            </div>      
+        </body>
+    </html>
+</apex:page>

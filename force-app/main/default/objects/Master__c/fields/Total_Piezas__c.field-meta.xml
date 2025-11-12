@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Piezas__c</fullName>
+    <label>Total Piezas</label>
+    <summarizedField>Detalles_Master__c.Pieces__c</summarizedField>
+    <summaryForeignKey>Detalles_Master__c.Master__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

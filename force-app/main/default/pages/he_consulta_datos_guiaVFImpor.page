@@ -1,0 +1,1 @@
+<apex:page controller="HE_Consulta_Clientes_Facturar_Impor" cache="false" contentType="text/json; charset=utf-8" showHeader="false" standardStylesheets="false" sidebar="false" action="{!consultar_rut}">{!resultJSON}</apex:page>

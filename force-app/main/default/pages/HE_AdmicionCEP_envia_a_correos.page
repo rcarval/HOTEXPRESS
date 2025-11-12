@@ -1,0 +1,3 @@
+<apex:page standardController="Master__c"  extensions="HE_AdmicionCEP_envia_a_correos"  action="{!genera_CSV_Correos}">  <!--action="{!enviar_a_correos}"-->
+    <apex:pageMessages ></apex:pageMessages>
+</apex:page>

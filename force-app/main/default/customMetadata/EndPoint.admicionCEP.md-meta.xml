@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>admicionCEP</label>
+    <protected>false</protected>
+    <values>
+        <field>Codigo_Cliente__c</field>
+        <value xsi:type="xsd:string">61001</value>
+    </values>
+    <values>
+        <field>contrase_a__c</field>
+        <value xsi:type="xsd:string">b9d591ae8ef9d36bb7d4e18438d6114e</value>
+    </values>
+    <values>
+        <field>url__c</field>
+        <value xsi:type="xsd:string">http://apicert.correos.cl:8008/ServicioAdmisionCEPExterno/cch/ws/enviosCEP/externo/implementacion/ServicioExternoAdmisionCEP.asmx</value>
+    </values>
+    <values>
+        <field>usuario__c</field>
+        <value xsi:type="xsd:string">PRUEBA WS 1</value>
+    </values>
+</CustomMetadata>

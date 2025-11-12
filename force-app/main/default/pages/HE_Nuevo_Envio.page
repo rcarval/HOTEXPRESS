@@ -1,0 +1,1699 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="HE_Nuevo_Envio" action="{!datos}"> 
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Nuevo envío</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!-- Import the Design System style sheet -->
+            <apex:slds />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+            
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"/>
+            
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+            
+            <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+            
+            <style>
+                
+                #divtabla {
+                    overflow:scroll;
+                    height:200px;                
+                }
+                ::-webkit-scrollbar {
+                	display: none;
+                }
+				.required:after {
+                	content:" *";
+                	color: red;
+                }	
+            	
+            	.custom-file-input.selected:lang(en)::after {
+                    content: "" !important;
+                }
+                .custom-file {
+                    overflow: hidden;
+                }
+                .custom-file-input {
+                    white-space: nowrap;
+                }
+            </style>
+            <script>
+            
+            
+            var maxStringSize = 6000000;    //Maximum String size is 6,000,000 characters
+            var maxFileSize = 4350000;      //After Base64 Encoding, this is the max file size
+            var chunkSize = 950000;         //Maximum Javascript Remoting message size is 1,000,000 characters
+            var attachment;
+            var attachmentName;
+            var fileSize;
+            var positionIndex;
+            var doneUploading;
+            var xmls;
+            $j = jQuery.noConflict();
+            $j(document).ready(function($) {				                                                             
+                
+                $("#NuevoContacto").hide();
+                $("#NuevoDestinatario").modal('hide');
+                $("#Nuevadireccion").hide();
+                $("#otra_direcion").hide();
+                $("#agregardireccion").hide();
+                
+                $("#otro_contacto").hide();
+                $("#Agregar_Contacto").hide();
+                $("#Cancelar_Contacto").hide();
+                $("#loading").hide();
+                $("#Contacto").val('{!idp}');
+                $("#DDP").val('NO');
+                $("#MensajeDDP").hide(); 
+                $("#DDP").attr('disabled', false);
+                $("#Seguro").val('NO');
+                $("#MensajeSeguro").hide();   
+                $("#Proposito_del_envio").val('');
+                $("#breve_descripcion").val('');
+                $("#Embalaje").val('');
+                var contador=0;
+                
+                
+                data={!resultJSON};
+                dataOrigen={!resultJSONOrigen};
+                lstacon={!lcontactosJSON};
+                localaddres = {!localAddressesJSON};
+                direccion=[];
+                direccionOrigen=[];
+                contactos=[];
+                localAddresses=[];
+                
+                console.log(data); 
+                $.each( data, function( key, c ) {
+                    direccion.push({
+                        id: c.id,
+                        nombre: c.nombre, 
+                        Direccion:c.Direccion,  
+                        Ciudad :c.Ciudad,
+                        Estado_Provincia:c.Estado_Provincia, 
+                        codigo_Postal:c.codigo_Postal, 
+                        Pais:c.Pais,
+                        contacto:c.contacto, 
+                        Telefono:c.Telefono, 
+                        Email:c.Email,
+                        TaxID : c.TaxID
+                    });
+                    
+                    
+                });
+                $.each( dataOrigen, function( key, c ) {
+                    direccionOrigen.push({
+                        id: c.id,
+                        nombre: c.nombre, 
+                        Direccion:c.Direccion,  
+                        Ciudad :c.Ciudad,
+                        Estado_Provincia:c.Estado_Provincia, 
+                        codigo_Postal:c.codigo_Postal, 
+                        Pais:c.Pais 
+                    });
+                });
+                
+                $.each( lstacon, function( key, c ) {
+                    contactos.push({
+                        id: c.Id,
+                        nombre: c.FirstName, 
+                        Apellido: c.LastName,                        
+                        Telefono: c.MobilePhone,
+                        Direccion: c.MailingStreet
+                        
+                    });                 
+                });
+                
+                $.each({!localAddressesJSON}, function( key, c ) {
+                    localAddresses.push({
+                        id: c.id,
+                        nombre: c.nombre, 
+                        Direccion: c.Direccion
+                        
+                     });    
+                    console.log('xx: ' + c.id);  
+                });
+                
+                console.log(localAddresses);         
+                
+                for(i=0;i<direccion.length;i++) { 
+                    //document.getElementById("direcciones").options[document.getElementById("direcciones").options.length]=new Option(direccion[i].nombre , direccion[i].id);
+                    $('#direcciones').append(new Option(direccion[i].nombre + ' - ' + direccion[i].Direccion, data[i].id));
+                }
+                for(i=0;i<direccionOrigen.length;i++) { 
+                    document.getElementById("dir_or").options[document.getElementById("dir_or").options.length]=new Option(direccionOrigen[i].nombre , direccionOrigen[i].id);
+                }
+                
+                //Evento cuando cambia seleccion de combo de direcciones
+                $("#direcciones").on('change',function(){
+                    var dir = $("#direcciones").val();
+                    console.log(dir );
+                    for(var i=0; i<direccion.length; i++){ 
+                        if(direccion[i].id==dir){
+                            $("#Nombre").html(direccion[i].nombre);
+                            $("#direccion").html(direccion[i].Direccion);    
+                            $("#ciudad").html(direccion[i].Ciudad);   
+                            $("#Estado_Provincia").html(direccion[i].Estado_Provincia);
+                            $("#codigo_Postal").html(direccion[i].codigo_Postal);
+                            $("#Pais").html(direccion[i].Pais);                                                                                    
+                            $("#contacto").val(direccion[i].contacto);
+                            $("#email").val(direccion[i].Email);
+                            $("#taxID").val(direccion[i].TaxID);
+                            $("#telefono").val(direccion[i].Telefono); 
+                            if(direccion[i].contacto != '' && direccion[i].Email != '' && direccion[i].Telefono != ''){
+                                $("#contacto").attr("readonly", true);
+                                $("#email").attr("readonly", true);
+                                $("#telefono").attr("readonly", true);
+                            }else{
+                                $("#contacto").attr("readonly", false);
+                                $("#email").attr("readonly", false);
+                                $("#telefono").attr("readonly", false);
+                            }
+                            
+                            
+                            if(direccion[i].id=="0"){
+                                $("#Nombre").html(""); 
+                            }
+                        }
+                    }                    
+                });    
+                
+                $("#cambiar_contacto").on('click',function(){
+                    //$("#NuevoContacto").show();
+                    $('#NuevoContacto').modal('show');                    
+                });
+                $("#cancelar").on('click',function(){
+                    $("#NuevoContacto").hide();
+                });
+                $("#Cambiar").on('click',function(){
+                    var conid =$("#Contacto").val();
+                    var nom='';
+                    var id='';
+                    var tel='';
+                    var direccionContacto = '';
+                    console.log('conid');
+                    console.log(conid);
+					
+                    $("#telefonocontacto").html('');    
+					$("#direccionSeleccionada").html('');                    
+                    //busca nombre de contacto cambiado al seleccionar 
+                    for(i=0;i<contactos.length;i++){                        
+                        if(conid==contactos[i].id){
+                            console.log(contactos[i]);
+                            nom=contactos[i].nombre;
+                            id=conid;
+                            tel=contactos[i].Telefono;                            
+                            direccionContacto = contactos[i].Direccion;
+                            apellido = contactos[i].Apellido;
+                        }
+                    }
+                    
+                    console.log(tel);
+                    $("#nombrecontacto").val(id); 
+                    $("#nombrecontacto").html(nom + ' ' + apellido);
+                    $("#telefonocontacto").html(tel);    
+                    $("#direccionSeleccionada").html(direccionContacto);
+                    $("#NuevoContacto").hide();
+                    $('#NuevoContacto').modal('hide');
+                    
+                });
+                $("#Agregar_Direcion").on('click',function(){
+                    $("#NuevoDestinatario").modal('show');
+                    //$("#Pais_nuevo option:contains(Chile)").attr('selected', 'selected');	
+                    $('#Pais_nuevo').selectpicker('refresh');
+                    $('#Pais_nuevo').selectpicker('render');                    
+                    setTimeout($("#nombre_nuevo").focus(), 2);
+                });
+                $("#cambiar_direcion").on('click',function(){   
+                    //$('#dir_or').val('0');
+                    //$("#Nuevadireccion").show();                                        
+                    $('#Nuevadireccion').modal('show');                                        
+                }); 
+                $("#cancelardireccion").on('click',function(){
+                    $("#agregardireccion").hide();
+                    $("#selecionardireccion").show();
+                    $("#selecion_direcion").show();
+                    $("#otra_direcion").hide();
+                    $("#Nuevadireccion").hide();
+                    $('#Nuevadireccion').modal('hide');
+                });
+                $("#nue_dir_or").on('click',function(){
+                    $("#agregardireccion").show();
+                    $("#selecionardireccion").hide();
+                    $("#otra_direcion").show();
+                    $("#selecion_direcion").hide();
+					$("#PaisNE option:contains(Chile)").attr('selected', 'selected');	
+                    $('#PaisNE').selectpicker('refresh');
+                    $('#PaisNE').selectpicker('render');  
+                    setTimeout($("#nom").focus(), 2);
+                });
+                $("#Nuevo_Contacto").on('click',function(){
+                    $("#contacto_selecionado").hide();
+                    $("#Nuevo_Contacto").hide();
+                    $("#Cambiar").hide();
+                    $("#otro_contacto").show();
+                    $("#Agregar_Contacto").show();
+                    $("#Cancelar_Contacto").show();
+                    $('#contactDropdownList').hide();
+                    setTimeout($("#Nombre_contacto").focus(), 2);
+                });
+                $("#Cancelar_Contacto").on('click',function(){
+                    $("#contacto_selecionado").show();
+                    $("#Nuevo_Contacto").show();
+                    $("#Cambiar").show();
+                    $("#otro_contacto").hide();
+                    $("#Agregar_Contacto").hide();
+                    $("#Cancelar_Contacto").hide();
+                    $('#contactDropdownList').show();
+                });
+                
+                function BtnLoading(elem) {
+                      $(elem).attr("data-original-text", $(elem).html());
+                      $(elem).prop("disabled", true);
+                      $(elem).html('<i class="spinner-border spinner-border-sm"></i> Loading...');
+                  }
+                
+                function BtnReset(elem) {
+                    $(elem).prop("disabled", false);
+                    $(elem).html($(elem).attr("data-original-text"));
+                }
+                
+                $("#Agregar_Contacto").on('click',function(){
+                    var nombre = $("#Nombre_contacto").val();
+                    var apellidos =  $("#Apellidos_contacto").val();
+                    var correo = $("#Correo_Electronico").val();
+                    var telefono = $("#Telefono_contacto").val();
+                    var direccion = $("#Direccion_contacto").val();
+                    var comuna = $("#Comuna_contacto").val();
+                    var ciudad = $("#Ciudad_contacto").val();
+                    
+                    if(nombre == ''){
+                        $("#Nombre_contacto").focus();
+                        return alert('Ingrese nombre');
+                    }
+                    if(apellidos == ''){
+                        $("#Apellidos_contacto").focus();
+                        return alert('Ingrese apellidos');
+                    }
+                    if(telefono == ''){
+                        $("#Telefono_contacto").focus();
+                        return alert('Ingrese telefono');
+                    }
+                    if(direccion == ''){
+                        $("#Direccion_contacto").focus();
+                        return alert('Ingrese dirección');
+                    }
+					if(comuna == ''){
+                        $("#Comuna_contacto").focus();
+                        return alert('Ingrese comuna');
+                    }
+					if(ciudad == ''){
+                        $("#Ciudad_contacto").focus();
+                        return alert('Ingrese ciudad');
+                    }
+
+                    
+                    BtnLoading("#Agregar_Contacto");
+                    var datos = {
+                        "Idcuenta":"{!idc}",
+                        "Nombre": nombre,
+                        "Apellidos":apellidos,
+                        "Correo":correo,
+                        "Telefono": telefono, 
+                        "Tipo_Cargo": "Otro",
+                        "Direccion": direccion,
+                        "Comuna": comuna,
+                        "Ciudad": ciudad, 
+                        "Pais": $("#Pais_contacto").val()
+                    };
+                    console.log(datos);
+                    $.ajax({
+                        dataType: "json",
+                        
+                        url: "{!$Page.HE_AgregaContacto_JSON}",
+                        data: { datos: JSON.stringify(datos) },
+                        success: function(data) {
+                            console.log(data);
+                            BtnReset("#Agregar_Contacto");
+                            if(data.success){ 
+                                contactos.push({
+                                    id: data.idcontacto,
+                                    nombre: nombre, 
+                                    Telefono:telefono,
+									Apellido : apellidos,
+                                    Direccion : direccion
+                                });
+                                
+                                $('#Contacto').append(new Option(nombre + ' ' + apellidos + ' - ' + direccion, data.idcontacto));
+                                $("#Contacto").val(data.idcontacto); 
+                                $("#Nombre_contacto").val('');  
+                                $("#Apellidos_contacto").val('');
+                                $("#Correo_Electronico").val('');
+                                $("#Telefono_contacto").val('');
+                                $("#Direccion_contacto").val('');
+                                $("#Comuna_contacto").val('');
+                                $("#Ciudad_contacto").val('');
+                                $("#Cancelar_Contacto").click();
+                                //$("#Cambiar").click();
+                                $('#Contacto').selectpicker('refresh');
+                                $('#Contacto').selectpicker('render');
+                                alert(data.msg);
+                            }else{
+                                alert("Existe un error al guardar: "+data.msg);
+                            }
+                        }
+                    });
+                    
+                });                
+                
+                $("#agregardireccion").on('click',function(){
+                    var direcion = $("#direcciones").val();
+                    var nom =  $("#nom").val();
+                    var dir = $("#direc").val();
+                    var ciu = $("#ciud").val();
+                    var est =$("#est_prov").val();
+                    var cod = $("#codpost").val();
+                    var pais =$("#PaisNE").val();
+                    var TaxIDn =$("#TaxID_nuevo").val();
+                    var paisnombre = $('#PaisNE>option:selected').text();
+                    var OwnerId = "{!acc.OwnerId}";
+                    var datos = {
+                        "nombre": nom,
+                        "Ciudad":ciu,
+                        "codigo_Postal":cod,
+                        "Direccion": dir,
+                        "Estado_Provincia": est,
+                        "Pais": pais,
+                        "id":"{!idc}",
+                        "OwnerId": OwnerId,
+                        "tipo": "nuevo",
+                        "TaxID": TaxIDn                        
+                    };
+                    
+                    if(nom == ''){
+                        $("#nom").focus();
+                        return alert('Ingrese nombre');
+                    }
+                    
+                    if(dir == ''){
+                        $("#direc").focus();
+                        return alert('Ingrese dirección');
+                    }
+                    
+                    if(ciu == ''){
+                        $("#ciud").focus();
+                        return alert('Ingrese ciudad');
+                    }
+                    BtnLoading("#agregardireccion");
+                    console.log(datos);
+                    $.ajax({
+                        dataType: "json",
+                        
+                        url: "{!$Page.HE_AgregaEditaDir_JSON}",
+                        data: { datos: JSON.stringify(datos) },
+                        success: function(data) {
+                            console.log(data);
+                            BtnReset("#agregardireccion");
+                            if(data.success){                                
+                                contador=data.iddirecion;
+                                
+                                //se mete en array para buscarlo posteriormente
+                                localAddresses.push({
+                                    id:contador,
+                                    nombre:nom, 
+                                    Direccion:dir,  
+                                    Ciudad :ciu,
+                                    Estado_Provincia:est, 
+                                    codigo_Postal:cod, 
+                                    Pais:pais 
+                                    
+                                }); 
+                                console.log(' id nueva direccion:' + contador );
+                                //document.getElementById("dir_or").options[document.getElementById("dir_or").options.length]=new Option(nom,contador);
+                                $('#dir_or').append(new Option(nom + ' - ' + dir, contador));
+                                $("#dir_or").val(contador); 
+                                $("#nom_dir_or").html(dir); 
+                                $("#agregardireccion").hide();
+                                $('#Nuevadireccion').modal('hide');
+                                $("#selecionardireccion").show();
+                                $("#selecion_direcion").show();
+                                $("#otra_direcion").hide();
+                                $("#Nuevadireccion").hide();
+                                
+                                $("#nom").val('');
+                    			$("#direc").val('');
+                        		$("#ciud").val('');
+                     			$("#est_prov").val('');
+                     			$("#codpost").val('');
+                                
+                                $('#dir_or').selectpicker('refresh');
+                                $('#dir_or').selectpicker('render');
+                                $("#selecionardireccion").click();
+                                alert(data.msg);
+                            }else{
+                                alert("Existe un error al guardar: "+data.msg);
+                            }
+                        }
+                    });
+                    
+                });                
+                
+                $("#selecionardireccion").on('click',function(){
+                    
+                    if($('#dir_or').val() == '0'){
+                        return alert('Debe seleccionar una dirección válida');
+                    }
+                    $("#direccionSeleccionada").html('');
+                    console.log(localAddresses);       
+                    console.log($('#dir_or').val());       
+                    //busca nombre de contacto cambiado al seleccionar 
+                    for(i=0; i < localAddresses.length; i++){                        
+                        if($('#dir_or').val() == localAddresses[i].id){                                                       
+                            $("#direccionSeleccionada").html(localAddresses[i].Direccion);
+                            console.log('direccion encontrada');   
+                        }
+                    }
+                    
+                    $("#Nuevadireccion").modal('hide');
+                });
+                
+                var idnuevo=0;
+                $("#agregardestinatario").on('click',function(){
+                    BtnLoading("#agregardestinatario");
+                    var nom =  $("#nombre_nuevo").val();
+                    var ciu = $("#ciuda_nuevo").val();
+                    var cod = $("#codigo_nuevo").val();
+                    var dir =$("#direcion_nuevo").val();
+                    var est = $("#estado_nuevo").val();
+                    var pais =$("#Pais_nuevo").val();
+                    var paisnombre = $('#Pais_nuevo>option:selected').text();
+                    var conn =$("#Contacto_nuevo").val();
+                    var Teln = $("#Telefono_nuevo").val();
+                    var Emailn =$("#Email_nuevo").val();
+                    var TaxIDn =$("#TaxID_nuevo").val();
+                    var OwnerId = "{!acc.OwnerId}";
+                    
+                    if(nom == ''){
+                        BtnReset("#agregardestinatario");
+                        alert('Ingrese nombre');
+                        $("#nombre_nuevo").focus();
+                        return;
+					} 
+                    
+                    if(dir == ''){
+                        BtnReset("#agregardestinatario");
+                        alert('Ingrese dirección');
+                        $("#direcion_nuevo").focus();
+                        return;
+					}
+                    
+                    if(ciu == ''){
+                        BtnReset("#agregardestinatario");
+                        alert('Ingrese ciudad');
+                        $("#ciuda_nuevo").focus();
+                        return;
+					}                                         
+    
+                    if(pais == 'Seleccione un País'){
+                        BtnReset("#agregardestinatario");
+                        alert('Seleccione País');                        
+                        return;
+                    }
+                    
+                    if(conn == ''){
+                        BtnReset("#agregardestinatario");
+                        alert('Ingrese contacto');
+                        $("#Contacto_nuevo").focus();
+                        return;
+					}
+                    
+                    if(Teln == ''){
+                        BtnReset("#agregardestinatario");
+                        alert('Ingrese móvil');
+                        $("#Telefono_nuevo").focus();
+                        return;
+					}
+                     
+                    console.log(paisnombre);
+                    var datos = {
+                        "nombre": nom,
+                        "Ciudad":ciu,
+                        "codigo_Postal":cod,
+                        "Direccion": dir,
+                        "Estado_Provincia": est,
+                        "Pais": pais,
+                        "id":"{!idc}",
+                        "OwnerId": OwnerId,
+                        "Telefono":Teln,
+                        "Email": Emailn,
+                        "contacto": conn,
+                        "TaxID" : TaxIDn
+                        
+                    };
+                    console.log(datos);
+                    $.ajax({
+                        dataType: "json",
+                        url: "{!$Page.HE_AgregarDirecion_JSON}",
+                        data: { datos: JSON.stringify(datos) },
+                        success: function(data) {
+                            console.log(data);
+                            BtnReset("#agregardestinatario");
+                            if(data.success){
+                                idnuevo=data.iddirecion;
+                                direccion.push({
+                                    id: idnuevo,
+                                    nombre: nom, 
+                                    Direccion:dir,  
+                                    Ciudad :ciu,
+                                    Estado_Provincia:est, 
+                                    codigo_Postal:cod, 
+                                    Pais:paisnombre,
+                                    contacto:conn, 
+                                    Telefono:Teln, 
+                                    Email:Emailn,
+                                    TaxID: TaxIDn
+                                    
+                                });
+                                //document.getElementById("direcciones").options[document.getElementById("direcciones").options.length]=new Option(nom ,idnuevo);
+                                $('#direcciones').append(new Option(nom, idnuevo));
+                                $("#direcciones").val(idnuevo);
+                                $("#direcciones").change();
+                                
+                                $("#NuevoDestinatario").modal('hide');
+                                
+                                $('#direcciones').selectpicker('refresh');
+                                $('#direcciones').selectpicker('render');
+                                
+                                $("#nombre_nuevo").val('');
+                                $("#ciuda_nuevo").val('');
+                                $("#codigo_nuevo").val('');
+                                $("#direcion_nuevo").val('');
+                                $("#Contacto_nuevo").val('');
+                                $("#Telefono_nuevo").val('');
+                                
+                                $("#Pais_nuevo").val('Seleccione un País');
+                                $('#Pais_nuevo').selectpicker('refresh');
+                                $('#Pais_nuevo').selectpicker('render');
+                                
+                                alert(data.msg);                                
+                            }else{
+                                alert("Existe un error al guardar: "+data.msg);
+                            }
+                        }
+                    });
+                    
+                    
+                    
+                }); 
+                $("#cancelardestinatario").on('click',function(){
+                    $("#NuevoDestinatario").modal('hide');
+                }); 
+                
+                ids=0;
+                nprod=0;
+                $('#addMore').on('click', function(){
+                    
+                    //var data = $("#tb tr:eq(1)").clone(true).appendTo("#tb");
+                    //data.find("input").val('');
+                    var td = '';
+                    var tr = $('<tr code="'+ids+'" idProducto="'+ids+'">');
+                    // $tr = 
+                    td = $("<td></td>").html('<input  id="Descripcion'+ids+'" name="Descripcion'+ids+'" type="text" class="form-control"  />');
+                    tr.append(td);
+                    // td = $("<td></td>").html('<input id="Pais_de_Fabricacion'+ids+'" name="Pais_de_Fabricacion'+ids+'" type="text" class="form-control" size="7" />');
+                    td = $("<td></td>").html('<select    class="custom-select" id="Pais_de_Fabricacion'+ids+'" name="Pais_de_Fabricacion'+ids+'"><option value="null">--Ninguno--</option><apex:repeat value="{!listpais}" var="p"><option value="{!p.id}">{!p.name}</option></apex:repeat></select>');
+                    tr.append(td);
+                    td = $("<td></td>").html('<input   id="Cantidad'+ids+'" pattern="^\d*(\.\d{0,2})?$" name="Cantidad'+ids+'" type="number" class="form-control"  min="1" max="5" />');
+                    tr.append(td);
+                    // td = $("<td></td>").html('<input id="Unidad_de_Medida'+ids+'" name="Unidad_de_Medida'+ids+'" type="text" class="form-control " size="5"  />');
+                    td = $("<td></td>").html('<select    class="custom-select"  id="Unidad_de_Medida'+ids+'" name="Unidad_de_Medida'+ids+'" ><option value="Unidades">Unidades</option><option value="Kilogramos">Kilogramos</option></select>');
+                    
+                    tr.append(td);
+                    td = $("<td></td>").html('<input   id="Valor_Unitario'+ids+'" name="Valor_Unitario'+ids+'"  type="number" value="0" class="form-control"  min="1" max="999999" />');
+                    tr.append(td);
+                    td = $("<td></td>").html('<button class="btn btn-danger remove" onclick="deleteRow(this);">Eliminar</button>');
+                    tr.append(td);
+                    $("#tb").append(tr);
+                    
+                    ids = ids + 1;
+                    nprod = nprod + 1;
+                    
+                    document.getElementById("productos").value = ids;
+                }); 
+                                              
+                $('#Tipo_Contenido').on('change', function(){
+                    var tipo=$("#Tipo_Contenido").val(); 
+                    if(tipo=='Documentos'){
+                        console.log('entro a desabilitar ddp')
+                        $("#DDP").val('NO');
+                        $("#DDP").attr('disabled', true);
+                        $("#Seguro").val('NO');
+                        $("#Seguro").attr('disabled', true);
+                    }else{  
+                        $("#DDP").attr('disabled', false);
+                        $("#Seguro").attr('disabled', false); 
+                    }
+                    
+                }); 
+                                
+                $("#DDP").on('click',function(){
+                    var ddp=$("#DDP").val(); 
+                    console.log(ddp);
+                    if(ddp=="SI"){ 
+                        $("#MensajeDDP").show();  
+                    }else{ 
+                        $("#MensajeDDP").hide();  
+                    }
+                    
+                });
+                $("#Seguro").on('click',function(){
+                    var Seguro=$("#Seguro").val(); 
+                    console.log(Seguro);
+                    if(Seguro=="SI"){ 
+                        $("#MensajeSeguro").show();  
+                    }else{ 
+                        $("#MensajeSeguro").hide();  
+                    }
+                    
+                });
+                
+                //Evento que genera la guía
+                $("#generar_guia").on('click',function(){
+                    
+                    $("#loading").show();
+                    var prods = [];
+                    $("#tb > tbody > tr").each(function(index, item){
+                                                
+                        var idProducto = $(this).attr('idProducto');
+                        var code = $(this).attr('code');
+                        var Descripcion = $("#Descripcion"+code).val();
+                        var paisF = $("#Pais_de_Fabricacion"+code).val();
+                        var cantidad = $("#Cantidad"+code).val();
+                        var Umed = $("#Unidad_de_Medida"+code).val();
+                        var ValUn = $("#Valor_Unitario"+code).val();
+                                                
+                        prods.push({
+                            "id": idProducto,
+                            "code": code,
+                            "Descripcion": Descripcion,
+                            "pais_Fabricacion": paisF,
+                            "Cantidad": cantidad,
+                            "Unidad_Medida": Umed,
+                            "Valor_Unitario": ValUn
+                            
+                        });
+                    });
+                    
+                    console.log(prods);
+                    console.log(prods.length);
+                    
+                    if(prods.length == 0 && $("#Tipo_Contenido").val() != 'Documentos'){
+                        $("#loading").hide();
+                        alert("Ingrese al menos un producto");
+                        return;
+                    }
+                    
+                    if($('#Tipo_Contenido').val() == 'Documentos' && $('#DDP').val() == 'SI'){
+                        $("#loading").hide();
+                        return alert('No puede registrar DDP en una guía con tipo contenido documentos.');
+                    }
+                    
+                    if($('#Tipo_Contenido').val() == 'Documentos' && $('#Seguro').val() == 'SI'){
+                        $("#loading").hide();
+                        return alert('No puede registrar Seguro en una guía con tipo contenido documentos.');
+                    }                    
+                    
+                    for(i=0;i<prods.length;i++) { 
+                        
+                        if(prods[i].Descripcion=='' ||  prods[i].Cantidad=='' ||  prods[i].Valor_Unitario==''){
+                            $("#loading").hide();
+                            alert("complete todos los campos del producto ");
+                            return;
+                        }
+                    }
+                    
+                    var remitente="{!idc}";
+                    var idp = "{!idp}";
+                    var OwnerId = "{!acc.OwnerId}";
+                    var idcontacto=$("#Contacto").val();
+                    var direcciones=$("#direcciones").val();
+                    var Nombre= $("#Nombre").html(); 
+                    var direccion=$("#direccion").html();
+                    var ciudad= $("#ciudad").html(); 
+                    var Estado_Provincia=$("#Estado_Provincia").html();
+                    var codigo_Postal= $("#codigo_Postal").html(); 
+                    var Pais= $("#Pais").html(); 
+                    var contacto= $("#contacto").val(); 
+                    var email= $("#email").val(); 
+                    var taxID = $("#taxID").val(); 
+                    var telefono= $("#telefono").val(); 
+                    var ancho= $("#ancho").val(); 
+                    var alto= $("#alto").val(); 
+                    var largo= $("#largo").val(); 
+                    var peso= $("#peso_r").val(); 
+                    var tipcon= $("#Tipo_Contenido").val(); 
+                    var breve_descripcion = $("#breve_descripcion").val(); 
+                    var Propenv= $("#Proposito_del_envio").val();
+                    //  var shi= $("#Shipper_original").val();
+                    var DDP= $("#DDP").val();
+                    var seguro= $("#Seguro").val();
+                    var Embalaje= $("#Embalaje").val();
+                    var N_paquete= $("#n_paquetes").val();
+                    var dir_or= $("#dir_or").val();
+                    var cent_cost= $("#centrodecosto").val();
+                    var file = document.getElementById("attachmentFile").files[0];
+                    console.log("file");
+                    console.log(file);
+                    var attachmentBody=attachment;
+                    console.log("attachmentBody");
+                    
+                    if(file!=null){
+
+                        if(file.size <= maxFileSize) {
+                            attachmentName = file.name;
+                            console.log(": " + file.body);
+                            var fileReader = new FileReader();
+                            fileReader.readAsDataURL(file);
+                            fileReader.onloadend = function(e) { 
+                                attachment = fileReader.result.replace(/^data:(.*;base64,)?/, '');
+                                positionIndex=0;
+                                fileSize = attachment.length;
+                                console.log("Total Attachment Length: " + fileSize);
+                                console.log("attachment: " + attachment);
+                                doneUploading = false;
+                                //attachmentBody = attachment;
+                                if(fileSize > maxStringSize)  {
+                                    alert("El archivo codificado es muy grande.  El maximo es " + maxStringSize + " y el archivo pesa " + fileSize + ".");
+                                }
+                            }
+                            fileReader.onerror = function(e) {
+                                alert("Ocurrio un error leyendo el archivo.  Intentelo nuevamente.");
+                            }
+                            fileReader.onabort = function(e) {
+                                alert("Ocurrio un error leyendo el archivo.  Intentelo nuevamente.");
+                            }
+                            //   fileReader.readAsBinaryString(file);
+                        } else {
+                            alert("El archivo debe pesar hasta 4.3MB.  Este archivo es muy grande.  Intentelo nuevamente.");
+                        }     
+                        
+                    } 
+                    
+                    var datos = {
+                        "remitente": remitente,
+                        "idp":idp,
+                        "OwnerId":OwnerId,
+                        "iddir_retiro":dir_or,
+                        "idcontacto": idcontacto,
+                        "iddireccion": direcciones,
+                        "Nombre": Nombre,
+                        "direccion": direccion,
+                        "tipo_contenido": tipcon,
+                        "breve_descripcion" : breve_descripcion,
+                        "Proposito_envio": Propenv,
+                        "ciudad": ciudad,
+                        "Estado_Provincia": Estado_Provincia,
+                        "codigo_Postal": codigo_Postal,
+                        "Pais": Pais,
+                        "contacto":contacto,
+                        "email":email,
+                        "TaxID" : taxID,
+                        "telefono": telefono,
+                        "productos": prods,
+                        "alto":alto,
+                        "ancho": ancho,
+                        "largo": largo,
+                        "peso":peso,
+                        // "shipper":shi,
+                        "DDP": DDP,
+                        "seguro":seguro,
+                        "cent_cost": cent_cost,
+                        "Embalaje": Embalaje,
+                        "attachmentName": attachmentName,
+                        "attachmentBody": attachmentBody,
+                        "N_paquete": N_paquete == '' ? '0' : N_paquete
+                        
+                        
+                    };
+                                         
+                    if(contacto=='' /*|| email==''*/ || telefono==''){
+                        $("#loading").hide();
+                        alert("ingrese datos de contacto");
+                        return;
+                    }
+                    /* if(Propenv==' ' || Propenv==null ||  Propenv==''){
+                        alert("ingrese Proposito del envio");
+                        return;
+                    }*/
+                    if(direcciones=='0'){
+                        $("#loading").hide();
+                        alert("selecione una direccion");
+                        return;
+                    }
+                    
+                    
+                    
+                    console.log("datos");  
+                    console.log(datos);
+                    /*     if(direcciones <> 0){
+                        alert("Debe seolecionar direcion destinatario");
+                        return;
+                    }*/
+                    
+                    
+                    
+                    $('#generar_guia').attr("disabled", true);
+                    
+                    $.ajax({ 
+                        dataType: "json",
+                        type: "POST",
+                        url: "{!$Page.HE_guardar_guia}",
+                        data: { datos: JSON.stringify(datos) },
+                        success: function(data) {
+                            console.log(data);
+                            if(data.success){
+                                //$("#loading").hide();
+                                window.location.replace("HE_guia_hot?id="+data.idguia+"&&idp="+data.idp);
+                            }else{
+                                $("#loading").hide();
+                                alert("Existe un error al guardar: "+data.msg);
+                            }
+                        }
+                    });
+                    
+                    $('#generar_guia').attr("disabled", false);
+                }); 
+                
+                
+            });
+            
+            function deleteRow(el) {
+                //if(!confirm("Are you sure you want to delete?")) return;
+                
+                var tbl = el.parentNode.parentNode.parentNode;
+                var row = el.parentNode.parentNode.rowIndex - 1;
+                
+                tbl.deleteRow(row);
+                nprod=nprod-1;
+                //$("#productos").val(nprod);
+                document.getElementById("productos").value = nprod;
+            }
+            
+            function agregarFila() {
+                
+                //var data = $("#tb tr:eq(1)").clone(true).appendTo("#tb");
+                //data.find("input").val('');
+                var td = '';
+                var tr = $('<tr code="'+ids+'" idProducto="'+ids+'">');
+                // $tr = 
+                td = $("<td></td>").html('<input  id="Descripcion'+ids+'" name="Descripcion'+ids+'" type="text" class="form-control"  />');
+                tr.append(td);
+                // td = $("<td></td>").html('<input id="Pais_de_Fabricacion'+ids+'" name="Pais_de_Fabricacion'+ids+'" type="text" class="form-control" size="7" />');
+                td = $("<td></td>").html('<select    class="custom-select" id="Pais_de_Fabricacion'+ids+'" name="Pais_de_Fabricacion'+ids+'"><option value="null">--Ninguno--</option><apex:repeat value="{!listpais}" var="p"><option value="{!p.id}">{!p.name}</option></apex:repeat></select>');
+                tr.append(td);
+                td = $("<td></td>").html('<input   id="Cantidad'+ids+'" pattern="^\d*(\.\d{0,2})?$" name="Cantidad'+ids+'" type="number" class="form-control"  min="1" max="5" />');
+                tr.append(td);
+                // td = $("<td></td>").html('<input id="Unidad_de_Medida'+ids+'" name="Unidad_de_Medida'+ids+'" type="text" class="form-control " size="5"  />');
+                td = $("<td></td>").html('<select    class="custom-select"  id="Unidad_de_Medida'+ids+'" name="Unidad_de_Medida'+ids+'" ><option value="Unidades">Unidades</option><option value="Kilogramos">Kilogramos</option></select>');
+                
+                tr.append(td);
+                td = $("<td></td>").html('<input   id="Valor_Unitario'+ids+'" name="Valor_Unitario'+ids+'"  type="number" value="0" class="form-control"  min="1" max="999999" />');
+                tr.append(td);
+                td = $("<td></td>").html('<button class="btn btn-danger remove" href="javascript:void(0);">Eliminar</button>');
+                tr.append(td);
+                $("#tb").append(tr);
+                
+                
+                
+                
+                ids = ids + 1;
+                nprod = nprod + 1;
+                $("#productos").val(ids);
+            }
+            
+            $(document).on('click', '.remove', function() {
+                console.log($("#productos").val());
+                var nprod = parseInt($("#productos").val());
+                console.log(nprod);
+                var trIndex = $(this).closest("tr").index();
+                
+                $(this).closest("tr").remove();
+                nprod=nprod-1
+                $("#productos").val(nprod); 
+                
+            });
+            
+            function processFiles(files) {
+                var output = document.getElementById("archivosubido");
+                var fileInput = document.getElementById('attachmentFile');
+                var filePath = fileInput.value;
+                var allowedExtensions = /(\.pdf|\.docx|\.doc|\.xlsx|\.xls)$/i;
+                
+                if (!allowedExtensions.exec(filePath)) {
+                    alert('Tipo inválido, solo Pdf, Word y Excel');
+                    fileInput.value = '';
+                    output.innerHTML = '';
+                    return false;
+                }
+                
+                //$("#loading").show();
+                var file = files[0];
+                console.log("processFiles");
+                console.log(file);
+                var fileName = file.name;
+    
+                var reader = new FileReader();
+                console.log("reader");
+                console.log(reader);
+                reader.readAsDataURL(file);
+                reader.onload = function (e) {
+                    // Cuando éste evento se dispara, los datos están ya disponibles.
+                    // Se trata de copiarlos a una área <div> en la página.
+                    
+                    xmls=e.target.result;
+                    console.log("this.result");
+                    console.log(this.result);                                        
+                    
+                    attachment = reader.result.replace(/^data:(.*;base64,)?/, '');// getBase64(file);//window.btoa(e.target.result);
+                    console.log("attachment");
+                    console.log(attachment);
+                    
+                    output.innerHTML = fileName;
+                    //$("#nombrearchivo").html(fileName);
+                    //$("#loading").hide(); 
+                    //output.textContent = e.target.result;
+                    
+                };
+                
+                //reader.readAsText(file);
+            }
+            
+            function nuevo_envio() {
+                console.log('nuevo_envio');
+                //$("#loading").show();
+                window.location.replace("{!$Page.HE_Nuevo_Envio}?idc={!idc}&&idp={!idp}");   
+            }
+            function nueva_solicitud() {
+                console.log('nueva_solicitud');
+                //$("#loading").show();
+                window.location.replace("{!$Page.HE_solicitud_de_Retiro}?idc={!idc}&&idp={!idp}");   
+            }
+            function mis_documentos() {
+                console.log('mis_documentos');
+                //$("#loading").show();
+                window.location.replace("{!$Page.HE_Mis_Documentos}?idc={!idc}&&idp={!idp}");   
+            }
+            function inicio() {
+                console.log('inicio');
+                //$("#loading").show();
+                window.location.replace("{!$Page.HE_Inicio}?idc={!idc}&&idp={!idp}");   
+            }
+            
+        </script>
+        </head>
+        <body class="">
+            <div class="page">
+                <div class="page-main">
+                    
+                    <div class="header py-4">
+                        <div class="container">
+                            <div class="d-flex">
+                                <a class="header-brand" href="inicio">
+                                    <img src="{!$Resource.HE + '/images/logohotexpress.png'}" width="120" alt="logo"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                
+                                <div class="col-lg order-lg-first">
+                                    <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="inicio()"  class="nav-link">Inicio</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="nuevo_envio()" class="nav-link">Nuevo Envío</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a href="#" onclick="nueva_solicitud()" class="nav-link">Nueva Solicitud de retiro</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="mis_documentos()" class="nav-link">Mis documentos</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="my-3 my-md-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Datos del Remitente</h3>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Remitente:</label>
+                                                        <div class="form-control-plaintext">
+                                                            <ouput type="text">{!acc.Name}</ouput>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Dirección:</label>
+                                                        <div class="form-control-plaintext">
+                                                            <ouput id="direccionSeleccionada" type="text">{!cont.MailingStreet}</ouput>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Contacto:</label>
+                                                        <div class="form-control-plaintext">
+                                                            <ouput id="nombrecontacto"  type="text" value="{!cont.Id}">{!cont.Name}</ouput>  
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Móvil:</label>
+                                                        <div class="form-control-plaintext">
+                                                            <ouput id="telefonocontacto" type="text">{!cont.MobilePhone}</ouput> 
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Centro de costo:</label>
+                                                        <input type="text" class="form-control" name="text-input" id="centrodecosto" maxlength="255" />
+                                                        
+                                                    </div>
+                                                    
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="form-footer col-md-3">
+                                                                <button id="cambiar_contacto"  class="btn btn-primary btn-block">Cambiar contacto</button>
+                                                            </div>
+                                                            <div class="form-footer col-md-3">
+                                                                <button id="cambiar_direcion"  class="btn btn-primary btn-block">Otra dirección</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="my-3 my-md-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Datos del Destinatario</h3>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="form-group col-md-12">   
+                                                        <select id="direcciones" class="selectpicker" data-live-search="true" data-size="10"> 
+                                                            <option value="0">Seleccione Dirección</option>
+                                                        </select>                                                                                                                 
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Nombre:</label>
+                                                        <div class="form-control-plaintext">
+                                                            <ouput id="Nombre"></ouput> 
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Dirección:</label>
+                                                        <div class="form-control-plaintext">
+                                                            <ouput id="direccion"></ouput>  
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Ciudad:</label>
+                                                        <div class="form-control-plaintext">
+                                                            <ouput id="ciudad"></ouput>  
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Estado/Provincia:</label>
+                                                        <div class="form-control-plaintext">
+                                                            <ouput id="Estado_Provincia"></ouput> 
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Código postal:</label>
+                                                        <div class="form-control-plaintext">
+                                                            <ouput id="codigo_Postal"></ouput>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">País:</label>
+                                                        <div class="form-control-plaintext">
+                                                            <ouput id="Pais"></ouput>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Contacto:</label>
+                                                        <input id="contacto" type="text" class="form-control" name="text-input"/>
+                                                        
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Móvil:</label>
+                                                        <input id="telefono" type="text" class="form-control" name="text-input" />
+                                                    </div>
+                                                    
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Email:</label>
+                                                            <input id="email" type="text" class="form-control" name="text-input"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">Tax ID:</label>
+                                                            <input id="taxID" type="text" class="form-control" name="text-input"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-left">
+                                                <button id="Agregar_Direcion" type="submit" class="btn btn-primary">Agregar nueva dirección</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="my-3 my-md-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Contenido del Envio</h3>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">
+                                                            Tipo de contenido
+                                                        </label>
+                                                        <select id="Tipo_Contenido" class="selectpicker" data-live-search="true" data-size="15">                                                                                                                        
+                                                             <apex:repeat value="{!contentTypes}" var="contentType">
+                                                                <option value="{!contentType}">{!contentType}</option> 
+                                                            </apex:repeat> 
+                                                        </select>                                                       
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">
+                                                            Proposito del envio
+                                                        </label>
+                                                        <select class="selectpicker" data-live-search="true" data-size="15" id="Proposito_del_envio" >
+                                                            <option value="Efectos Personales">Efecto Personal - PERSONAL EFFECT</option>
+                                                            <option value="Documento">Documento - DOCUMENT</option>
+                                                            <option value="Regalo">Regalo - PERSONAL GIFT</option>
+                                                            <option value="Muestra sin valor Comercial">Muestras sin Valor Comercial - SAMPLES WITHOUT COMMERCIAL VALUE</option>
+                                                            <option value="Material Promocional">Material Promocional  - PROMOTIONAL MATERIAL</option>
+                                                            <option value="Salida Temporal">Salida Temporal - TEMPORARY EXIT</option>
+                                                            <option value="Exportacion Formal">Exportación Formal - FORMAL EXPORT</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label">Breve Descripción:</label>
+                                                        <input id="breve_descripcion" type="text" class="form-control" name="text-input" maxlength="90"/>
+                                                        
+                                                    </div>
+                                                    
+                                                    <div class="col-md-12"></div>
+                                                    <div class="col-md-12">
+                                                        <hr/>
+                                                    </div>
+  
+                                                    <div class="form-group col-md-12"  id="divtabla" >
+                                                        
+                                                        <label class="form-label">Agregar producto</label>
+                                                        <input type="hidden" id="productos" value="0" />
+                                                        <table  class="table table-striped" id="tb"  >
+                                                            <thead>
+                                                                <tr class="tr-header">
+                                                                    <th scope="col"  >Descripción</th> 
+                                                                    <th scope="col" >País de Fabricación</th>
+                                                                    <th scope="col" >Cantidad</th>
+                                                                    <th scope="col" >Unidad de Medida</th>
+                                                                    <th scope="col" >Valor Unitario</th>
+                                                                    
+                                                                    <th>
+                                                                        <button class="btn btn-primary" href="javascript:void(0);"  id="addMore" title="Agregar Fila">Agregar Fila </button>
+                                                                        
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            </tbody>
+                                                        </table> 
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <hr/>
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label">Datos paquete entrega</label>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label">Peso Referencial (kg):</label>
+                                                        <input type="number" class="form-control"  id="peso_r"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label">Ancho (cm):</label>
+                                                        <input type="number" class="form-control" name="text-input" id="ancho"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label">Largo (cm):</label>
+                                                        <input type="number" class="form-control" name="text-input" id="largo"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label">Alto (cm):</label>
+                                                        <input type="number" class="form-control" name="text-input" id="alto"/>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-4">
+                                                        <div>
+                                                            <img src="{!$Resource.HE + '/images/cajaala.png'}" width="120"/>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label">Nº de paquetes:</label>
+                                                        <input type="number" class="form-control" name="text-input" id="n_paquetes"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label">
+                                                            Embalaje
+                                                        </label>
+                                                        <select  class="custom-select" id="Embalaje">
+                                                            <option value="Cajas">Paquete</option>
+                                                            <option value="sobre">Sobre</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-12"></div>
+                                                    
+                                                    <div class="form-group col-md-4">
+                                                        <div class="form-label">Subir factura</div>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input"   id="attachmentFile" onchange="processFiles(this.files)"/>
+                                                            <label id="nombrearchivo" class="custom-file-label">Seleccionar archivo...</label>                                                            
+                                                        </div>
+                                                    </div>     
+                                                    <div class="form-group col-md-4">                                        
+                                                        <div id="archivosubido" style="font-size: 15px; color: blue; text-align: left; display: flex; font-weight: bold;justify-content: flex-start; align-items: center; height: 80px; background-color: white;">
+                                                            
+                                                        </div>
+
+                                                    </div>     
+                                                   
+                                                    <div class="col-md-12"></div>
+                                                    
+                                                    
+                                                    
+                                                    <div class="form-group col-md-4">
+                                                        <label class="form-label">
+                                                            DDP
+                                                        </label>
+                                                        <select class="custom-select" id="DDP" >
+                                                            <option value="SI">Si</option>
+                                                            <option value="NO">No</option>
+                                                        </select>
+                                                        
+                                                    </div>
+                                                    <div class="form-group col-md-4" id="MensajeDDP" >
+                                                        <p disabled="true">
+                                                            Al marcar esta opción se genera un cargo automático de USD 35 + IVA. 
+                                                            Adicionalmente los impuestos que se generen en destino serán facturados a su cuenta + IVA
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-12"></div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="form-label">
+                                                            Seguro
+                                                        </label>
+                                                        <select class="custom-select" id="Seguro">
+                                                            <option value="SI">Si</option>
+                                                            <option value="NO">No</option>
+                                                        </select>
+                                                    </div> 
+                                                    <div class="form-group col-md-4" id="MensajeSeguro" >
+                                                        <p>
+                                                            Desde USD 0 a USD 1.150 declarados, valor prima = CLP 10.000 + IVA
+                                                            Sobre USD 1.150 declarados, valor prima = CLP 1.5% del valor declarado + IVA
+                                                        </p>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-left">
+                                                <button type="submit" class="btn btn-primary" id="generar_guia">Generar guía</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row align-items-center flex-row-reverse">
+                            <div class="col-auto ml-lg-auto">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <ul class="list-inline list-inline-dots mb-0">
+                                            <li class="list-inline-item"><a href="http://www.hotexpress.cl/terminosycondiciones">Terminos y condiciones de envíos</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+                                © 2021 <a href="http://www.hotexpress.cl/">HotExpress</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            
+            
+            <div class="modal" id="NuevoContacto" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Contactos</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">X</span>
+                            </button>
+                        </div>
+                    <div class="modal-body" id="modal-content-id-1">
+                        <div class="col-md-12">
+                            <div class="card-body">
+                                <div class="row">                                    
+                                    <div class="form-group col-md-12" id="contactDropdownList">                                       
+                                        <select class="selectpicker" id="Contacto" data-live-search="true" data-size="15">
+                                            <apex:repeat value="{!listacontactos}" var="lc">
+                                                <option value="{!lc.Id}">{!lc.Name} - {!lc.MailingStreet}</option>
+                                            </apex:repeat>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-12"  id="otro_contacto">
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">Nombre:</label>
+                                            <input type="text" class="form-control"  id="Nombre_contacto"  name="Nombre_contacto"/>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">Apellidos:</label>
+                                            <input type="text" class="form-control"  id="Apellidos_contacto" />
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">Móvil:</label>
+                                            <input type="phone" class="form-control" id="Telefono_contacto" />
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">Dirección:</label>
+                                            <input type="text" class="form-control" id="Direccion_contacto" />
+                                        </div>
+                                         <div class="form-group col-md-12">
+                                            <label class="form-label required">Comuna:</label>
+                                            <input type="text" class="form-control" id="Comuna_contacto" />
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">Ciudad:</label>
+                                            <input type="text" class="form-control" id="Ciudad_contacto" />
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">País:</label>
+                                            <select class="selectpicker" id="Pais_contacto" disabled="true">
+                                            <option value="CL">Chile</option>
+                                        </select>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label">Email:</label>
+                                            <input type="email" class="form-control" id="Correo_Electronico" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" id="Cambiar">Aceptar</button> 
+                                <button class="btn btn-primary" id="Nuevo_Contacto">Nuevo contacto</button>
+                                <button class="btn btn-primary" id="Agregar_Contacto">Agregar contacto</button> 
+                                <button class="btn btn-primary" id="Cancelar_Contacto">Cancelar</button>                                
+                            </div>                            
+                        </div>
+                    </div>
+                    </div>                    
+                </div>               
+            </div>
+            
+            <div class="modal" tabindex="-1" id="Nuevadireccion">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Direcciones</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">X</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="modal-content-id-2"> 
+                            <div class="col-md-12">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div id="selecion_direcion">
+                                            <div class="form-group col-md-12" >                                              
+                                                <select id="dir_or" class="selectpicker" data-live-search="true" data-size="1o">
+                                                    <option value="0">Seleccione Dirección</option>                                                                                        
+                                                    <apex:repeat value="{!localAddresses}" var="address">
+                                                        <option value="{!address.Id}">{!address.Nombre} - {!address.Direccion}</option>                                                                                        
+                                                    </apex:repeat>																										  
+                                                </select>                                                  
+                                            </div>                                                                                       
+                                        </div>
+                                        
+                                        <div class="col-md-12" id="otra_direcion">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label required">Nombre:</label>
+                                                        <input type="text" class="form-control" id="nom"  name="nom"/> 
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label required">Dirección:</label>
+                                                        <input type="text" class="form-control" name="text-input" id="direc"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label required">Ciudad:</label>
+                                                        <input type="text" class="form-control" name="text-input" id="ciud" />
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label">Estado/Provincia:</label>
+                                                        <input type="text" class="form-control" name="text-input" id="est_prov"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label">Código postal:</label>
+                                                        <input type="text" class="form-control" name="text-input" id="codpost"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label">
+                                                            País
+                                                        </label>
+                                                        <select class="selectpicker" data-live-search="true" data-size="15" id="PaisNE">
+                                                            <apex:repeat value="{!listpais}" var="p">
+                                                                <option value="{!p.id}">{!p.name}</option> 
+                                                            </apex:repeat>  
+                                                        </select>
+                                                    </div>                                                                                                        
+                                                </div>
+                                            </div>
+                                        </div>                                
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" id="nue_dir_or" >Nueva dirección de origen</button> 
+                                    <button class="btn btn-primary" id="selecionardireccion" >Seleccione</button> 
+                                    <button class="btn btn-primary" id="agregardireccion">Agregar</button> 
+                                    <button class="btn btn-primary" id="cancelardireccion" >Cancelar</button>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal" tabindex="-1" id="NuevoDestinatario">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Direcciones Destinatario</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">X</span>
+                            </button>
+                        </div>
+                        <div  class="modal-body" id="modal-content-id-1">                                                                
+                            <div class="col-md-12" >
+                                <div class="card-body">
+                                    <div class="row">
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">Nombre:</label>
+                                            <input type="text" class="form-control" id="nombre_nuevo" maxlength="80"/>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">Dirección:</label>
+                                            <input type="text" class="form-control" name="text-input" id="direcion_nuevo" maxlength="105"/>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">Ciudad:</label>
+                                            <input type="text" class="form-control" name="text-input" id="ciuda_nuevo" />
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label">Estado/Provincia:</label>
+                                            <input type="text" class="form-control" name="text-input" id="estado_nuevo"/>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label">Código postal:</label>
+                                            <input type="text" class="form-control" name="text-input" id="codigo_nuevo"/>
+                                        </div>                                                                                
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label">
+                                                País
+                                            </label>
+                                            <select id="Pais_nuevo" class="selectpicker" data-live-search="true" data-size="15">
+                                                <option value="">Seleccione un País</option> 
+                                                <apex:repeat value="{!listpais}" var="p">                                                    
+                                                    <option value="{!p.id}">{!p.name}</option> 
+                                                </apex:repeat>  
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">Contacto:</label>
+                                            <input type="text" class="form-control" name="text-input" id="Contacto_nuevo" />
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label required">Móvil:</label>
+                                            <input type="text" class="form-control" name="text-input" id="Telefono_nuevo"/>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label">Email:</label>
+                                            <input type="text" class="form-control" name="text-input" id="Email_nuevo"/>
+                                        </div>  
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label class="form-label">Tax ID:</label>
+                                            <input type="text" class="form-control" name="text-input" id="TaxID_nuevo"/>
+                                        </div>  
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" id="agregardestinatario">Agregar</button> 
+                                    <button class="btn btn-primary" id="cancelardestinatario" >Cancelar</button>
+                                </div> 
+                            </div>                                                                                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="height:50rem" id="loading">
+                <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <div class="slds-align_absolute-center" style="height:5rem">
+                                
+                                <img  src="{!$Resource.loading}" width="100" height="100" />
+                            </div>
+                            <div class="slds-align_absolute-center" style="height:5rem">
+                                
+                                <p class="slds-text-align_center"> espere un momento....</p>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>            
+            
+        </body>
+    </html>
+    
+</apex:page>

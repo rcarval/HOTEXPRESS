@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valida_etapa_Ganada_Mantencion</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( and( text(Modalidad__c) =&apos;MANTENCION&apos;,text(Etapas__c )=&apos;Ganada&apos;,or( Aprobado_Propuesta_Ganada__c=false,N_Guia__c=&apos;&apos;)) , true ,false)</errorConditionFormula>
+    <errorMessage>Para poder pasar a etapa Ganada debe ingresar el numero de guía del servicio y solicitar la aprobación correspondiente</errorMessage>
+</ValidationRule>

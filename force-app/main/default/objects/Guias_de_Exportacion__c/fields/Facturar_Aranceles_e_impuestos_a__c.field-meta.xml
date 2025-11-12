@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facturar_Aranceles_e_impuestos_a__c</fullName>
+    <label>Facturar Aranceles e impuestos a</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Remitente</fullName>
+                <default>false</default>
+                <label>Remitente</label>
+            </value>
+            <value>
+                <fullName>Destinatario</fullName>
+                <default>false</default>
+                <label>Destinatario</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

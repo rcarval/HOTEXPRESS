@@ -1,0 +1,220 @@
+<apex:page standardController="Detalles_Master__c" renderAs="PDF"  showHeader="false"  applyBodyTag="false" applyHtmlTag="false" language=" es_VE" extensions="HE_Guia_Aerea"  action="{!cargar}" >
+    <html>
+        <head>
+            <style type="text/css">
+                @page{
+                margin-bottom:0.9cm;
+                margin-top:2.2cm;
+                margin-left:0.7cm;
+                margin-right:0.9cm;
+                @top-center{
+                content: element(header);
+                }
+                }
+                div.header{
+                padding:0px;
+                margin-bottom:0px;
+                margin-top:10px;
+                position: running(header);
+                }
+                div.content{
+                margin-top:0px;
+                }
+                .tabla td {
+                border-spacing:1px;
+                width: 0cm; height:0cm;
+                }
+                .tabla td{
+                padding:0px;
+                }
+                .tabla1{
+                border: 1px solid #000000;
+                border-collapse: collapse;      
+                }
+                td, tr{
+                border: 1px solid #000000;
+                padding:0px;
+                   }
+                p {
+                display: block;
+                }
+                .a6{ font-size: 11px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: -11px;font-weight: bold;}
+                .a7{ font-size: 7px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: 5px;}
+                .a8{ font-size: 9px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a9{ font-size: 11px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px; font-weight: bold;}
+                .a10{ font-size: 11px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a11{ font-size: 13px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a12{ font-size: 25px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a14{ font-size: 16px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a15{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a16{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 10px; margin-right: 5px; font-weight: bold;}
+                .selected{ background-color: yellow;}
+                .pExtra{
+                margin-left: 5px;
+                margin-right: 5px;
+                }
+                .bordered{ border: 1px solid #000000; } 
+                .borderLeft{ border-top: none; border-bottom: none; border-right: none; border-left:  1px solid #000000 !important; } 
+                .borderRight{ border-top: none; border-bottom: none; border-left: none; border-right:  1px solid #000000 !important; } 
+                .noborder{ border: none !important; }
+                .noborder td, .noborder td{ border: none !important; }
+                .colored{ color: #000000;background-color: #999999; }
+                .colored1{ color: #000000;}
+                .colored2{ color: #c0c0c0;font-weight: bold;}
+                .mar2{ margin-top:35px;}
+            </style>
+        </head>
+        <body>
+            <apex:form >   
+                <!-------------------------------------inicio del header---------------------------------------->
+                <div class="header ">
+                    <table class="tabla" align="center" width="100%" >
+                        <table    width="100%">
+                            <tr >
+                                <th align="center" colspan="5" ><span class="a12">Guia Aerea</span></th>
+                                
+                            </tr>
+                        </table >
+                      
+                    </table>
+                     
+                </div> 
+                 <img src="{!$Resource.Hot_Express}"/>
+                <br/>
+                <br/>
+                
+                <div class="content">
+                    <!-------------------------------------fin del header---------------------------------------->            
+                    
+                    <!-------------------------------------datos cliente---------------------------------------->
+                    
+                    <!-------------------------------------fin datos cliente---------------------------------------->
+                    
+                    <!-------------------------------------  Productos ---------------------------------------->
+                    
+                    <!--<span class="a12">MHAWB: {!if(dm.Master__r.Master_AirwayBill__c='null','',dm.Master__r.Master_AirwayBill__c)}</span><br/>-->
+                    <span class="a12">HAWB: {!if(dm.Name='null','',dm.Name)}</span><br/>
+                    <span class="a12">Consignee: {!if(dm.Consignatario__c='null','',dm.Consignatario__c)}</span><br/>
+                    <span class="a12">Contenido: {!if(dm.Descripcion__c='null','',dm.Descripcion__c)}</span><br/>
+                    <br/>
+                    <table class="tabla1" align="center" width="100%" >
+                         
+                        
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">Casilla  </span></td>
+                            <td colspan="1" align="center"><span class="a14"></span></td>
+                            
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">Proveedor </span></td>
+                            <td colspan="1" align="center"><span class="a14">{!if(dm.Vendedor__c='null','',dm.Vendedor__c)}</span></td>
+                            
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">Dirección de proveedor</span></td>
+                            <td colspan="1" align="center"><span class="a14">  </span></td>
+                            
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">País Origen</span></td>
+                            <td colspan="1" align="center"><span class="a14"> {!if(dm.Master__r.Aeropuerto_Origen__c='null','',dm.Master__r.Aeropuerto_Origen__c)}</span></td>
+                            
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">No Piezas y Kg</span></td>
+                            <td colspan="1" align="center"><span class="a14"> {!if(dm.Pieces__c=null,'0',dm.Pieces__c)} bulto(s), {!if(dm.Peso__c=null,'0',dm.Peso__c)} kilos</span></td>
+                            
+                           
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">Valor de Origen </span></td>
+                            <td colspan="1" align="center"><span class="a14">US$ {!if(dm.Valor__c=null,'0',dm.Valor__c)}</span></td>
+                             
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">Identificación del Consignatario </span></td>
+                            <td colspan="1" align="center"><span class="a14">{!if(dm.Consignatario__c='null','',dm.Consignatario__c)}</span></td>
+                            
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">Dirección de Consignatario </span></td>
+                            <td colspan="1" align="center"><span class="a14"> {!if(dm.Direccion_Consignatario__c='null','',dm.Direccion_Consignatario__c)}</span></td>
+                            
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">Via de Transporte </span></td>
+                            <td colspan="1" align="center"><span class="a14">Aéreo</span></td>
+                            
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">Destino </span></td>
+                            <td colspan="1" align="center"><span class="a14">{!if(dm.Comuna__c='null','',dm.Comuna__c)}</span></td>
+                            
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">RUT del Consignatario </span></td>
+                            <td colspan="1" align="center"><span class="a14"> {!if(dm.Rut_Consignatario__c='null','',dm.Rut_Consignatario__c)}</span></td>
+                            
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">Master AWB </span></td>
+                            <td colspan="1" align="center"><span class="a14">{!if(dm.Master__r.Master_AirwayBill__c='null','',dm.Master__r.Master_AirwayBill__c)}, {!if(dm.Master__r.N_Vuelo__c='null','',dm.Master__r.N_Vuelo__c)}</span></td>
+                            
+                            
+                        </tr>
+                        <tr class="colored1">
+                            
+                            <td colspan="1" align="center"><span class="a14">Flete </span></td>
+                             <td colspan="1" align="center"><span class="a14">US$ {!if(dm.Flete__c=null,'',dm.Flete__c)}</span></td>
+                             
+                            
+                        </tr>
+                        
+                        
+                        
+                        
+                        <tr><th height=" 25px"></th></tr>
+                    </table>
+                    <table class="tabla1" align="left" width="50%" >
+                        <tr class="colored1">
+                            <td align="left" colspan="12" > 
+                               <span class="a16"> Uso para Retenciones Hotexpress S.A.</span><br/>
+                               <!-- <span class="a16"> Manifiesto No {!if(dm.Master__r.N_Manifiesto_Aduana__c=null,'..........',dm.Master__r.N_Manifiesto_Aduana__c)} Fecha {!if(fecha=null,'..........',fecha)}</span><br/> -->
+                               <span class="a16"> Manifiesto No {!if(dm.Master__r.N_Manifiesto_Aduana__c=null,'..........',dm.Master__r.N_Manifiesto_Aduana__c)} Fecha {!if(fecha=null,'..........', fechaFormateada)}</span><br/>
+                               <span class="a16"> Ubicación Bodega Sur Zona Primaria Courier</span><br/>
+                               <span class="a16"> Peso {!if(dm.Peso__c=null,'0',dm.Peso__c)}</span><br/>
+                               <span class="a16"> Total bultos {!if(dm.Pieces__c=null,'0',dm.Pieces__c)}</span><br/>
+                               <span class="a16"> Flete US$ {!if(dm.Flete__c=null,'..........',dm.Flete__c)} Vuelo.{!if(dm.Master__r.N_Vuelo__c=null,'.......',dm.Master__r.N_Vuelo__c)}</span></td>
+                        </tr>
+                        <tr><th height=" 25px"></th></tr>
+                    </table>
+                    <!-------------------------------------fin producto---------------------------------------->
+                    
+                    
+                </div>  
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

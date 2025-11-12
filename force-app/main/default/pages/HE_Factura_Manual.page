@@ -1,0 +1,4 @@
+<apex:page standardController="Factura__c"  showHeader="false" sidebar="false"  docType="html-5.0" renderAs="html" 
+    extensions="HE_Factura_Manual" action="{!facrturar}">     <!-- action="{!facturarV2}"-->
+    <apex:pageMessages ></apex:pageMessages>
+</apex:page>

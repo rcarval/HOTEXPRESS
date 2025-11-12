@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado__c</fullName>
+    <label>Estado</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Por Cobrar</fullName>
+                <default>true</default>
+                <label>Por Cobrar</label>
+            </value>
+            <value>
+                <fullName>Pagada</fullName>
+                <default>false</default>
+                <label>Pagada</label>
+            </value>
+            <value>
+                <fullName>Anulada</fullName>
+                <default>false</default>
+                <label>Anulada</label>
+            </value>
+            <value>
+                <fullName>Anulada NC</fullName>
+                <default>false</default>
+                <label>Anulada NC</label>
+            </value>
+            <value>
+                <fullName>Incobrable Otros</fullName>
+                <default>false</default>
+                <label>Incobrable Otros</label>
+            </value>
+            <value>
+                <fullName>Incobrable Dicom</fullName>
+                <default>false</default>
+                <label>Incobrable Dicom</label>
+            </value>
+            <value>
+                <fullName>Abonada</fullName>
+                <default>false</default>
+                <label>Abonada</label>
+            </value>
+            <value>
+                <fullName>Rechazada SII</fullName>
+                <default>false</default>
+                <label>Rechazada SII</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

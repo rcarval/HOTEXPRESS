@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ViaEntrega__c</fullName>
+    <label>Vía Entrega</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Agente__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FedEx</fullName>
+                <default>false</default>
+                <label>FedEx</label>
+            </value>
+            <value>
+                <fullName>HOT Express</fullName>
+                <default>false</default>
+                <label>HOT Express</label>
+            </value>
+            <value>
+                <fullName>DHL</fullName>
+                <default>false</default>
+                <label>DHL</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Fedex</controllingFieldValue>
+            <controllingFieldValue>Nacional</controllingFieldValue>
+            <valueName>FedEx</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>DHL</controllingFieldValue>
+            <controllingFieldValue>Nacional</controllingFieldValue>
+            <valueName>DHL</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Nacional</controllingFieldValue>
+            <controllingFieldValue>Hot Express</controllingFieldValue>
+            <valueName>HOT Express</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

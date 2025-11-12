@@ -1,0 +1,60 @@
+<apex:page standardController="Master__c"  extensions="HE_AdmicionCEP_envia_a_correos" action="{!redirecion}" >
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+    <apex:includeScript value="/soap/ajax/36.0/connection.js"/>
+    <apex:includeScript value="/soap/ajax/36.0/apex.js"/>
+    
+       <script type='text/javascript'>
+        $j = jQuery.noConflict();
+        $j(document).ready(function($) {
+            $("#Verificame").click();            
+        });
+        function getUrlVars(){
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        function init()
+        {	
+            setTimeout(function() {                
+                 var idmaster = '{!idmaster}';
+                 var inicio = '{!inicio}';
+                 var fin = '{!fin}';
+                console.log('fin'+fin);
+                 console.log('inicio'+inicio);
+                 console.log('idmaster'+idmaster);
+                try {
+                        window.location = '/apex/HE_AdmicionCEP_envia_a_correos?id='+idmaster+'&&in='+inicio+'&&fn='+fin;
+                    
+                } catch(e) {
+                }
+         }, 1000);
+         
+        }
+    </script>
+       <body>
+            <span id="mensajeAMostrar"></span> <img src="/img/social/loading32.gif" />
+            <p>espere por favor..... </p>
+            <p>enviando a correos  de {!inicio}  asta {!fin} de {!totalenvios} </p>
+            <div id="mostrar">
+                
+            </div>
+           <form name="Form1" style="display:none">
+                <table align="center" border="0">
+                    <tr>
+                        <td>
+                            <p>
+                                
+                                <input type='button' id='Verificame' value='Verificame' onmouseover='init1()' onClick='init()' />                               
+                                
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </body>
+    <apex:messages > </apex:messages> 
+</apex:page>

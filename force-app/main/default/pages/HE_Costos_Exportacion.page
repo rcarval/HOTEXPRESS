@@ -1,0 +1,6 @@
+<apex:page standardController="Guias_de_Exportacion__c" extensions="HE_Costos_Exportacion" action="{!costos_ex}">
+    <apex:form >
+    <apex:pageMessages ></apex:pageMessages>
+     <apex:commandButton action="{!volver}" value="volver"/>
+    </apex:form>
+</apex:page>

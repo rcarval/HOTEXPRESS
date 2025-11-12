@@ -1,0 +1,2 @@
+<!-- <apex:page controller="HE_listado_clientes" cache="false" contentType="text/json; charset=utf-8" showHeader="false" standardStylesheets="false" sidebar="false" action="{!facrturar}">{!resultJSON}</apex:page> -->
+<apex:page controller="HE_listado_clientes" cache="false" contentType="text/json; charset=utf-8" showHeader="false" standardStylesheets="false" sidebar="false" action="{!facturarV2}">{!resultJSON}</apex:page>

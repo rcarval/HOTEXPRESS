@@ -1,0 +1,160 @@
+<apex:page standardController="Costo_de_Exportacion__c"  showHeader="false" sidebar="false"  docType="html-5.0" renderAs="html" 
+           extensions="HE_visualizar_etiqueta" 
+           action="{!ver_pdf}">
+    <!--contentType="{!tipo}#{!nombre};base64"
+cache="true"> {!base64}
+<!--<img src="data:{!tipo};base64,{!base64}"/>-->
+    <!-- <div>
+<iframe src="data:application/octet-stream;base64,{!base64}" width='100%' height='900px' ></iframe> 
+<embed type="{!tipo}" src="data:{!tipo};base64,{!base64}" />
+<object width="400" height="400" data="data:{!tipo};base64,{!base64}"   type="{!tipo}"></object>
+<a href="data:{!tipo};base64,{!base64}"></a>
+
+
+</div>-->
+     <!-- jQuery CDN -->
+            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" />
+            
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>etiquetas</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <apex:pageMessages ></apex:pageMessages>
+            <!-- Import the Design System style sheet -->
+            <apex:slds />
+    
+    <html><head><script  type="text/javascript">
+        
+        
+        var base64String = "{!base64}";
+        var base64String2 = "{!facturabase64}"; 
+        //  var base64String3 = "{!base64parte2}"; 
+        function b64toBlob(b64Data, contentType, sliceSize) {
+            contentType = contentType || '';
+            sliceSize = sliceSize || 512;
+            
+            var byteCharacters = atob(b64Data);
+            var byteArrays = [];
+            
+            for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+                var slice = byteCharacters.slice(offset, offset + sliceSize);
+                
+                var byteNumbers = new Array(slice.length);
+                for (var i = 0; i < slice.length; i++) {
+                    byteNumbers[i] = slice.charCodeAt(i);
+                }
+                
+                var byteArray = new Uint8Array(byteNumbers);
+                
+                byteArrays.push(byteArray);
+            }
+            
+            var blob = new Blob(byteArrays, {type: contentType});
+            return blob;
+        }
+        
+        /*function descargar(base64, contentType, fileName) {
+	var blob = b64toBlob(base64, contentType);
+	var blobUrl = URL.createObjectURL(blob);
+
+	const downloadLink = document.createElement("a");
+	downloadLink.href = blobUrl;
+	downloadLink.download = fileName;
+	downloadLink.click();
+}
+*/
+        
+        
+        
+        
+        </script>
+<script type="text/javascript">
+qz.websocket.connect().then(function() {
+   // Pass the printer name into the next Promise
+   return qz.printers.find("zebra");
+}).then(function(printer) {
+   // Create a default config for the found printer
+   var config = qz.configs.create(printer);
+
+   // Raw ZPL
+   var data = ['^XA^FO50,50^ADN,36,20^FDRAW ZPL EXAMPLE^FS^XZ'];
+
+   return qz.print(config, data);
+}).catch(function(e) { console.error(e); });
+</script>
+        
+        </head><body>
+        
+        
+   <!--     <div>
+            <iframe height="1000px" src="" width="1500px" id="theIframe"  ></iframe> 
+        </div>
+        <script type="text/javascript">
+/* var blob = b64toBlob(base64String, 'application/pdf');
+        var blobUrl = URL.createObjectURL(blob);
+        theIframe.src = blobUrl*/
+        </script>-->
+        <apex:repeat id="repit" value="{!respuesta.base}" var="hi">
+           <div>
+               <iframe src="data:application/pdf;base64,{!hi.base64}" height="1000px"  width="1500px"></iframe>
+
+        </div>
+           
+                 </apex:repeat>
+        <br/>   
+        <div style="display: {!if((facturabase64==null ||facturabase64==''),'none','black' )}">
+            <iframe height="1000px" src="" width="1500px" id="theIframe2"  ></iframe> 
+        </div>
+        <script type="text/javascript">
+        
+        
+        var blob = b64toBlob(base64String2, 'application/pdf');
+        var blobUrl = URL.createObjectURL(blob);
+        theIframe2.src = blobUrl
+        
+        </script>
+        
+          
+        
+        
+  <!--      <table   id="etiquetas">
+            <thead>
+                <tr>
+                    
+                    <th width="15%">etiquetas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <apex:repeat value="{!respuesta.base}" var="hi">
+                    <tr   code="{!hi.num}" idProducto="{!hi.num}">
+                        <td><div>
+            <iframe height="1000px" src="" width="1500px" id="theIframe2"  ></iframe> 
+        </div></td>
+                    </tr>
+                </apex:repeat>
+            </tbody>
+        </table> -->
+       
+         
+                <script>
+        /*     $j = jQuery.noConflict();
+        $j(document).ready(function($) {
+              <apex:repeat value="{!respuesta.base}" var="hi">
+                 var datos="{!hi.base64}";
+                 var num="{!hi.num}";
+            console.log("num="+num);
+            console.log("datos="+datos);
+                var blob = b64toBlob(datos, 'application/pdf');
+            var blobUrl = URL.createObjectURL(blob);
+            $("#theIframe_"+num).src = blobUrl   
+            </apex:repeat>
+        });
+        */
+        </script> 
+       
+        </body></html>
+    
+    
+</apex:page>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guias_de_Exportacion__c</fullName>
+    <label>Guías de Exportación</label>
+    <referenceTo>Guias_de_Exportacion__c</referenceTo>
+    <relationshipLabel>Costos Agente Exportación</relationshipLabel>
+    <relationshipName>Costos_Agente_Exportaci_n</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

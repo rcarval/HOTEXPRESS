@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Decide si hay Costos Asociados.</description>
+        <name>DecideHayCostos</name>
+        <label>Decide Hay Costos</label>
+        <locationX>769</locationX>
+        <locationY>336</locationY>
+        <defaultConnectorLabel>NO Hay</defaultConnectorLabel>
+        <rules>
+            <name>ChoiceSiHay</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>GetCostosDeExportacion</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>DeleteCostoDDP</targetReference>
+            </connector>
+            <label>SI Hay</label>
+        </rules>
+    </decisions>
+    <description>Elimina los costos DDP de la guía exportación cuando no esta marcada DDP</description>
+    <environments>Default</environments>
+    <interviewLabel>Elimina Costos DDP {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Elimina Costos DDP</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordDeletes>
+        <description>Borra los registros de costo DDP relacionado a la guía de exportación</description>
+        <name>DeleteCostoDDP</name>
+        <label>Delete Costo DDP</label>
+        <locationX>778</locationX>
+        <locationY>520</locationY>
+        <inputReference>GetCostosDeExportacion</inputReference>
+    </recordDeletes>
+    <recordLookups>
+        <description>Obtiene registros asociados a Guias de Exportación</description>
+        <name>GetCostosDeExportacion</name>
+        <label>Get Costos de Exportación</label>
+        <locationX>776</locationX>
+        <locationY>180</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>DecideHayCostos</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Guias_de_Exportacion__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>VarTxt_IdGuiaExpo</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>NombreCosto__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Monto DDP</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Costo_de_Exportacion__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>650</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>GetCostosDeExportacion</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Corresponde al id de la guía de exportación correspondiente</description>
+        <name>VarTxt_IdGuiaExpo</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue></stringValue>
+        </value>
+    </variables>
+</Flow>

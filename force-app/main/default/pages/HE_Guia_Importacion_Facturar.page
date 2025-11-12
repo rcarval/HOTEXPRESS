@@ -1,0 +1,5 @@
+<apex:page standardController="Detalles_Guias_Importacion__c"  showHeader="false" sidebar="false"  docType="html-5.0" renderAs="html" 
+    extensions="HE_Guia_Importacion_Facturar" 
+    action="{!facrturar}">
+    <apex:pageMessages ></apex:pageMessages>
+</apex:page>

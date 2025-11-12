@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tarifa_Agente__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Tarifa Agente</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Detalle_Tarifa_Agente__c.Embalaje__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Embalaje_HOT__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>Detalle_Tarifa_Agente__c.Tarifa_Agente__r.Tipo_Tarifa__c</field>
+            <operation>equals</operation>
+            <value>Exportación</value>
+        </filterItems>
+        <filterItems>
+            <field>Detalle_Tarifa_Agente__c.Tarifa_Agente__r.Agente__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Agente__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Detalle_Tarifa_Agente__c</referenceTo>
+    <relationshipLabel>Guías de Exportación</relationshipLabel>
+    <relationshipName>Gu_as_de_Exportaci_n</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

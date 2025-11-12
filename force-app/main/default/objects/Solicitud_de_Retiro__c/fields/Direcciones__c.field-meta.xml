@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Direcciones__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Direcciones</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Direcciones__c.Cuenta__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Cuenta__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Direcciones__c</referenceTo>
+    <relationshipLabel>Solicitudes de Retiro</relationshipLabel>
+    <relationshipName>Solicitudes_de_Retiro</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

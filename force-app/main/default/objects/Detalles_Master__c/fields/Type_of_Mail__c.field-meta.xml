@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_of_Mail__c</fullName>
+    <label>Type of Mail</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Registrado</fullName>
+                <default>false</default>
+                <label>Registrado</label>
+            </value>
+            <value>
+                <fullName>No Registrado</fullName>
+                <default>false</default>
+                <label>No Registrado</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

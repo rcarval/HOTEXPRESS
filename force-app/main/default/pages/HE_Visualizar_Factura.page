@@ -1,0 +1,273 @@
+<apex:page renderAs="PDF"  StandardController="Detalles_Master__c" extensions="PDFconstructor" action="{!inicio}" >
+    <HTML>
+      <style type="text/css">
+                @page{
+                margin-bottom:0.9cm;
+                margin-top:2.2cm;
+                margin-left:0.7cm;
+                margin-right:0.9cm;
+                @top-center{
+                content: element(header);
+                }
+                }
+                div.header{
+                padding:0px;
+                margin-bottom:0px;
+                margin-top:10px;
+                position: running(header);
+                }
+                div.content{
+                margin-top:0px;
+                }
+                .tabla td {
+                border-spacing:1px;
+                width: 0cm; height:0cm;
+                }
+                .tabla td{
+                padding:0px;
+                }
+                .tabla1{
+                border: 1px solid #000000;
+                border-collapse: collapse;      
+                }
+                td, tr{
+                border: 1px solid #000000;
+                padding:0px;
+                }
+                p {
+                display: block;
+                }
+                .a6{ font-size: 11px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: -11px;font-weight: bold;}
+                .a7{ font-size: 7px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: 5px;}
+                .a8{ font-size: 9px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a9{ font-size: 11px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px; font-weight: bold;}
+                .a10{ font-size: 11px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a11{ font-size: 13px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a12{ font-size: 25px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a14{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a15{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a16{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 10px; margin-right: 5px; font-weight: bold;}
+                .selected{ background-color: yellow;}
+                .pExtra{
+                margin-left: 5px;
+                margin-right: 5px;
+                }
+                .bordered{ border: 1px solid #000000; } 
+                .borderLeft{ border-top: none; border-bottom: none; border-right: none; border-left:  1px solid #000000 !important; } 
+                .borderRight{ border-top: none; border-bottom: none; border-left: none; border-right:  1px solid #000000 !important; } 
+                .noborder{ border: none !important; }
+                .noborder td, .noborder td{ border: none !important; }
+                .colored{ color: #000000;background-color: #999999; }
+                .colored1{ color: #000000;}
+                .colored2{ color: #c0c0c0;font-weight: bold;}
+                .mar2{ margin-top:35px;}
+            </style>
+        <BODY LANG="en-US" TEXT="#000000" DIR="LTR">
+            <!--      <DIV TYPE="HEADER">
+<P LANG="es-CL" ALIGN="CENTER" STYLE="margin-bottom: 0.45in"><IMG SRC="{!$Resource.Hot_Express}" NAME="Object1" ALIGN="BOTTOM" WIDTH="185" HEIGHT="85"/></P>
+</DIV>-->
+            
+            
+            
+            
+            
+            <!--       <table class="tabla1"  align="center" width="100%">
+<tr class="colored">
+<td align="left"  colspan="2" ><span class="a16">Orden: </span></td>
+</tr>
+<tr class="colored">
+<td>&nbsp;</td> 
+</tr>
+
+<tr class="colored">
+<td align="center" ><span class="a10">Shipping Information</span></td>
+<td align="center"><span class="a10">Billing Information</span></td>
+
+</tr>
+<tr class="colored">
+<td>&nbsp;</td> 
+</tr>
+
+<tr class="colored1">
+<td align="left"><span class="a14">Name: </span><span class="a14">{!detmas.Vendedor__c}</span></td>
+<td align="left"><span  class="a14">Name: </span><span class="a14">{!detmas.Consignatario__c}</span></td>
+</tr>
+<tr class="colored1">
+<td align="left"><span class="a14">Address: </span><span class="a14">{!detmas.Shipper_Address__c}</span></td>
+<td align="left"><span class="a14">Address: </span><span class="a14">{!detmas.Direccion_Consignatario__c}</span></td>
+</tr>
+<tr class="colored1">
+<td align="left"><span class="a14">City: </span><span class="a14">{!detmas.Shipper_Town__c}</span></td>
+<td align="left"><span class="a14">City: </span><span class="a14">{!detmas.Comuna__c}</span></td>
+</tr>
+<tr class="colored1">
+<td align="left"><span class="a14">State: </span><span class="a14">No Mostrar</span></td>
+<td align="left"><span class="a14">State: </span><span class="a14">{!detmas.Ciudad_Consignatario__c}</span></td>
+</tr>
+<tr class="colored1">
+<td align="left"><span class="a14">Zip: </span><span class="a14">{!detmas.Cod_Postal_Vendedor__c}</span></td>
+<td align="left"><span class="a14">Zip: </span><span class="a14">{!detmas.Postal_Code__c}</span></td>
+</tr>
+
+<tr class="colored1">
+<td align="left"><span class="a14">Country: </span><span class="a14">{!detmas.Pais_Vendedor__c}</span></td>
+<td align="left"><span class="a14">Country: </span><span class="a14">Chile</span></td>
+</tr>
+<tr class="colored1">
+<td align="left"><span class="a14">Phone: </span><span class="a14">No Mostrar</span></td>
+<td align="left"><span class="a14">Phone: </span><span class="a14">{!detmas.Consignee_Phone__c}</span></td>
+</tr> 
+<tr class="colored1">
+<td>&nbsp;</td> 
+<td>&nbsp;</td> 
+</tr> 
+<tr class="colored1">
+<td>&nbsp;</td> 
+<td>&nbsp;</td> 
+</tr> 
+<tr class="colored1">
+<td align="Center"><span class="a14">Product Name</span></td>
+<td align="Center"><span class="a14">Price</span></td>
+</tr> 
+<tr class="colored1">
+<td>&nbsp;</td> 
+<td>&nbsp;</td> 
+</tr> 
+<tr class="colored1">
+<td align="left"><span class="a14">{!detmas.Pieces__c} X {!detmas.Descripcion__c}</span></td>
+<td align="Center"><span class="a14">{!detmas.Valor__c}</span></td>
+</tr>
+<tr class="colored1">
+<td align="Center"><span class="a14">20-11-2019</span></td>
+<td align="Center"><span class="a14">Subtotal: xx</span></td>
+</tr>
+<tr class="colored1">
+<td>&nbsp;</td> 
+<td align="Center"><span class="a14">Subtotal: xx</span></td>
+</tr>
+<tr class="colored1">
+<td>&nbsp;</td> 
+<td align="Center"><span class="a14">Free Shipping: xx</span></td>
+</tr>
+<tr class="colored1">
+<td>&nbsp;</td> 
+<td align="Right"><span class="a14">Total: xx</span></td>
+</tr>
+
+
+<tr><th height="15px"></th></tr>
+</table>  -->
+            
+            
+            
+            <table class="tabla1"  align="center" width="100%">
+                <tr class="colored">
+                    <td align="left"  colspan="4" ><span class="a16">Orden: {!detmas.name}</span></td>
+                </tr>
+                <tr class="colored">
+                    <td>&nbsp;</td> 
+                </tr>
+                
+                <tr class="colored">
+                    <td align="center" colspan="2" width="50%"><span class="a10">Shipping Information</span></td>
+                    <td align="center" colspan="2" width="50%"><span class="a10">Billing Information</span></td>
+                    
+                </tr>
+                <tr class="colored">
+                    <td>&nbsp;</td> 
+                </tr>
+                
+                <tr class="colored1">
+                    <td align="left" colspan="2">
+                        <table class="a10" border="0" width="100%" style="text-align:center" >
+                            <tr class="noborder"><td align="left"><span class="a14">Name: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Vendedor__c}</span></td></tr>
+                            <tr class="noborder"><td align="left"><span class="a14">Address: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Shipper_Address__c}</span></td></tr>
+                            <tr class="noborder"><td align="left"><span class="a14">City: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Shipper_Town__c}</span></td></tr>
+                            <tr class="noborder"><td align="left"><span class="a14">State: </span></td>
+                                <td align="left"><span class="a14">No Mostrar</span></td></tr>
+                            <tr class="noborder"><td align="left"><span class="a14">Zip: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Cod_Postal_Vendedor__c}</span></td></tr>     
+                            <tr class="noborder"> <td align="left"><span class="a14">Country: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Pais_Vendedor__c}</span></td></tr>
+                            <tr class="noborder"> <td align="left"><span class="a14">Phone: </span></td>
+                                <td align="left"><span class="a14">No Mostrar</span></td></tr>
+                        </table> 
+                        
+                    </td>
+                    <td align="left" colspan="2">
+                        <table class="a10" border="0" width="100%" style="text-align:center" >
+                            <tr class="noborder"><td align="left"><span class="a14">Name: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Consignatario__c}</span></td></tr>
+                            <tr class="noborder"><td align="left"><span class="a14">Address: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Direccion_Consignatario__c}</span></td></tr>
+                            <tr class="noborder"><td align="left"><span class="a14">City: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Comuna__c}</span></td></tr>
+                            <tr class="noborder"><td align="left"><span class="a14">State: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Ciudad_Consignatario__c}</span></td></tr>
+                            <tr class="noborder"><td align="left"><span class="a14">Zip: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Postal_Code__c}</span></td></tr>     
+                            <tr class="noborder"> <td align="left"><span class="a14">Country: </span></td>
+                                <td align="left"><span class="a14">Chile</span></td></tr>
+                            <tr class="noborder"> <td align="left"><span class="a14">Phone: </span></td>
+                                <td align="left"><span class="a14">{!detmas.Consignee_Phone__c}</span></td></tr>
+                        </table>  
+                    </td>
+                </tr>
+                <tr class="colored">
+                    <td colspan="2">&nbsp;</td> 
+                    <td colspan="2">&nbsp;</td> 
+                </tr>            
+                <tr class="colored">
+                    <td align="Center" colspan="2"><span class="a14">Product Name</span></td>
+                    <td align="Center" colspan="2"><span class="a14">Price</span></td>
+                </tr> 
+                <tr class="colored1">
+                    <td colspan="2">&nbsp;</td> 
+                    <td colspan="2">&nbsp;</td> 
+                </tr> 
+                <tr class="colored1">
+                    <td align="left" colspan="2">
+                        <table class="a10" border="0" width="100%" style="text-align:center" >
+                            <tr class="noborder"><td align="Center"><span class="a14">{!detmas.Pieces__c} X {!detmas.Descripcion__c}</span></td></tr>
+                        </table> 
+                        
+                    </td>
+                     
+                    <td align="left" colspan="2"> 
+                        <table class="a10" border="0" width="100%" style="text-align:center" >
+                            <tr class="noborder"><td align="Center"><span class="a14">{!detmas.Valor__c}</span></td></tr>
+                        </table>
+                      
+                    </td>
+                </tr>
+                 <tr class="colored1">
+                    <td align="left" colspan="2">
+                       
+                        <table class="a10" border="0" width="100%" style="text-align:center" >
+                            <tr class="noborder"><td align="Center"><span class="a14">{!fecha}</span></td></tr>
+                        </table> 
+                    </td>
+                    <td align="left" colspan="2"> 
+                        
+                        <table class="a10" border="0" width="100%" style="text-align:center" >
+                            <tr class="noborder"><td align="left"><span class="a14">Subtotal:</span></td>
+                                <td align="left"><span class="a14">{!detmas.Valor__c}</span></td></tr>
+                            <tr class="noborder"><td align="left"><span class="a14">Free Shipping:</span></td>
+                                <td align="left"><span class="a14">0.00</span></td></tr>
+                            <tr class="noborder"><td align="left"><span class="a14">Total:</span></td>
+                                <td align="left"><span class="a14">{!detmas.Valor__c}</span></td></tr>
+                        </table> 
+                    </td>
+                </tr>
+                
+                <tr><th height="15px"></th></tr>
+            </table>  
+            
+            
+            
+        </BODY>
+    </HTML>
+</apex:page>

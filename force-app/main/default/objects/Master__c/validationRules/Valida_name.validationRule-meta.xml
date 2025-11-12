@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valida_name</fullName>
+    <active>true</active>
+    <description>asegura que el name y el master airwaybill sean iguales</description>
+    <errorConditionFormula>IF(Name &lt;&gt;  Master_AirwayBill__c , true, false)</errorConditionFormula>
+    <errorMessage>El nombre del Master debe ser igual al del Master Airwaybill</errorMessage>
+</ValidationRule>

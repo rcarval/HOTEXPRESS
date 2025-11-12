@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Modalidad__c</fullName>
+    <label>Modalidad</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CAPTACION</fullName>
+                <default>false</default>
+                <label>CAPTACION</label>
+            </value>
+            <value>
+                <fullName>MANTENCION</fullName>
+                <default>false</default>
+                <label>MANTENCION</label>
+            </value>
+            <value>
+                <fullName>RECAPTACION</fullName>
+                <default>false</default>
+                <label>RECAPTACION</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

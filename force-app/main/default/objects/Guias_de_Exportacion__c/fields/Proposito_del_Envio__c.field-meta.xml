@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Proposito_del_Envio__c</fullName>
+    <label>Propósito del Envío</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Efectos Personales</fullName>
+                <default>false</default>
+                <label>Efectos Personales</label>
+            </value>
+            <value>
+                <fullName>Documento</fullName>
+                <default>false</default>
+                <label>Documento</label>
+            </value>
+            <value>
+                <fullName>Muestra</fullName>
+                <default>false</default>
+                <label>Muestra</label>
+            </value>
+            <value>
+                <fullName>No Vendido</fullName>
+                <default>false</default>
+                <label>No Vendido</label>
+            </value>
+            <value>
+                <fullName>Regalo</fullName>
+                <default>false</default>
+                <label>Regalo</label>
+            </value>
+            <value>
+                <fullName>Reparar y Devolver</fullName>
+                <default>false</default>
+                <label>Reparar y Devolver</label>
+            </value>
+            <value>
+                <fullName>Vendido</fullName>
+                <default>false</default>
+                <label>Vendido</label>
+            </value>
+            <value>
+                <fullName>Muestra sin valor Comercial</fullName>
+                <default>false</default>
+                <label>Muestra sin valor Comercial</label>
+            </value>
+            <value>
+                <fullName>Regalo a China</fullName>
+                <default>false</default>
+                <label>Regalo a China</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

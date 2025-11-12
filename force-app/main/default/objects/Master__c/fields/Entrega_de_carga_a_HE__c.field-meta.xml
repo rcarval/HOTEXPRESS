@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Entrega_de_carga_a_HE__c</fullName>
+    <inlineHelpText>Fecha y hora en que Blue Express entrega carga a HOT Express</inlineHelpText>
+    <label>Entrega de carga a HE</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

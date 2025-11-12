@@ -1,0 +1,2 @@
+<apex:page controller="HE_Solicitud_de_Retiro" cache="false" contentType="text/json; charset=utf-8"
+           showHeader="false" standardStylesheets="false" sidebar="false" action="{!guardaPedido}">{!resultJSON}</apex:page>

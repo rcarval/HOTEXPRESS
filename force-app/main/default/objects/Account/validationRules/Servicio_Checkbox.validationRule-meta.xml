@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Servicio_Checkbox</fullName>
+    <active>false</active>
+    <description>Valida que al marcar el servicio, deba seleccionar una condición comercial para ese servicio</description>
+    <errorConditionFormula>AND(
+    Courier_Importacion__c,
+    ISBLANK(TEXT(Condici_n_Courier_Importaci_n__c))
+)</errorConditionFormula>
+    <errorMessage>Debe seleccionar una condición</errorMessage>
+</ValidationRule>

@@ -1,0 +1,426 @@
+<apex:page standardController="Guias_de_Exportacion__c" showHeader="false" renderAs="PDF" applyBodyTag="false" applyHtmlTag="false" language=" es_VE" extensions="HE_Factura_Expo"  action="{!cargar}">   
+    <html>
+        <head>
+            <style type="text/css">
+                @page{
+                margin-bottom:0.9cm;
+                margin-top:2.2cm;
+                margin-left:0.7cm;
+                margin-right:0.9cm;
+                @top-center{
+                content: element(header);
+                }
+                }
+                div.header{
+                padding:0px;
+                margin-bottom:0px;
+                margin-top:10px;
+                position: running(header);
+                }
+                div.content{
+                margin-top:0px;
+                }
+                .tabla td {
+                border-spacing:1px;
+                width: 0cm; height:0cm;
+                }
+                .tabla td{
+                padding:0px;
+                }
+                .tabla1{
+                border: 1px solid #000000;
+                border-collapse: collapse;      
+                }
+                td, tr{
+                border: 1px solid #000000;
+                padding:0px;
+                }
+                p {
+                display: block;
+                }
+                .a6{ font-size: 11px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: -11px;font-weight: bold;}
+                .a7{ font-size: 7px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: 5px;}
+                .a8{ font-size: 9px;font-family: "Arial", sans-serif; margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a9{ font-size: 11px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px; font-weight: bold;}
+                .a10{ font-size: 11px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a11{ font-size: 13px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a12{ font-size: 25px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a14{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;}
+                .a15{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 5px; margin-right: 5px;font-weight: bold;}
+                .a16{ font-size: 12px; font-family: "Arial", sans-serif;margin-left: 10px; margin-right: 5px; font-weight: bold;}
+                .selected{ background-color: yellow;}
+                .pExtra{
+                margin-left: 5px;
+                margin-right: 5px;
+                }
+                .bordered{ border: 1px solid #000000; } 
+                .borderLeft{ border-top: none; border-bottom: none; border-right: none; border-left:  1px solid #000000 !important; } 
+                .borderRight{ border-top: none; border-bottom: none; border-left: none; border-right:  1px solid #000000 !important; } 
+                .noborder{ border: none !important; }
+                .noborder td, .noborder td{ border: none !important; }
+                .colored{ color: #000000;background-color: #999999; }
+                .colored1{ color: #000000;}
+                .colored2{ color: #c0c0c0;font-weight: bold;}
+                .mar2{ margin-top:35px;}
+            </style>
+        </head>
+        <body>
+         <apex:form >   
+            <!-------------------------------------inicio del header---------------------------------------->
+            <div class="header ">
+                <table class="tabla" align="center" width="100%" >
+                    <table    width="100%">
+                        <tr >
+                            <th align="center" colspan="5" ><span class="a14">Commercial Invoice</span></th>
+                            
+                        </tr>
+                    </table >
+                </table>
+            </div> 
+            <div class="content">
+                <!-------------------------------------fin del header---------------------------------------->            
+                
+                <!-------------------------------------datos cliente---------------------------------------->
+                <table   border=""    align="center" width="100%" >
+                    <tr class="colored">
+                        <td align="center"  colspan="10" ><span class="a16">Datos del cliente</span></td>
+                    </tr>
+                    <tr class="colored1" border="0">
+                        
+                        <td  colspan="5" width="50%"> 
+                            <left>  
+                                <div>
+                                    <span   class="a6">EXPORTER: </span><span  >&nbsp;  {!Name_or}</span><br/>
+                                    <span   class="a6">Tax ID#: </span><span  >&nbsp; {!TaxID_or}</span><br/>
+                                    <span   class="a6">Contact Name: </span><span  >&nbsp;{!ContactName_or}</span><br/>
+                                    <span   class="a6">Telephone No.: </span><span >&nbsp;{!Telephone_or}</span><br/>
+                                    <span   class="a6">E-Mail: </span><span  >&nbsp;{!E_Mail_or}</span><br/>
+                                    <span   class="a6">Company Name/Address: </span><span  >&nbsp;{!Company_or}</span><br/>
+                                    <span   class="a6">Country/Territory: </span> <span  >&nbsp;{!Country_or}</span><br/> 
+                                </div>
+                            </left>
+                        </td>
+                        <td    colspan="5" width="50%">
+                            <div>
+                                <span   class="a6">Ship Date: {!Fecha_Envio}</span><br/>
+                                <span   class="a6">Air Waybill No. / Tracking No.: </span><span >&nbsp;000000000000</span><br/>
+                                <span   class="a6">Invoice No.: </span><span  >&nbsp; </span><br/>
+                                <span   class="a6">Purchase Order No.: </span><span  >&nbsp;</span><br/>
+                                <span   class="a6">Payment Terms: </span><span  >&nbsp; </span><br/>
+                                <span   class="a6">Bill of Lading: </span><span  >&nbsp; </span><br/>
+                                <span   class="a6">Purpose of Shipment: </span><span  >&nbsp; {!Breve_Descripcion}</span><br/>  
+                                
+                                
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="colored1" border="0">
+                        
+                        <td  colspan="5" width="50%"> 
+                            <left>  
+                                 <div>
+                                <span   class="a6">CONSIGNEE: </span><span  >&nbsp;  {!Name_des}</span><br/>
+                                <span   class="a6">Tax ID#: </span><span >&nbsp;{!TaxID_des}</span><br/>
+                                <span   class="a6">Contact Name: </span><span  >&nbsp;{!ContactName_des}</span><br/>
+                                <span   class="a6">Telephone No.: </span><span  >&nbsp;{!Telephone_des}</span><br/>
+                                <span   class="a6">E-Mail: </span><span  >&nbsp;{!E_Mail_des}</span><br/>
+                                <span   class="a6">Company Name/Address: </span><span  >&nbsp;{!Company_des}</span><br/>
+                                <span   class="a6">Country/Territory: </span><span  >&nbsp;{!Country_des}</span><br/>  
+                                
+                                
+                            </div>
+                            </left>
+                        </td>
+                        <td    colspan="5" width="50%">
+                            <div>
+                                <span   class="a6">SOLD TO / IMPORTER (if different from Consignee): </span><br/>
+                                <span   class="a6">Same as CONSIGNEE: </span><span >&nbsp;</span><br/>
+                                <span   class="a6">Tax ID#: </span><span  >&nbsp;</span><br/>
+                                <span   class="a6">Company Name/Address: </span><span  >&nbsp;{!Company_des}</span><br/>
+                                <span   class="a6">Country/Territory: </span><span  >&nbsp;{!Country_des}</span><br/>  
+                                
+                                
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <tr class="colored1" border="0"> 
+                        <td    colspan="10">
+                            <span   class="a6">If there is a designated broker for this shipment, please provide contact information. </span><br/>
+                            <span  colspan="3" class="a6" >Name of Broker </span><br/>
+                            <span  colspan="3" class="a6" >Tel. No. </span><br/>
+                            <span  colspan="3" class="a6" >Contact Name </span> <br/>
+                             
+                        </td>   
+                        
+                    </tr>
+                    
+                    
+                    <tr><th height="15px"></th></tr>
+                </table>
+                <!-------------------------------------fin datos cliente---------------------------------------->
+                
+                <!-------------------------------------  Productos ---------------------------------------->
+                
+              <!--  <table class="tabla1" align="center" width="100%">
+                    <tr class="colored">
+                        <td align="left" colspan="15" ><span class="a16">Productos</span></td>
+                    </tr>
+                    
+                    <tr class="colored">
+                        
+                        <td colspan="1" align="center"><span class="a10">No. of <br/>Packages</span></td>
+                        <td colspan="1" align="center"><span class="a10">No. of <br/>Units</span></td>
+                        <td colspan="2" align="center"><span class="a10">Net Weight <br/>(LBS / KGS)</span></td>
+                        <td colspan="1" align="center"><span class="a10">Unit of <br/>Measure</span></td>
+                        <td colspan="4" align="center"><span class="a10">Description of Goods</span></td>
+                        <td colspan="2" align="center"><span class="a10">Harmonized <br/>Tariff Number</span></td>
+                        <td colspan="2" align="center"><span class="a10">Country of <br/>Manufacture</span></td>
+                        <td colspan="1" align="center"><span class="a10">Unit <br/>Value</span></td>
+                        <td colspan="1" align="center"><span class="a10">Total <br/>Value</span></td>
+                        
+                    </tr>
+                    
+                    
+                    <apex:repeat value="{!listcontenv}" var="ct">
+                        <tr class="colored1">
+                            <td colspan="1" align="center" ><span class="a14">{!ct.Packages} </span></td>
+                            <td colspan="1" align="center" ><span class="a14">{!ct.cantidad}</span></td>
+                            <td colspan="2" align="center" ><span class="a14">{!ct.medida}</span></td>
+                            <td colspan="1" align="center" ><span class="a14">{!ct.un_medida} </span></td>
+                            <td colspan="4" align="center"><span class="a14"> {!ct.descripcion}</span></td>
+                            <td colspan="2" align="center" ><span class="a14">{!ct.tarifa}</span></td>
+                            <td colspan="2" align="center" ><span class="a14">{!ct.pais} </span></td>
+                            <td colspan="1" align="center" ><span class="a14">{!ct.valor_unidad} </span></td>
+                            <td colspan="1" align="center"><span class="a14">{!ct.total}</span></td> 
+                        </tr>
+                    </apex:repeat>   
+                    <tr class="colored1">
+                        
+                        <td colspan="13" align="center">
+                            <table class="tabla1"  colspan="13" align="center" width="100%">
+                                <tr class="colored1">
+                                    
+                                    <td colspan="1" align="center"><span class="a10">Total Pkgs</span></td>
+                                    <td colspan="1" align="center"><span class="a10">Total Units</span></td>
+                                    <td colspan="1" align="center"><span class="a10">Total Net Weight</span></td>
+                                    <td colspan="1" align="center"><span class="a10">(Indicate LBS/KGS)</span></td>
+                                    <td colspan="1" align="center"><span class="a10">Total Gross Weight</span></td>
+                                    <td colspan="1" align="center"><span class="a10">Weight (Indicate LBS/KGS)</span></td>
+                                    <td colspan="1" align="center"><span class="a10">Terms of Sale:</span></td>
+                                    
+                                    
+                                </tr>
+                                <tr class="colored1">
+                                    
+                                    <td colspan="1" align="center"><span class="a10">1</span></td>
+                                    <td colspan="1" align="center"><span class="a10">1</span></td>
+                                    <td colspan="1" align="center"><span class="a10">1</span></td>
+                                    <td colspan="1" align="center"><span class="a10">kg</span></td>
+                                    <td colspan="1" align="center"><span class="a10"> </span></td>
+                                    <td colspan="1" align="center"><span class="a10"> </span></td>
+                                    <td colspan="1" align="center"><span class="a10"> </span></td>
+                                    
+                                    
+                                </tr>
+                                <tr class="colored1">
+                                    
+                                    <td colspan="13"  ><span class="a10">Special Instructions:</span></td>
+                                    
+                                    
+                                    
+                                </tr>   
+                                <tr class="colored1">
+                                    
+                                    <td colspan="13"  ><span class="a10">Declaration Statement(s): </span></td>
+                                    
+                                    
+                                    
+                                </tr>       
+                                
+                            </table>
+                            
+                        </td>
+                        <td colspan="2" align="center">
+                            <table class="tabla1"  colspan="2" align="center" width="100%">
+                                <tr class="colored1">
+                                    
+                                    <td colspan="1" align="center"><span class="a10">Subtotal:</span></td>
+                                    <td colspan="1" align="center"><span class="a10">0 </span></td>
+                                </tr>
+                                <tr class="colored1">
+                                    
+                                    <td colspan="1" align="center"><span class="a10">Insurance:</span></td>
+                                    <td colspan="1" align="center"><span class="a10">0 </span></td>
+                                </tr>
+                                <tr class="colored1">
+                                    
+                                    <td colspan="1" align="center"><span class="a10">Freight:</span></td>
+                                    <td colspan="1" align="center"><span class="a10">0 </span></td>
+                                </tr>
+                                <tr class="colored1">
+                                    
+                                    <td colspan="1" align="center"><span class="a10">Packing:</span></td>
+                                    <td colspan="1" align="center"><span class="a10">0 </span></td>
+                                </tr>
+                                <tr class="colored1">
+                                    
+                                    <td colspan="1" align="center"><span class="a10">Handling:</span></td>
+                                    <td colspan="1" align="center"><span class="a10"> 0</span></td>
+                                </tr>
+                                <tr class="colored1">
+                                    
+                                    <td colspan="1" align="center"><span class="a10">Other:</span></td>
+                                    <td colspan="1" align="center"><span class="a10">0 </span></td>
+                                </tr>
+                                <tr class="colored1">
+                                    
+                                    <td colspan="1" align="center"><span class="a10">Invoice Total:</span></td>
+                                    <td colspan="1" align="center"><span class="a10">0 </span></td>
+                                </tr>
+                                <tr class="colored1">
+                                    
+                                    <td colspan="1" align="center"><span class="a10">Currency Code:</span></td>
+                                    <td colspan="1" align="center"><span class="a10">0 </span></td>
+                                </tr>
+                            </table>
+                        </td>
+                        
+                        
+                    </tr>
+                    <tr class="colored1">
+                        
+                        
+                    </tr>
+                    <tr><th height=" 25px"></th></tr>
+                </table>-->
+                
+                
+                
+                <table class="tabla1" align="center" width="100%" >
+                    <tr class="colored">
+                        <td align="left" colspan="12" ><span class="a16">Productos</span></td>
+                    </tr>
+                    
+                    <tr class="colored">
+                        
+                        <td colspan="1" align="center"><span class="a10">No. of <br/>Packages</span></td>
+                        <td colspan="1" align="center"><span class="a10">No. of <br/>Units</span></td>
+                        <td colspan="1" align="center"><span class="a10">Net Weight <br/>(LBS / KGS)</span></td>
+                        <td colspan="1" align="center"><span class="a10">Unit of <br/>Measure</span></td>
+                        <td colspan="4" align="center"><span class="a10">Description of Goods</span></td>
+                        <td colspan="1" align="center"><span class="a10">Harmonized <br/>HS Code</span></td>
+                        <td colspan="1" align="center"><span class="a10">Country of <br/>Manufacture</span></td>
+                        <td colspan="1" align="center"><span class="a10">Unit <br/>Value</span></td>
+                        <td colspan="1" align="center"><span class="a10">Total <br/>Value</span></td>
+                        
+                    </tr>
+                    
+                    
+                    <apex:repeat value="{!listcontenv}" var="ct">
+                        <tr class="colored1">
+                            <td colspan="1" align="center" ><span class="a14">{!ct.Packages} </span></td>
+                            <td colspan="1" align="center" ><span class="a14">{!ct.cantidad}</span></td>
+                            <td colspan="1" align="center" ><span class="a14">{!ct.medida}</span></td>
+                            <td colspan="1" align="center" ><span class="a14">{!ct.un_medida} </span></td>
+                            <td colspan="4" align="center"><span class="a14"> {!ct.descripcion}</span></td>
+                            <td colspan="1" align="center" ><span class="a14">{!ct.cod_arancelario}</span></td>
+                            <td colspan="1" align="center" ><span class="a14">{!ct.pais} </span></td>
+                            <td colspan="1" align="center" ><span class="a14">{!ct.valor_unidad} </span></td>
+                            <td colspan="1" align="center"><span class="a14">{!ct.total}</span></td> 
+                        </tr>
+                    </apex:repeat>   
+                     <tr class="colored1">
+                            <td colspan="1" align="center" ><span class="a14">&nbsp;</span></td>
+                            <td colspan="1" align="center" ><span class="a14"></span></td>
+                            <td colspan="1" align="center" ><span class="a14"></span></td>
+                            <td colspan="1" align="center" ><span class="a14"></span></td>
+                            <td colspan="4" align="center"><span class="a14"></span></td>
+                            <td colspan="1" align="center" ><span class="a14"></span></td>
+                            <td colspan="1" align="center" ><span class="a14"></span></td>
+                            <td colspan="1" align="center" ><span class="a14"></span></td>
+                            <td colspan="1" align="center"><span class="a14"></span></td> 
+                        </tr>
+                    <tr class="colored1">
+                        
+                        
+                        <td colspan="1" align="center"><span class="a10">Total Pkgs</span></td>
+                        <td colspan="1" align="center"><span class="a10">Total Units</span></td>
+                        <td colspan="1" align="center"><span class="a10">Total Net Weight</span></td>
+                        <td colspan="1" align="center"><span class="a10">(Indicate LBS/KGS)</span></td>
+                        <td colspan="1" align="center"><span class="a10">Total Gross Weight</span></td>
+                        <td colspan="1" align="center"><span class="a10">Weight (Indicate LBS/KGS)</span></td>
+                        <td colspan="4" align="center"><span class="a10">Terms of Sale:</span></td>
+                        <td colspan="1" align="center"><span class="a10">Subtotal:</span></td>
+                        <td colspan="1" align="center"><span class="a14">{!subtotal} </span></td>
+                        
+                    </tr>
+                    
+                    <tr class="colored1">
+                        
+                        
+                        <td colspan="1" align="center"><span class="a14">{!total_packages}</span></td>
+                        <td colspan="1" align="center"><span class="a14">{!total_unidades}</span></td>
+                        <td colspan="1" align="center"><span class="a14"></span></td>
+                        <td colspan="1" align="center"><span class="a14"></span></td>
+                        <td colspan="1" align="center"><span class="a14">{!peso_total}</span></td>
+                        <td colspan="1" align="center"><span class="a14">KG</span></td>
+                        <td colspan="4" align="center"><span class="a14"></span></td>
+                        <td colspan="1" align="center"><span class="a10">Insurance:</span></td>
+                        <td colspan="1" align="center"><span class="a14">0.00 </span></td>
+                        
+                    </tr>  
+                    <tr class="colored1">
+                        <td colspan="10" align="left" ><span class="a10">Special Instructions: {!instruccion_especial}</span></td>
+                        <td colspan="1" align="center"><span class="a10">Freight:</span></td>
+                        <td colspan="1" align="center"><span class="a14">0.00 </span></td>
+                        
+                    </tr> 
+                    
+                    <tr class="colored1">
+                        <td colspan="10" align="left"><span class="a14">{!Documento}</span></td>
+                        <td colspan="1" align="center"><span class="a10">Packing:</span></td>
+                        <td colspan="1" align="center"><span class="a14">0.00 </span></td>
+                    </tr>
+                    
+                    <tr class="colored1">
+                        <td colspan="10" align="left" ><span class="a10">Declaration Statement(s):</span></td>
+                        <td colspan="1" align="center"><span class="a10">Handling:</span></td>
+                        <td colspan="1" align="center"><span class="a14"> 0.00</span></td>
+                    </tr>
+                    <tr class="colored1">
+                        <td colspan="10" align="left"><span class="a14"></span></td>
+                        <td colspan="1" align="center"><span class="a10">Other:</span></td>
+                        <td colspan="1" align="center"><span class="a14">0.00 </span></td>
+                    </tr>
+                    <tr class="colored1">
+                        <td colspan="10" align="left" ><span class="a10">I declare that all the information contained in this invoice to be true and correct.</span></td>
+                        <td colspan="1" align="center"><span class="a10">Invoice Total:</span></td>
+                        <td colspan="1" align="center"><span class="a14">{!invoice_total} </span></td>
+                    </tr>
+                    <tr class="colored1">
+                        <td colspan="10" align="left" ><span class="a10">Originator or Name of Company Representative if the invoice is being completed on behalf of a company or individual:</span><br/>
+                        <span class="a14">{!ContactName_or}</span></td>
+                        <td colspan="1" align="center"><span class="a10">Currency Code:</span></td>
+                        <td colspan="1" align="center"><span class="a14">{!tipo_moneda} </span></td>
+                    </tr>
+                    
+                    
+                    
+                    
+                    
+                    <tr class="colored1">
+                        
+                        
+                    </tr>
+                    <tr><th height=" 25px"></th></tr>
+                </table>
+                
+                   <!-------------------------------------fin producto---------------------------------------->
+             
+                
+            </div>  
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

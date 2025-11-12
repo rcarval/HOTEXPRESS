@@ -1,0 +1,251 @@
+<apex:page standardController="Guias_de_Exportacion__c" contentType="application/msword#FileName.doc" showHeader="false" standardStylesheets="false" extensions="HE_Factura_Expo"  action="{!cargar}">   
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <style type="text/css">
+                @page WordSection1
+                {
+                  size:8.5in 11.0in;
+                  margin:1.0in 1.0in 1.0in 1.0in;
+                  mso-header-margin:.5in;
+                  mso-footer-margin:.5in;
+                  mso-paper-source:0;
+                }                          
+            </style>
+        </head>
+        <body>
+         <apex:form >      
+             <div class="Section1">
+                 <table width="100%" border="1" style="font-size:11px;font-family:Arial">
+                 <tbody>
+                      <tr>
+                         <td align="center" colspan="4">
+                             <h3><strong>Commercial Invoice</strong></h3>
+                         </td>
+                     </tr>
+                     <tr style="background-color:gray">
+                         <td align="center" colspan="4">
+                             <h4><strong>Datos del cliente</strong></h4>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td><strong>EXPORTER:</strong></td>
+                         <td>{!Name_or}</td>
+                         <td><strong>Ship Date:</strong></td>
+                         <td>{!Fecha_Envio}</td>
+                     </tr>
+                     <tr>
+                         <td><strong>Tax ID#:</strong></td>
+                         <td>{!TaxID_or}</td>
+                         <td><strong>Air Waybill No. / Tracking No.:</strong></td>
+                         <td>000000000000</td>
+                     </tr>
+                     <tr>
+                         <td><strong>Contact Name:</strong></td>
+                         <td>{!ContactName_or}</td>
+                         <td><strong>Invoice No.:</strong></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td><strong>Telephone No.:</strong></td>
+                         <td>{!Telephone_or}</td>
+                         <td><strong>Purchase Order No.:</strong></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td><strong>E-Mail:</strong></td>
+                         <td>{!E_Mail_or}</td>
+                         <td><strong>Payment Terms:</strong></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td><strong>Company Name/Address:</strong></td>
+                         <td>{!Company_or}</td>
+                         <td><strong>Bill of Lading:</strong></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td><strong>Country/Territory:</strong></td>
+                         <td>{!Country_or}</td>
+                         <td><strong>Purpose of Shipment:</strong></td>
+                         <td>{!Breve_Descripcion}</td>
+                     </tr>                     
+                     <tr>
+                         <td><strong>CONSIGNEE:</strong></td>
+                         <td>{!Name_des}</td>
+                         <td><strong>SOLD TO / IMPORTER (if different from Consignee):</strong></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td><strong>Tax ID#:</strong></td>
+                         <td>{!TaxID_des}</td>
+                         <td><strong>Same as CONSIGNEE:</strong></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td><strong>Contact Name:</strong></td>
+                         <td>{!ContactName_des}</td>
+                         <td><strong>Tax ID#:</strong></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td><strong>Telephone No.:</strong></td>
+                         <td>{!Telephone_des}</td>
+                         <td><strong>Company Name/Address:</strong></td>
+                         <td>{!Company_des}</td>
+                     </tr>
+                     <tr>
+                         <td><strong>E-Mail:</strong></td>
+                         <td>{!E_Mail_des}</td>
+                        <td><strong>Country/Territory:</strong></td>
+                         <td>{!Country_des}</td>
+                     </tr>
+                     <tr>
+                         <td><strong>Company Name/Address:</strong></td>
+                         <td>{!Company_des}</td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td><strong>Country/Territory:</strong></td>
+                         <td>{!Country_des}</td>
+                         <td></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td colspan="4">
+                             <strong>
+                                 <p>If there is a designated broker for this shipment, please provide contact information. </p>
+                                 <p>Name of Broker </p>
+                                 <p>Tel. No. </p>
+                                 <p>Contact Name </p> 
+                             </strong>
+                        </td>   
+                     </tr>
+                 </tbody>
+             </table>
+             
+             <table width="100%" border="1" style="font-size:11px;font-family:Arial">
+                 <tbody>       
+                     <tr style="background-color:gray">
+                         <td colspan="9" align="center"><h4><strong>Productos</strong></h4></td>
+                     </tr>
+                     <tr style="background-color:gray">
+                         <td align="center">
+                             <strong>No. of Packages</strong>
+                         </td>
+                         <td align="center">
+                             <strong>No. of Units</strong>
+                         </td>
+                         <td align="center">
+                             <strong>Net Weight (LBS / KGS)</strong>
+                         </td>
+                         <td align="center">
+                             <strong>Unit of Measure</strong>
+                         </td>
+                         <td align="center">
+                            <strong>Description of Goods</strong>
+                         </td>
+                         <td align="center">
+                             <strong>Harmonized HS Code</strong>
+                         </td>
+                         <td align="center">
+                             <strong>Country of Manufacture</strong>
+                         </td>
+                         <td align="center">
+                             <strong>Unit Value</strong>
+                         </td>
+                         <td align="center">
+                             <strong>Total Value</strong>
+                         </td>
+                     </tr>
+                     
+                     <apex:repeat value="{!listcontenv}" var="ct">
+                        <tr>
+                            <td align="center" ><span>{!ct.Packages} </span></td>
+                            <td align="center" ><span>{!ct.cantidad}</span></td>
+                            <td align="center" ><span>{!ct.medida}</span></td>
+                            <td align="center" ><span>{!ct.un_medida} </span></td>
+                            <td align="center"><span> {!ct.descripcion}</span></td>
+                            <td align="center" ><span>{!ct.cod_arancelario}</span></td>
+                            <td align="center" ><span>{!ct.pais} </span></td>
+                            <td align="center" ><span>{!ct.valor_unidad} </span></td>
+                            <td align="center"><span>{!ct.total}</span></td> 
+                        </tr>
+                    </apex:repeat>
+                     <tr>
+                         <td align="center">
+                             <strong>Total Pkgs</strong>
+                         </td>
+                         <td align="center">
+                             <strong>Total Units</strong>
+                         </td>
+                         <td align="center">
+                         	<strong>Total Net Weight</strong>
+                         </td>
+                         <td align="center">
+                         	<strong>(Indicate LBS/KGS)</strong>
+                         </td>
+                         <td align="center">
+                         	<strong>Total Gross Weight</strong>
+                         </td>
+                         <td align="center">
+                         	<strong>Weight (Indicate LBS/KGS)</strong>
+                         </td>
+                         <td align="center">
+                         	<strong>Terms of Sale:</strong>
+                         </td>
+                         <td align="center">
+                         	<strong>Subtotal:</strong>
+                         </td>
+                         <td align="center"><span>{!subtotal} </span></td>    
+                     </tr>
+                     <tr>                                               
+                        <td align="center"><span>{!total_packages}</span></td>
+                        <td align="center"><span>{!total_unidades}</span></td>
+                        <td align="center"><span></span></td>
+                        <td align="center"><span></span></td>
+                        <td align="center"><span>{!peso_total}</span></td>
+                        <td align="center"><span>KG</span></td>
+                        <td align="center"><span></span></td>
+                        <td align="center"><span><strong>Insurance:</strong></span></td>
+                        <td align="center"><span>0.00 </span></td>                        
+                    </tr>  
+                    <tr>
+                        <td align="left" colspan="7"><strong><span>Special Instructions: {!instruccion_especial}</span></strong></td>
+                        <td align="center"><span><strong>Freight:</strong></span></td>
+                        <td align="center"><span>0.00 </span></td>
+                    </tr> 
+                    <tr>
+                        <td align="left" colspan="7"><span>{!Documento}</span></td>
+                        <td align="center"><span><strong>Packing:</strong></span></td>
+                        <td align="center"><span>0.00 </span></td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="7"><strong><span>Declaration Statement(s):</span></strong></td>
+                        <td align="center"><span><strong>Handling:</strong></span></td>
+                        <td align="center"><span> 0.00</span></td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="7"><span></span></td>
+                        <td align="center"><span><strong>Other:</strong></span></td>
+                        <td align="center"><span>0.00 </span></td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="7"><strong><span>I declare that all the information contained in this invoice to be true and correct.</span></strong></td>
+                        <td align="center"><strong><span><strong>Invoice Total:</strong></span></strong></td>
+                        <td align="center"><strong><span>{!invoice_total} </span></strong></td>
+                    </tr>
+                    <tr>
+                        <td align="left" colspan="7"><strong><span>Originator or Name of Company Representative if the invoice is being completed on behalf of a company or individual:</span></strong><br/>
+                        <span>{!ContactName_or}</span></td>
+                        <td align="center"><span><strong><strong>Currency Code:</strong></strong></span></td>
+                        <td align="center"><span>{!tipo_moneda} </span></td>
+                    </tr>                    
+                 </tbody>
+             </table> 
+             </div>             
+            </apex:form>
+        </body>
+    </html>
+</apex:page>

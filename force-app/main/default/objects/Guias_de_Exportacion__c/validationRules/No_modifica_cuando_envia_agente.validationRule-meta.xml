@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_modifica_cuando_envia_agente</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF (
+				AND(
+								  $Profile.Name =&quot;Perfil Gestión Comercial 1&quot;,
+								NOT ISNULL (Fecha_de_Envio__c)  ), TRUE,FALSE)</errorConditionFormula>
+    <errorMessage>No puede modificar el registro después de ser enviado al agente</errorMessage>
+</ValidationRule>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>tempuriOrg</label>
+    <protected>false</protected>
+    <values>
+        <field>Codigo_Cliente__c</field>
+        <value xsi:type="xsd:string">532878</value>
+    </values>
+    <values>
+        <field>contrase_a__c</field>
+        <value xsi:type="xsd:string">P2RTRAZ19</value>
+    </values>
+    <values>
+        <field>url__c</field>
+        <value xsi:type="xsd:string">http://201.238.220.19:8090/WSConsultaEnvioUniversal.asmx</value>
+    </values>
+    <values>
+        <field>usuario__c</field>
+        <value xsi:type="xsd:string">PRUEBATRAZABILIDAD1</value>
+    </values>
+</CustomMetadata>

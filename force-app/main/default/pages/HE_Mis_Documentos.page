@@ -1,0 +1,495 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="HE_Mis_Documentos" action="{!datos}"> 
+    
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Nuevo envio</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!-- Import the Design System style sheet -->
+            <!-- <apex:slds />-->
+            <!-- jQuery CDN -->
+            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+            <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.1.114/styles/kendo.default-v2.min.css"/>
+            <apex:includeScript value="https://code.jquery.com/jquery-1.12.4.min.js" />
+            <apex:includeScript value="https://kendo.cdn.telerik.com/2020.1.114/js/kendo.all.min.js"/>
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" />
+            <link rel="stylesheet" href="{!$Resource.HE + '/css/dashboard.css'}"/>                      
+            
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"/>
+  			<apex:includeScript value="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js" />
+            
+            <script>
+            $j = jQuery.noConflict();
+            $j(document).ready(function($) {
+                $("#divtablaGuias").hide();
+                $("#divtablaRetiro").hide();
+                $("#divtablaPickup").hide();
+                
+                /*   $("#ver_guia").on('click',function(dato){
+                   console.log(dato);  
+                    var r= $("#ver_guia").val();
+                     console.log(r);
+                     window.open("/portal/apex/HE_guia_hot?id="+r,"ventana1","width=1000,height=500,scrollbars=NO") 
+                     });
+                
+                */               
+                
+                $("#contenido").on('change',function(){
+                    var cont = $("#contenido").val();
+                    console.log(cont );
+                    if(cont=="Guias"){
+                        
+                        var now = new Date();
+                        var day = ("0" + now.getDate()).slice(-2);
+                        var month = ("0" + (now.getMonth() + 1)).slice(-2);    
+                        var lastmonth = ("0" + (now.getMonth() - 2)).slice(-2);    
+                        var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+                        var yesterday = now.getFullYear()+"-"+(lastmonth)+"-"+(day) ;
+                           
+                        const formattedToday = now.toISOString().slice(0, 10); // Convert to "YYYY-MM-DD" format
+                        const resultDate = subtractMonthsFromDate(formattedToday, 3);
+                        console.log("Menos 3 meses al origen:", resultDate);
+                        
+                        $('#fecha_inicio').val(resultDate);                         
+                		$("#fecha_fin").val(today);     
+
+                        $("#divtablaGuias").show();
+                        $("#divtablaRetiro").hide();
+                        $("#divtablaPickup").hide();
+                        $("#consultar").click();
+                    }
+                    if(cont=="Retiro"){
+                        $("#divtablaRetiro").show();
+                        $("#divtablaGuias").hide();
+                        $("#divtablaPickup").hide();
+                    }
+                    if(cont=="Pickup"){
+                        $("#divtablaPickup").show();
+                        $("#divtablaGuias").hide();
+                        $("#divtablaRetiro").hide();
+                    }
+                    if(cont==" "){
+                        $("#divtablaPickup").hide();
+                        $("#divtablaGuias").hide();
+                        $("#divtablaRetiro").hide();
+                    }
+                    
+                    
+                });      
+                $("#clear").on('click',function(){
+                    clear();                   
+                });
+                $("#consultar").on('click',function(){
+                    
+                    var date1 = new Date($('#fecha_inicio').val());
+        			var date2 = new Date($('#fecha_fin').val());
+                    
+                    var diffInMilliseconds = date2 - date1;
+        			var diffInDays = diffInMilliseconds / (1000 * 60 * 60 * 24);
+                    
+                    if(diffInDays > 93){
+                        alert('máximo 3 meses');
+                        return;
+                    }
+                    
+                    BtnLoading("#consultar");
+                    var guia =  $("#guia").val();
+                    var fecha_inicio =  $("#fecha_inicio").val();
+                    var fecha_fin =  $("#fecha_fin").val();
+                    var contenido =  $("#contenido").val();
+                    var idc =  '{!idc}';
+                    var idp =  '{!idp}';
+                                        
+                    console.log(guia); 
+                    console.log(fecha_fin); 
+                    console.log(contenido); 
+                    console.log(fecha_inicio); 
+                    $('#tb').DataTable().destroy();
+                    console.log('destruccion tabla'); 
+                    $.ajax({
+                        dataType: "json",
+                        
+                        url: "{!$Page.HE_Mis_Documentos_Guias_JSON}?",
+                        data: { guia: guia,fi:fecha_inicio,fn:fecha_fin,idc:idc},
+                        error: function(jqXHR, textStatus, errorThrown){
+                            	console.log('jqXHR:'+ jqXHR); 
+                            	console.log('textStatus:'+ textStatus); 
+                            	alert('Error al carga la data: ' + textStatus);
+                            	BtnReset("#consultar");
+                            },
+                        success: function(data) {
+                            console.log(data);
+                            if(data.success){
+                                var tabla='';
+                                if(data.guias.length>0){
+                                    for(var i=0;i<data.guias.length;i++){
+                                        tabla+="<tr >";
+                                        tabla+="<td style='color:#9aa0ac'  >"+data.guias[i].Estado_Guia__c+"</td>";  
+                                        tabla+="<td style='color:#9aa0ac'   >"+data.guias[i].Name+"</td>";  
+                                        tabla+="<td style='color:#9aa0ac'   >"+data.guias[i].N_de_Guia__c+"</td>";  
+                                        tabla+="<td style='color:#9aa0ac'   >"+data.guias[i].Agente__c+"</td>"; 
+                                        tabla+="<td style='color:#9aa0ac'   >"+data.guias[i].CreatedDate+"</td>";  
+                                        tabla+="<td style='color:#9aa0ac'   >"+data.guias[i].Direccion_Destinatario__name+"</td>";  
+                                        tabla+="<td style='color:#9aa0ac'   >"+data.guias[i].Pais__c+"</td>"; 
+                                        tabla+="<td style='color:#9aa0ac'   >"+data.guias[i].Proposito_del_Envio__c+"</td>";
+                                         tabla+="<td style='color:#9aa0ac'   >"+data.guias[i].Centro_de_Costo__c+"</td>";
+                                        tabla+="<td style='color:#9aa0ac'   ><button id='ver_guia' value="+data.guias[i].id+" class='btn btn-secondary btn-sm' onclick='ver_guia(this);'>descargar</button> </td>";
+                                        tabla+="<td style='color:#9aa0ac'   ><button id='ver_Factura' value="+data.guias[i].id+" class='btn btn-secondary btn-sm' onclick='ver_factura(this);'>descargar</button> </td>";
+                                        //tabla+= data.guias[i].attachmentId == ''? "<td style='color:#9aa0ac'></td>"  : "<td style='color:#9aa0ac'><button id='ver_customerDocs' value="+data.guias[i].attachmentId+" class='btn btn-secondary btn-sm' onclick='ver_customerDocs(this);'>descargar</button> </td>"? 
+                                        
+                                        if(data.guias[i].attachmentId != '')
+                                        {
+                                            tabla+="<td style='color:#9aa0ac'><button id='ver_customerDocs' value=" + data.guias[i].attachmentUrl + " class='btn btn-secondary btn-sm' onclick='ver_customerDocs(this);'>descargar</button> </td>";
+                                        }
+                                        else{
+                                            tabla+="<td style='color:#9aa0ac'></td>";
+                                        }
+                                        
+                                        tabla+="</tr>";          
+                                    } 
+                                }
+                                $("#tabladatosguias").html(tabla);
+                                //$('#tb').DataTable();
+                                 new DataTable('#tb', {
+                                    order: [[4, 'desc']]
+                                });
+                                $("#tb").css("width", "100%");
+                                BtnReset("#consultar");
+                            }else{
+                               	BtnReset("#consultar");
+                            }
+                        }
+                    });   
+                });
+            });
+            
+            function BtnLoading(elem) {
+                $(elem).attr("data-original-text", $(elem).html());
+                $(elem).prop("disabled", true);
+                $(elem).html('<i class="spinner-border spinner-border-sm"></i> Loading...');
+            }
+            
+            function BtnReset(elem) {
+                $(elem).prop("disabled", false);
+                $(elem).html($(elem).attr("data-original-text"));
+            }
+            
+            function ver_guia(dato){
+                
+                //   console.log(dato);
+                window.open("/apex/HE_guia_hot?id="+dato.value,"ventana1","width=1000,height=500,scrollbars=NO"); 
+                
+            }
+            function ver_factura(dato){
+                
+                //console.log(dato);
+                
+                window.open("/apex/HE_factura_expo?id="+dato.value,"ventana1","width=1000,height=500,scrollbars=NO"); 
+                
+            }
+            
+            function ver_customerDocs(attachmentUrl){               
+                window.open(attachmentUrl.value, "_blank");                    
+            }
+            
+            function nuevo_envio() {
+                console.log('nuevo_envio');
+                $("#loading").show();
+                window.location.replace("{!$Page.HE_Nuevo_Envio}?idc={!idc}&&idp={!idp}");   
+            }
+            function nueva_solicitud() {
+                console.log('nueva_solicitud');
+                $("#loading").show();
+                window.location.replace("{!$Page.HE_solicitud_de_Retiro}?idc={!idc}&&idp={!idp}");   
+            }
+            function mis_documentos() {
+                console.log('mis_documentos');
+                $("#loading").show();
+                window.location.replace("{!$Page.HE_Mis_Documentos}?idc={!idc}&&idp={!idp}");                   
+            }
+            function inicio() {
+                console.log('inicio');
+                $("#loading").show();
+                window.location.replace("{!$Page.HE_Inicio}?idc={!idc}&&idp={!idp}");   
+            }
+            function clear(){
+                $('#fecha_inicio').val('');
+                $('#fecha_fin').val('');
+                $('#guia').val('');                
+                
+                var now = new Date();
+                var day = ("0" + now.getDate()).slice(-2);
+                var month = ("0" + (now.getMonth() + 1)).slice(-2);    
+                var lastmonth = ("0" + (now.getMonth() - 2)).slice(-2);    
+                var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+                var yesterday = now.getFullYear()+"-"+(lastmonth)+"-"+(day) ;
+                
+                const formattedToday = now.toISOString().slice(0, 10); // Convert to "YYYY-MM-DD" format
+                const resultDate = subtractMonthsFromDate(formattedToday, 3);
+                console.log("Menos 3 meses al origen:", resultDate);
+                
+                $('#fecha_inicio').val(resultDate);                         
+                $("#fecha_fin").val(today);  
+                $("#consultar").click();                
+            }
+            
+            function subtractMonthsFromDate(dateStr, months) {
+                const date = new Date(dateStr);
+                date.setMonth(date.getMonth() - months);
+                
+                // If the original day of the month is greater than the new month's last day,
+                // set the day to the last day of the new month
+                const originalDay = new Date(dateStr).getDate();
+                const newMonthLastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+                date.setDate(Math.min(originalDay, newMonthLastDay));
+                
+                // Format the result as "YYYY-MM-DD"
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                
+                return `${year}-${month}-${day}`;
+            }
+            </script>
+        </head>
+        <body class="">
+            <div class="page">
+                <div class="page-main">
+                    
+                    <div class="header py-4">
+                        <div class="container">
+                            <div class="d-flex">
+                                <a class="header-brand" href="inicio">
+                                    <img src="{!$Resource.HE + '/images/logohotexpress.png'}" width="120" alt="logo"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                
+                                <div class="col-lg order-lg-first">
+                                    <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="inicio()" class="nav-link"><i class="fe fe-home"></i> Inicio</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="nuevo_envio()"  class="nav-link"><i class="fe fe-send"></i> Nuevo Envío</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="nueva_solicitud()" class="nav-link"><i class="fe fe-truck"></i> Nueva Solicitud de retiro</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="mis_documentos()" class="nav-link"><i class="fe fe-box"></i> Mis documentos</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!---Contenido--->
+                    <!---Contenido--->
+                    <!---Contenido--->
+                    <!---Contenido--->
+                    <div class="my-3 my-md-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label">
+                                                            Documentos
+                                                        </label>
+                                                        <select class="custom-select"  id="contenido" >
+                                                            <option value=" ">Seleccione...</option>
+                                                            <option value="Guias">Guías</option>
+                                                            <option value="Retiro">Solicitudes de Retiro</option>
+                                                            <!-- <option value="Pickup">Solicitudes de Pickup</option>-->
+                                                        </select>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!---Carga del contenido--->
+                    <div class="my-3 my-md-5">
+                        <div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="row"  id="divtablaGuias">
+                                                    
+                                                    <div class="form-group col-md-4">
+                                                        <label class="form-label">Nro. Guía:</label>
+                                                        <input type="text" class="form-control" id="guia" name="text-input"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-3">
+                                                        <label class="form-label">Fecha Desde:</label>
+                                                        <input type="date" class="form-control" id="fecha_inicio"  name="fecha_inicio"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-3">
+                                                        <label class="form-label">Fecha Hasta:</label>
+                                                        <input type="date" class="form-control" id="fecha_fin"  name="fecha_fin"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label"><br/></label>
+                                                        <button class="btn btn-primary"  id="consultar">Consultar</button>
+                                                         <button class="btn btn-primary"  id="clear">Limpiar</button>
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                       <hr/>
+                                                    </div>
+                                                    <input type="hidden" id="productos" value="0" />
+                                                    <div class="form-group col-md-12">
+                                                        <table class="table table-striped" id="tb" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                
+                                                                <th scope="col" >Rastreo</th> 
+                                                                <th scope="col" >Nº Guía</th>
+                                                                <th scope="col" >AWB</th>
+                                                                <th scope="col" >Operador</th>
+                                                                <th scope="col" >fecha de creacion</th>
+                                                                <th scope="col" >Destinatario</th>
+                                                                <th scope="col" >País de Destino</th>                                                                
+                                                                <th scope="col" >Descripción </th>
+                                                                <th scope="col" >Centro de Costo</th>
+                                                                <th scope="col" >Guia</th>
+                                                                <th scope="col" >Factura HotExpress</th>
+                                                                <th scope="col" >Documento Cliente</th>
+                                                                
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tabladatosguias">
+
+                                                        </tbody>
+                                                    </table>
+                                                    </div> 
+                                                </div>
+                                                <div class="slds-form-element"  id="divtablaPickup" >
+                                                    
+                                                    <P><b>Solicitudes de Pickup</b></P>
+                                                    <input type="hidden" id="productos" value="0" />
+                                                    <table  class="table table-striped"  id="tb"   >
+                                                        <thead>
+                                                            <tr class="tr-header">
+                                                                <th   >Rastreo</th> 
+                                                                <th  >Nº Guía</th>
+                                                                <th  >Nº Externo</th>
+                                                                <th  >Operador</th>
+                                                                <th  >Destinatario</th>
+                                                                <th  >País de Destino</th>
+                                                                <th  >Descripción </th>
+                                                                <th  >Retiro</th>
+                                                                
+                                                                
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            
+                                                            
+                                                            
+                                                        </tbody>
+                                                    </table> 
+                                                </div>
+                                                
+                                                
+                                                <div class="slds-form-element"  id="divtablaRetiro" >
+                                                    
+                                                    <P><b>Solicitud de Retiro</b></P>
+                                                    <input type="hidden" id="productos" value="0" />
+                                                    <table     id="tb" class="table table-striped" >
+                                                        <thead>
+                                                            <tr class="tr-header">
+                                                                <th   >Nº Solicitud</th> 
+                                                                <th  >Dirección</th>
+                                                                <th  >Fecha de Retiro</th>
+                                                                <th  >Hora de Retiro Desde</th>
+                                                                <th  >Hora de Retiro Hasta</th>
+                                                                
+                                                                
+                                                                
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <apex:repeat value="{!solret}" var="sr">
+                                                                <tr>
+                                                                    <td  >{!sr.Name}</td>
+                                                                    <td  >{!sr.Direcciones__r.name}</td>
+                                                                    <td  >{!sr.Fecha_de_Retiro__c}</td>
+                                                                    <td  >{!sr.Hora_Desde__c}</td>
+                                                                    <td  >{!sr.Hora_Hasta__c}</td>
+                                                                    
+                                                                </tr>
+                                                            </apex:repeat>
+                                                            
+                                                            
+                                                            
+                                                        </tbody>
+                                                    </table> 
+                                                </div>
+                                                
+                                                
+                                                
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!---//Contenido--->
+                    <!---//Contenido--->
+                    <!---//Contenido--->
+                    <!---//Contenido--->
+                    
+                </div>
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row align-items-center flex-row-reverse">
+                            <div class="col-auto ml-lg-auto">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <ul class="list-inline list-inline-dots mb-0">
+                                            <li class="list-inline-item"><a href="http://www.hotexpress.cl/terminosycondiciones">Terminos y condiciones de envíos</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+                                © 2021 <a href="http://www.hotexpress.cl/">HotExpress</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </body>
+    </html>     
+</apex:page>

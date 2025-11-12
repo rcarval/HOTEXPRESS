@@ -1,0 +1,11 @@
+<apex:page standardController="Detalles_Master__c"  extensions="HE_consulta_estado"  action="{!consulta}" >
+    <apex:form >
+    <apex:pageBlock >
+        <apex:commandButton value="consultar" action="{!consulta}" reRender="seccion" />
+        <apex:pageBlockSection id="seccion" rendered="true">
+      
+        
+        </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

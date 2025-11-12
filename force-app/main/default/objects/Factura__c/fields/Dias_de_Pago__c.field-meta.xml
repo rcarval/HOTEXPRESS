@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dias_de_Pago__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( not isnull(Fecha_Pago__c), Fecha_Pago__c-Fecha_Emision__c ,null )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Días transcurridos desde la emisión de la factura hasta recibir el pago</inlineHelpText>
+    <label>Días de Pago</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado_Carga__c</fullName>
+    <label>Estado Carga</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No recibida</fullName>
+                <default>true</default>
+                <label>No recibida</label>
+            </value>
+            <value>
+                <fullName>Recibida por HE</fullName>
+                <default>false</default>
+                <label>Recibida por HE</label>
+            </value>
+            <value>
+                <fullName>Entregada a Blue Express</fullName>
+                <default>false</default>
+                <label>Entregada a Blue Express</label>
+            </value>
+            <value>
+                <fullName>Entregada a Chilexpress</fullName>
+                <default>false</default>
+                <label>Entregada a Chilexpress</label>
+            </value>
+            <value>
+                <fullName>En bodega</fullName>
+                <default>false</default>
+                <label>En bodega</label>
+            </value>
+            <value>
+                <fullName>Solicitada a bodega</fullName>
+                <default>false</default>
+                <label>Solicitada a bodega</label>
+            </value>
+            <value>
+                <fullName>En central ENEA</fullName>
+                <default>false</default>
+                <label>En central ENEA</label>
+            </value>
+            <value>
+                <fullName>Entregado a Starken</fullName>
+                <default>false</default>
+                <label>Entregado a Starken</label>
+            </value>
+            <value>
+                <fullName>Entregado a Chazki</fullName>
+                <default>false</default>
+                <label>Entregado a Chazki</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

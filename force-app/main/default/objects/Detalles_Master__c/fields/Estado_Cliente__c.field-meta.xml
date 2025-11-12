@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado_Cliente__c</fullName>
+    <label>Estado Cliente</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Recepcionado en Chile</fullName>
+                <default>false</default>
+                <label>Recepcionado en Chile</label>
+            </value>
+            <value>
+                <fullName>En proceso Aduana</fullName>
+                <default>false</default>
+                <label>En proceso Aduana</label>
+            </value>
+            <value>
+                <fullName>Liberado</fullName>
+                <default>false</default>
+                <label>Liberado</label>
+            </value>
+            <value>
+                <fullName>En Tránsito a Centro de Distribución</fullName>
+                <default>false</default>
+                <label>En Tránsito a Centro de Distribución</label>
+            </value>
+            <value>
+                <fullName>Entregado a Correos de Chile</fullName>
+                <default>false</default>
+                <label>Entregado a Correos de Chile</label>
+            </value>
+            <value>
+                <fullName>Entregado a Blue Express</fullName>
+                <default>false</default>
+                <label>Entregado a Blue Express</label>
+            </value>
+            <value>
+                <fullName>Entregado a Chilexpress</fullName>
+                <default>false</default>
+                <label>Entregado a Chilexpress</label>
+            </value>
+            <value>
+                <fullName>Parcel arrived at terminal warehouse at destination country</fullName>
+                <default>false</default>
+                <label>Parcel arrived at terminal warehouse at destination country</label>
+            </value>
+            <value>
+                <fullName>Parcel completed Customs Clearance at destination country</fullName>
+                <default>false</default>
+                <label>Parcel completed Customs Clearance at destination country</label>
+            </value>
+            <value>
+                <fullName>Entregado a Starken</fullName>
+                <default>false</default>
+                <label>Entregado a Starken</label>
+            </value>
+            <value>
+                <fullName>Entregado a Chazki</fullName>
+                <default>false</default>
+                <label>Entregado a Chazki</label>
+            </value>
+            <value>
+                <fullName>Entregado a WSP</fullName>
+                <default>false</default>
+                <label>Entregado a WSP</label>
+            </value>
+            <value>
+                <fullName>In processing of customs clearance formalities</fullName>
+                <default>false</default>
+                <label>In processing of customs clearance formalities</label>
+            </value>
+            <value>
+                <fullName>Documentation classified at Customs</fullName>
+                <default>false</default>
+                <label>Documentation classified at Customs</label>
+            </value>
+            <value>
+                <fullName>Parcel transferred to last mile operator CXP</fullName>
+                <default>false</default>
+                <label>Parcel transferred to last mile operator CXP</label>
+            </value>
+            <value>
+                <fullName>Parcel transferred to last mile operator WSP</fullName>
+                <default>false</default>
+                <label>Parcel transferred to last mile operator WSP</label>
+            </value>
+            <value>
+                <fullName>Parcel transferred to last mile operator STK</fullName>
+                <default>false</default>
+                <label>Parcel transferred to last mile operator STK</label>
+            </value>
+            <value>
+                <fullName>Parcel transferred to last mile operator Easy</fullName>
+                <default>false</default>
+                <label>Parcel transferred to last mile operator Easy</label>
+            </value>
+            <value>
+                <fullName>Entregado a operador de última milla</fullName>
+                <default>false</default>
+                <label>Entregado a operador de última milla</label>
+            </value>
+            <value>
+                <fullName>En centro de distribución para reparto</fullName>
+                <default>false</default>
+                <label>En centro de distribución para reparto</label>
+            </value>
+            <value>
+                <fullName>En reparto</fullName>
+                <default>false</default>
+                <label>En reparto</label>
+            </value>
+            <value>
+                <fullName>Entregado a cliente final</fullName>
+                <default>false</default>
+                <label>Entregado a cliente final</label>
+            </value>
+            <value>
+                <fullName>Cliente no estaba en dirección</fullName>
+                <default>false</default>
+                <label>Cliente no estaba en dirección</label>
+            </value>
+            <value>
+                <fullName>Recepcionado en central HOT Express</fullName>
+                <default>false</default>
+                <label>Recepcionado en central HOT Express</label>
+            </value>
+            <value>
+                <fullName>Entregado a Fedex</fullName>
+                <default>false</default>
+                <label>Entregado a Fedex</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

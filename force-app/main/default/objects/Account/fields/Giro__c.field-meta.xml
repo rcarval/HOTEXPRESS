@@ -1,0 +1,3394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Giro__c</fullName>
+    <label>Giro</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACABADO DE PRODUCTOS TEXTILES</fullName>
+                <default>false</default>
+                <label>ACABADO DE PRODUCTOS TEXTILES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES ARTISTICAS REALIZADAS POR BANDAS DE MUSICA COMPANIAS DE TEATRO CIRCENSES Y SIMILARES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES ARTISTICAS REALIZADAS POR BANDAS DE MUSICA COMPANIAS DE TEATRO CIRCENSES Y SIMILARES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES BANCARIAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES BANCARIAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES COMBINADAS DE APOYO A INSTALACIONES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES COMBINADAS DE APOYO A INSTALACIONES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES COMBINADAS DE SERVICIOS ADMINISTRATIVOS DE OFICINA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES COMBINADAS DE SERVICIOS ADMINISTRATIVOS DE OFICINA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE AGENCIAS DE CALIFICACION CREDITICIA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE AGENCIAS DE CALIFICACION CREDITICIA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE AGENCIAS DE COBRO</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE AGENCIAS DE COBRO</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE AGENCIAS DE EMPLEO</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE AGENCIAS DE EMPLEO</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE AGENCIAS DE EMPLEO TEMPORAL INCLUYE EMPRESAS DE SERVICIOS TRANSITORIOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE AGENCIAS DE EMPLEO TEMPORAL INCLUYE EMPRESAS DE SERVICIOS TRANSITORIOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE AGENCIAS DE NOTICIAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE AGENCIAS DE NOTICIAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE AGENCIAS DE VIAJES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE AGENCIAS DE VIAJES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE AGENCIAS Y AGENTES DE REPRESENTACION DE ACTORES DEPORTISTAS Y OTRAS FIGURAS PUBLICAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE AGENCIAS Y AGENTES DE REPRESENTACION DE ACTORES DEPORTISTAS Y OTRAS FIGURAS PUBLICAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE AGENTES Y CORREDORES DE SEGUROS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE AGENTES Y CORREDORES DE SEGUROS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE APOYO A LA AGRICULTURA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE APOYO A LA AGRICULTURA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE APOYO A LA ENSENANZA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE APOYO A LA ENSENANZA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE APOYO A LA GANADERIA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE APOYO A LA GANADERIA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE APOYO PARA LA EXPLOTACION DE OTRAS MINAS Y CANTERAS PRESTADOS POR EMPRESAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE APOYO PARA LA EXPLOTACION DE OTRAS MINAS Y CANTERAS PRESTADOS POR EMPRESAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE APOYO PARA LA EXPLOTACION DE OTRAS MINAS Y CANTERAS PRESTADOS POR PROFESIONALES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE APOYO PARA LA EXPLOTACION DE OTRAS MINAS Y CANTERAS PRESTADOS POR PROFESIONALES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE APOYO PARA LA EXTRACCION DE PETROLEO Y GAS NATURAL PRESTADOS POR EMPRESAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE APOYO PARA LA EXTRACCION DE PETROLEO Y GAS NATURAL PRESTADOS POR EMPRESAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE APOYO PARA LA EXTRACCION DE PETROLEO Y GAS NATURAL PRESTADOS POR PROFESIONALES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE APOYO PARA LA EXTRACCION DE PETROLEO Y GAS NATURAL PRESTADOS POR PROFESIONALES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ARTISTAS REALIZADAS DE FORMA INDEPENDIENTE: ACTORES MUSICOS ESCRITORES ENTRE OTROS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ARTISTAS REALIZADAS DE FORMA INDEPENDIENTE: ACTORES MUSICOS ESCRITORES ENTRE OTROS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ASISTENCIA SOCIAL SIN ALOJAMIENTO PARA PERSONAS DE EDAD Y PERSONAS CON DISCAPACIDAD</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ASISTENCIA SOCIAL SIN ALOJAMIENTO PARA PERSONAS DE EDAD Y PERSONAS CON DISCAPACIDAD</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ASOCIACIONES EMPRESARIALES Y DE EMPLEADORES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ASOCIACIONES EMPRESARIALES Y DE EMPLEADORES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ASOCIACIONES PROFESIONALES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ASOCIACIONES PROFESIONALES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ATENCION DE ENFERMERIA EN INSTITUCIONES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ATENCION DE ENFERMERIA EN INSTITUCIONES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ATENCION EN INSTITUCIONES PARA PERSONAS CON DISCAPACIDAD MENTAL Y TOXICOMANOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ATENCION EN INSTITUCIONES PARA PERSONAS CON DISCAPACIDAD MENTAL Y TOXICOMANOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ATENCION EN INSTITUCIONES PARA PERSONAS DE EDAD Y PERSONAS CON DISCAPACIDAD FISICA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ATENCION EN INSTITUCIONES PARA PERSONAS DE EDAD Y PERSONAS CON DISCAPACIDAD FISICA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE BIBLIOTECAS Y ARCHIVOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE BIBLIOTECAS Y ARCHIVOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CALLCENTER</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CALLCENTER</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CAMARAS DE COMPENSACION</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CAMARAS DE COMPENSACION</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CAMPING Y DE PARQUES PARA CASAS RODANTES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CAMPING Y DE PARQUES PARA CASAS RODANTES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CASAS DE CAMBIO Y OPERADORES DE DIVISA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CASAS DE CAMBIO Y OPERADORES DE DIVISA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CASINOS DE JUEGOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CASINOS DE JUEGOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CENTROS DE MADRES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CENTROS DE MADRES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CENTROS DE SALUD MUNICIPALIZADOS SERVICIOS DE SALUD PUBLICA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CENTROS DE SALUD MUNICIPALIZADOS SERVICIOS DE SALUD PUBLICA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CLASIFICADORAS DE RIESGO</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CLASIFICADORAS DE RIESGO</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CLINICAS VETERINARIAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CLINICAS VETERINARIAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CLUBES DE FUTBOL AMATEUR Y PROFESIONAL</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CLUBES DE FUTBOL AMATEUR Y PROFESIONAL</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CLUBES SOCIALES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CLUBES SOCIALES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CONSULTORIA DE GESTION</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CONSULTORIA DE GESTION</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CONSULTORIA DE INFORMATICA Y DE GESTION DE INSTALACIONES INFORMATICAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CONSULTORIA DE INFORMATICA Y DE GESTION DE INSTALACIONES INFORMATICAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CONTABILIDAD TENEDURIA DE LIBROS Y AUDITORIA CONSULTORIA FISCAL</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CONTABILIDAD TENEDURIA DE LIBROS Y AUDITORIA CONSULTORIA FISCAL</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE CREDITO PRENDARIO</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE CREDITO PRENDARIO</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE DEFENSA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE DEFENSA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE DESCONTAMINACION Y OTROS SERVICIOS DE GESTION DE DESECHOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE DESCONTAMINACION Y OTROS SERVICIOS DE GESTION DE DESECHOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE DISCOTECAS Y CABARET NIGHT CLUB CON PREDOMINIO DEL SERVICIO DE BEBIDAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE DISCOTECAS Y CABARET NIGHT CLUB CON PREDOMINIO DEL SERVICIO DE BEBIDAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE DISENO DE VESTUARIO</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE DISENO DE VESTUARIO</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE DISENO Y DECORACION DE INTERIORES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE DISENO Y DECORACION DE INTERIORES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE DISTRIBUCION DE PELICULAS CINEMATOGRAFICAS VIDEOS Y PROGRAMAS DE TELEVISION</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE DISTRIBUCION DE PELICULAS CINEMATOGRAFICAS VIDEOS Y PROGRAMAS DE TELEVISION</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ELABORACION Y CONSERVACION DE PESCADO REALIZADAS EN BARCOS FACTORIA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ELABORACION Y CONSERVACION DE PESCADO REALIZADAS EN BARCOS FACTORIA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ENVASADO Y EMPAQUETADO</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ENVASADO Y EMPAQUETADO</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE EXHIBICION DE PELICULAS CINEMATOGRAFICAS Y CINTAS DE VIDEO</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE EXHIBICION DE PELICULAS CINEMATOGRAFICAS Y CINTAS DE VIDEO</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE GRABACION DE SONIDO Y EDICION DE MUSICA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE GRABACION DE SONIDO Y EDICION DE MUSICA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE HOSPITALES Y CLINICAS PRIVADAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE HOSPITALES Y CLINICAS PRIVADAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE HOSPITALES Y CLINICAS PUBLICAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE HOSPITALES Y CLINICAS PUBLICAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE HOTELES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE HOTELES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE INVESTIGACION INCLUYE ACTIVIDADES DE INVESTIGADORES Y DETECTIVES PRIVADOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE INVESTIGACION INCLUYE ACTIVIDADES DE INVESTIGADORES Y DETECTIVES PRIVADOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ISAPRES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ISAPRES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE JARDINES BOTANICOS ZOOLOGICOS Y RESERVAS NATURALES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE JARDINES BOTANICOS ZOOLOGICOS Y RESERVAS NATURALES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE LA ADMINISTRACION PUBLICA EN GENERAL</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE LA ADMINISTRACION PUBLICA EN GENERAL</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE LABORATORIOS CLINICOS Y BANCOS DE SANGRE</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE LABORATORIOS CLINICOS Y BANCOS DE SANGRE</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE LABORATORIOS DENTALES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE LABORATORIOS DENTALES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE LOS HOGARES COMO EMPLEADORES DE PERSONAL DOMESTICO</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE LOS HOGARES COMO EMPLEADORES DE PERSONAL DOMESTICO</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE MANTENIMIENTO DEL ORDEN PUBLICO Y DE SEGURIDAD</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE MANTENIMIENTO DEL ORDEN PUBLICO Y DE SEGURIDAD</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE MENSAJERIA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE MENSAJERIA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE MOTELES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE MOTELES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE MUSEOS GESTION DE LUGARES Y EDIFICIOS HISTORICOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE MUSEOS GESTION DE LUGARES Y EDIFICIOS HISTORICOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE OFICINAS PRINCIPALES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE OFICINAS PRINCIPALES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE OPERADORES TURISTICOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE OPERADORES TURISTICOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ORGANIZACIONES POLITICAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ORGANIZACIONES POLITICAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ORGANIZACIONES RELIGIOSAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ORGANIZACIONES RELIGIOSAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE ORGANIZACIONES Y ORGANOS EXTRATERRITORIALES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE ORGANIZACIONES Y ORGANOS EXTRATERRITORIALES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE OTRAS ASOCIACIONES N.C.P.</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE OTRAS ASOCIACIONES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE OTROS CLUBES DEPORTIVOS N.C.P.</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE OTROS CLUBES DEPORTIVOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE PAISAJISMO SERVICIOS DE JARDINERIA Y SERVICIOS CONEXOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE PAISAJISMO SERVICIOS DE JARDINERIA Y SERVICIOS CONEXOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE PARQUES DE ATRACCIONES Y PARQUES TEMATICOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE PARQUES DE ATRACCIONES Y PARQUES TEMATICOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE PLANTAS DE REVISION TECNICA PARA VEHICULOS AUTOMOTORES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE PLANTAS DE REVISION TECNICA PARA VEHICULOS AUTOMOTORES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE POSTPRODUCCION DE PELICULAS CINEMATOGRAFICAS VIDEOS Y PROGRAMAS DE TELEVISION</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE POSTPRODUCCION DE PELICULAS CINEMATOGRAFICAS VIDEOS Y PROGRAMAS DE TELEVISION</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE PRODUCCION DE PELICULAS CINEMATOGRAFICAS VIDEOS Y PROGRAMAS DE TELEVISION</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE PRODUCCION DE PELICULAS CINEMATOGRAFICAS VIDEOS Y PROGRAMAS DE TELEVISION</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE PROGRAMACION INFORMATICA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE PROGRAMACION INFORMATICA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE RESIDENCIALES PARA ESTUDIANTES Y TRABAJADORES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE RESIDENCIALES PARA ESTUDIANTES Y TRABAJADORES</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE RESIDENCIALES PARA TURISTAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE RESIDENCIALES PARA TURISTAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE RESTAURANTES Y DE SERVICIO MOVIL DE COMIDAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE RESTAURANTES Y DE SERVICIO MOVIL DE COMIDAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE SALONES DE MASAJES BANOS TURCOS SAUNAS SERVICIO DE BANOS PUBLICOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE SALONES DE MASAJES BANOS TURCOS SAUNAS SERVICIO DE BANOS PUBLICOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE SECURITIZADORAS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE SECURITIZADORAS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE SERVICIOS DE SISTEMAS DE SEGURIDAD INCLUYE SERVICIOS DE CERRAJERIA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE SERVICIOS DE SISTEMAS DE SEGURIDAD INCLUYE SERVICIOS DE CERRAJERIA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE SERVICIOS RELACIONADAS CON LA IMPRESION</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE SERVICIOS RELACIONADAS CON LA IMPRESION</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE SERVICIOS VINCULADAS AL TRANSPORTE ACUATICO</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE SERVICIOS VINCULADAS AL TRANSPORTE ACUATICO</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE SERVICIOS VINCULADAS AL TRANSPORTE AEREO</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE SERVICIOS VINCULADAS AL TRANSPORTE AEREO</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE SERVICIOS VINCULADAS AL TRANSPORTE TERRESTRE N.C.P.</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE SERVICIOS VINCULADAS AL TRANSPORTE TERRESTRE N.C.P.</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE SINDICATOS</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE SINDICATOS</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE SOCIEDADES DE CARTERA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE SOCIEDADES DE CARTERA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES DE VETERINARIOS TECNICOS Y OTRO PERSONAL AUXILIAR PRESTADOS DE FORMA INDEPENDIENTE</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES DE VETERINARIOS TECNICOS Y OTRO PERSONAL AUXILIAR PRESTADOS DE FORMA INDEPENDIENTE</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES INMOBILIARIAS REALIZADAS A CAMBIO DE UNA RETRIBUCION O POR CONTRATA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES INMOBILIARIAS REALIZADAS A CAMBIO DE UNA RETRIBUCION O POR CONTRATA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES POSCOSECHA</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES POSCOSECHA</label>
+            </value>
+            <value>
+                <fullName>ACTIVIDADES POSTALES</fullName>
+                <default>false</default>
+                <label>ACTIVIDADES POSTALES</label>
+            </value>
+            <value>
+                <fullName>ACUICULTURA DE AGUA DULCE</fullName>
+                <default>false</default>
+                <label>ACUICULTURA DE AGUA DULCE</label>
+            </value>
+            <value>
+                <fullName>ADMINISTRACION DE MERCADOS FINANCIEROS</fullName>
+                <default>false</default>
+                <label>ADMINISTRACION DE MERCADOS FINANCIEROS</label>
+            </value>
+            <value>
+                <fullName>ADMINISTRACION DE TARJETAS DE CREDITO</fullName>
+                <default>false</default>
+                <label>ADMINISTRACION DE TARJETAS DE CREDITO</label>
+            </value>
+            <value>
+                <fullName>ADMINISTRADORAS DE FICES FONDOS DE INVERSION DE CAPITAL EXTRANJERO</fullName>
+                <default>false</default>
+                <label>ADMINISTRADORAS DE FICES FONDOS DE INVERSION DE CAPITAL EXTRANJERO</label>
+            </value>
+            <value>
+                <fullName>ADMINISTRADORAS DE FONDOS DE INVERSION</fullName>
+                <default>false</default>
+                <label>ADMINISTRADORAS DE FONDOS DE INVERSION</label>
+            </value>
+            <value>
+                <fullName>ADMINISTRADORAS DE FONDOS DE PENSIONES AFP</fullName>
+                <default>false</default>
+                <label>ADMINISTRADORAS DE FONDOS DE PENSIONES AFP</label>
+            </value>
+            <value>
+                <fullName>ADMINISTRADORAS DE FONDOS MUTUOS</fullName>
+                <default>false</default>
+                <label>ADMINISTRADORAS DE FONDOS MUTUOS</label>
+            </value>
+            <value>
+                <fullName>ADMINISTRADORAS DE FONDOS PARA LA VIVIENDA</fullName>
+                <default>false</default>
+                <label>ADMINISTRADORAS DE FONDOS PARA LA VIVIENDA</label>
+            </value>
+            <value>
+                <fullName>ADMINISTRADORAS DE FONDOS PARA OTROS FINES N.C.P.</fullName>
+                <default>false</default>
+                <label>ADMINISTRADORAS DE FONDOS PARA OTROS FINES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>AGENCIAS DE ADUANAS</fullName>
+                <default>false</default>
+                <label>AGENCIAS DE ADUANAS</label>
+            </value>
+            <value>
+                <fullName>AGENCIAS DE NAVES</fullName>
+                <default>false</default>
+                <label>AGENCIAS DE NAVES</label>
+            </value>
+            <value>
+                <fullName>AGENTES DE VALORES</fullName>
+                <default>false</default>
+                <label>AGENTES DE VALORES</label>
+            </value>
+            <value>
+                <fullName>ALQUILER DE BIENES INMUEBLES AMOBLADOS O CON EQUIPOS Y MAQUINARIAS</fullName>
+                <default>false</default>
+                <label>ALQUILER DE BIENES INMUEBLES AMOBLADOS O CON EQUIPOS Y MAQUINARIAS</label>
+            </value>
+            <value>
+                <fullName>ALQUILER DE CINTAS DE VIDEO Y DISCOS</fullName>
+                <default>false</default>
+                <label>ALQUILER DE CINTAS DE VIDEO Y DISCOS</label>
+            </value>
+            <value>
+                <fullName>ALQUILER DE EQUIPOS DE TRANSPORTE SIN OPERARIO EXCEPTO VEHICULOS AUTOMOTORES</fullName>
+                <default>false</default>
+                <label>ALQUILER DE EQUIPOS DE TRANSPORTE SIN OPERARIO EXCEPTO VEHICULOS AUTOMOTORES</label>
+            </value>
+            <value>
+                <fullName>ALQUILER DE MAQUINARIA Y EQUIPO AGROPECUARIO FORESTAL DE CONSTRUCCION E ING. CIVIL SIN OPERARIOS</fullName>
+                <default>false</default>
+                <label>ALQUILER DE MAQUINARIA Y EQUIPO AGROPECUARIO FORESTAL DE CONSTRUCCION E ING. CIVIL SIN OPERARIOS</label>
+            </value>
+            <value>
+                <fullName>ALQUILER DE MAQUINARIA Y EQUIPO DE OFICINA SIN OPERARIOS SIN SERVICIO ADMINISTRATIVO</fullName>
+                <default>false</default>
+                <label>ALQUILER DE MAQUINARIA Y EQUIPO DE OFICINA SIN OPERARIOS SIN SERVICIO ADMINISTRATIVO</label>
+            </value>
+            <value>
+                <fullName>ALQUILER DE OTROS EFECTOS PERSONALES Y ENSERES DOMESTICOS INCLUYE MOBILIARIO PARA EVENTOS</fullName>
+                <default>false</default>
+                <label>ALQUILER DE OTROS EFECTOS PERSONALES Y ENSERES DOMESTICOS INCLUYE MOBILIARIO PARA EVENTOS</label>
+            </value>
+            <value>
+                <fullName>ALQUILER DE OTROS TIPOS DE MAQUINARIAS Y EQUIPOS SIN OPERARIO N.C.P.</fullName>
+                <default>false</default>
+                <label>ALQUILER DE OTROS TIPOS DE MAQUINARIAS Y EQUIPOS SIN OPERARIO N.C.P.</label>
+            </value>
+            <value>
+                <fullName>ALQUILER DE VEHICULOS AUTOMOTORES SIN CHOFER</fullName>
+                <default>false</default>
+                <label>ALQUILER DE VEHICULOS AUTOMOTORES SIN CHOFER</label>
+            </value>
+            <value>
+                <fullName>ALQUILER Y ARRENDAMIENTO DE EQUIPO RECREATIVO Y DEPORTIVO</fullName>
+                <default>false</default>
+                <label>ALQUILER Y ARRENDAMIENTO DE EQUIPO RECREATIVO Y DEPORTIVO</label>
+            </value>
+            <value>
+                <fullName>APICULTURA</fullName>
+                <default>false</default>
+                <label>APICULTURA</label>
+            </value>
+            <value>
+                <fullName>ARRENDAMIENTO DE PROPIEDAD INTELECTUAL Y SIMILARES EXCEPTO OBRAS PROTEGIDAS POR DERECHOS DE AUTOR</fullName>
+                <default>false</default>
+                <label>ARRENDAMIENTO DE PROPIEDAD INTELECTUAL Y SIMILARES EXCEPTO OBRAS PROTEGIDAS POR DERECHOS DE AUTOR</label>
+            </value>
+            <value>
+                <fullName>ASERRADO Y ACEPILLADURA DE MADERA</fullName>
+                <default>false</default>
+                <label>ASERRADO Y ACEPILLADURA DE MADERA</label>
+            </value>
+            <value>
+                <fullName>ASESORIA Y GESTION EN LA COMPRA O VENTA DE PEQUENAS Y MEDIANAS EMPRESAS</fullName>
+                <default>false</default>
+                <label>ASESORIA Y GESTION EN LA COMPRA O VENTA DE PEQUENAS Y MEDIANAS EMPRESAS</label>
+            </value>
+            <value>
+                <fullName>BANCA CENTRAL</fullName>
+                <default>false</default>
+                <label>BANCA CENTRAL</label>
+            </value>
+            <value>
+                <fullName>CAJAS DE COMPENSACION</fullName>
+                <default>false</default>
+                <label>CAJAS DE COMPENSACION</label>
+            </value>
+            <value>
+                <fullName>CAPTACION TRATAMIENTO Y DISTRIBUCION DE AGUA</fullName>
+                <default>false</default>
+                <label>CAPTACION TRATAMIENTO Y DISTRIBUCION DE AGUA</label>
+            </value>
+            <value>
+                <fullName>CAZA ORDINARIA Y MEDIANTE TRAMPAS Y ACTIVIDADES DE SERVICIOS CONEXAS</fullName>
+                <default>false</default>
+                <label>CAZA ORDINARIA Y MEDIANTE TRAMPAS Y ACTIVIDADES DE SERVICIOS CONEXAS</label>
+            </value>
+            <value>
+                <fullName>CENTROS DE ATENCION ODONTOLOGICA PRIVADOS ESTABLECIMIENTOS DE ATENCION AMBULATORIA</fullName>
+                <default>false</default>
+                <label>CENTROS DE ATENCION ODONTOLOGICA PRIVADOS ESTABLECIMIENTOS DE ATENCION AMBULATORIA</label>
+            </value>
+            <value>
+                <fullName>CENTROS DE LLAMADOS Y CENTROS DE ACCESO A INTERNET</fullName>
+                <default>false</default>
+                <label>CENTROS DE LLAMADOS Y CENTROS DE ACCESO A INTERNET</label>
+            </value>
+            <value>
+                <fullName>CENTROS MEDICOS PRIVADOS ESTABLECIMIENTOS DE ATENCION AMBULATORIA</fullName>
+                <default>false</default>
+                <label>CENTROS MEDICOS PRIVADOS ESTABLECIMIENTOS DE ATENCION AMBULATORIA</label>
+            </value>
+            <value>
+                <fullName>COMPRA VENTA Y ALQUILER EXCEPTO AMOBLADOS DE INMUEBLES</fullName>
+                <default>false</default>
+                <label>COMPRA VENTA Y ALQUILER EXCEPTO AMOBLADOS DE INMUEBLES</label>
+            </value>
+            <value>
+                <fullName>CONSEJO DE ADMINISTRACION DE EDIFICIOS Y CONDOMINIOS</fullName>
+                <default>false</default>
+                <label>CONSEJO DE ADMINISTRACION DE EDIFICIOS Y CONDOMINIOS</label>
+            </value>
+            <value>
+                <fullName>CONSERVADOR DE BIENES RAICES</fullName>
+                <default>false</default>
+                <label>CONSERVADOR DE BIENES RAICES</label>
+            </value>
+            <value>
+                <fullName>CONSTRUCCION DE BUQUES EMBARCACIONES MENORES Y ESTRUCTURAS FLOTANTES</fullName>
+                <default>false</default>
+                <label>CONSTRUCCION DE BUQUES EMBARCACIONES MENORES Y ESTRUCTURAS FLOTANTES</label>
+            </value>
+            <value>
+                <fullName>CONSTRUCCION DE CARRETERAS Y LINEAS DE FERROCARRIL</fullName>
+                <default>false</default>
+                <label>CONSTRUCCION DE CARRETERAS Y LINEAS DE FERROCARRIL</label>
+            </value>
+            <value>
+                <fullName>CONSTRUCCION DE EDIFICIOS PARA USO NO RESIDENCIAL</fullName>
+                <default>false</default>
+                <label>CONSTRUCCION DE EDIFICIOS PARA USO NO RESIDENCIAL</label>
+            </value>
+            <value>
+                <fullName>CONSTRUCCION DE EDIFICIOS PARA USO RESIDENCIAL</fullName>
+                <default>false</default>
+                <label>CONSTRUCCION DE EDIFICIOS PARA USO RESIDENCIAL</label>
+            </value>
+            <value>
+                <fullName>CONSTRUCCION DE EMBARCACIONES DE RECREO Y DE DEPORTE</fullName>
+                <default>false</default>
+                <label>CONSTRUCCION DE EMBARCACIONES DE RECREO Y DE DEPORTE</label>
+            </value>
+            <value>
+                <fullName>CONSTRUCCION DE OTRAS OBRAS DE INGENIERIA CIVIL</fullName>
+                <default>false</default>
+                <label>CONSTRUCCION DE OTRAS OBRAS DE INGENIERIA CIVIL</label>
+            </value>
+            <value>
+                <fullName>CONSTRUCCION DE PROYECTOS DE SERVICIO PUBLICO</fullName>
+                <default>false</default>
+                <label>CONSTRUCCION DE PROYECTOS DE SERVICIO PUBLICO</label>
+            </value>
+            <value>
+                <fullName>CORREDORES DE BOLSA</fullName>
+                <default>false</default>
+                <label>CORREDORES DE BOLSA</label>
+            </value>
+            <value>
+                <fullName>CORRETAJE AL POR MAYOR DE GANADO</fullName>
+                <default>false</default>
+                <label>CORRETAJE AL POR MAYOR DE GANADO</label>
+            </value>
+            <value>
+                <fullName>CORRETAJE AL POR MAYOR DE PRODUCTOS AGRICOLAS</fullName>
+                <default>false</default>
+                <label>CORRETAJE AL POR MAYOR DE PRODUCTOS AGRICOLAS</label>
+            </value>
+            <value>
+                <fullName>CORTE TALLA Y ACABADO DE LA PIEDRA</fullName>
+                <default>false</default>
+                <label>CORTE TALLA Y ACABADO DE LA PIEDRA</label>
+            </value>
+            <value>
+                <fullName>CRIA DE AVES DE CORRAL PARA LA PRODUCCION DE CARNE</fullName>
+                <default>false</default>
+                <label>CRIA DE AVES DE CORRAL PARA LA PRODUCCION DE CARNE</label>
+            </value>
+            <value>
+                <fullName>CRIA DE AVES DE CORRAL PARA LA PRODUCCION DE HUEVOS</fullName>
+                <default>false</default>
+                <label>CRIA DE AVES DE CORRAL PARA LA PRODUCCION DE HUEVOS</label>
+            </value>
+            <value>
+                <fullName>CRIA DE CABALLOS Y OTROS EQUINOS</fullName>
+                <default>false</default>
+                <label>CRIA DE CABALLOS Y OTROS EQUINOS</label>
+            </value>
+            <value>
+                <fullName>CRIA DE CABRAS CAPRINOS</fullName>
+                <default>false</default>
+                <label>CRIA DE CABRAS CAPRINOS</label>
+            </value>
+            <value>
+                <fullName>CRIA DE CERDOS</fullName>
+                <default>false</default>
+                <label>CRIA DE CERDOS</label>
+            </value>
+            <value>
+                <fullName>CRIA DE GANADO BOVINO PARA LA PRODUCCION DE CARNE O COMO GANADO REPRODUCTOR</fullName>
+                <default>false</default>
+                <label>CRIA DE GANADO BOVINO PARA LA PRODUCCION DE CARNE O COMO GANADO REPRODUCTOR</label>
+            </value>
+            <value>
+                <fullName>CRIA DE GANADO BOVINO PARA LA PRODUCCION LECHERA</fullName>
+                <default>false</default>
+                <label>CRIA DE GANADO BOVINO PARA LA PRODUCCION LECHERA</label>
+            </value>
+            <value>
+                <fullName>CRIA DE LLAMAS ALPACAS VICUNAS GUANACOS Y OTROS CAMELIDOS</fullName>
+                <default>false</default>
+                <label>CRIA DE LLAMAS ALPACAS VICUNAS GUANACOS Y OTROS CAMELIDOS</label>
+            </value>
+            <value>
+                <fullName>CRIA DE OTROS ANIMALES N.C.P.</fullName>
+                <default>false</default>
+                <label>CRIA DE OTROS ANIMALES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>CRIA DE OVEJAS OVINOS</fullName>
+                <default>false</default>
+                <label>CRIA DE OVEJAS OVINOS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE ARROZ</fullName>
+                <default>false</default>
+                <label>CULTIVO DE ARROZ</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE AVENA</fullName>
+                <default>false</default>
+                <label>CULTIVO DE AVENA</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE CAMOTES</fullName>
+                <default>false</default>
+                <label>CULTIVO DE CAMOTES</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE CANA DE AZUCAR</fullName>
+                <default>false</default>
+                <label>CULTIVO DE CANA DE AZUCAR</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE CEBADA</fullName>
+                <default>false</default>
+                <label>CULTIVO DE CEBADA</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE CITRICOS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE CITRICOS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE ESPECIAS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE ESPECIAS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE FLORES</fullName>
+                <default>false</default>
+                <label>CULTIVO DE FLORES</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE FRUTAS DE PEPITA Y DE HUESO</fullName>
+                <default>false</default>
+                <label>CULTIVO DE FRUTAS DE PEPITA Y DE HUESO</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE FRUTAS TROPICALES Y SUBTROPICALES INCLUYE EL CULTIVO DE PALTAS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE FRUTAS TROPICALES Y SUBTROPICALES INCLUYE EL CULTIVO DE PALTAS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE FRUTOS OLEAGINOSOS INCLUYE EL CULTIVO DE ACEITUNAS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE FRUTOS OLEAGINOSOS INCLUYE EL CULTIVO DE ACEITUNAS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE HORTALIZAS Y MELONES</fullName>
+                <default>false</default>
+                <label>CULTIVO DE HORTALIZAS Y MELONES</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE LUPINO</fullName>
+                <default>false</default>
+                <label>CULTIVO DE LUPINO</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE MAIZ</fullName>
+                <default>false</default>
+                <label>CULTIVO DE MAIZ</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE OTRAS LEGUMBRES EXCEPTO POROTOS Y LUPINO</fullName>
+                <default>false</default>
+                <label>CULTIVO DE OTRAS LEGUMBRES EXCEPTO POROTOS Y LUPINO</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE OTRAS PLANTAS PERENNES</fullName>
+                <default>false</default>
+                <label>CULTIVO DE OTRAS PLANTAS PERENNES</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE OTROS CEREALES EXCEPTO TRIGO MAIZ AVENA Y CEBADA</fullName>
+                <default>false</default>
+                <label>CULTIVO DE OTROS CEREALES EXCEPTO TRIGO MAIZ AVENA Y CEBADA</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE OTROS FRUTOS Y NUECES DE ARBOLES Y ARBUSTOS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE OTROS FRUTOS Y NUECES DE ARBOLES Y ARBUSTOS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE OTROS TUBERCULOS EXCEPTO PAPAS Y CAMOTES</fullName>
+                <default>false</default>
+                <label>CULTIVO DE OTROS TUBERCULOS EXCEPTO PAPAS Y CAMOTES</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE PAPAS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE PAPAS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE PLANTAS AROMATICAS MEDICINALES Y FARMACEUTICAS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE PLANTAS AROMATICAS MEDICINALES Y FARMACEUTICAS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE PLANTAS CON LAS QUE SE PREPARAN BEBIDAS INCLUYE EL CULTIVO DE CAFE TE Y MATE</fullName>
+                <default>false</default>
+                <label>CULTIVO DE PLANTAS CON LAS QUE SE PREPARAN BEBIDAS INCLUYE EL CULTIVO DE CAFE TE Y MATE</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE PLANTAS DE FIBRA</fullName>
+                <default>false</default>
+                <label>CULTIVO DE PLANTAS DE FIBRA</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE PLANTAS VIVAS INCLUIDA LA PRODUCCION EN VIVEROS EXCEPTO VIVEROS FORESTALES</fullName>
+                <default>false</default>
+                <label>CULTIVO DE PLANTAS VIVAS INCLUIDA LA PRODUCCION EN VIVEROS EXCEPTO VIVEROS FORESTALES</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE POROTOS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE POROTOS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE PRODUCTOS AGRICOLAS EN COMBINACION CON LA CRIA DE ANIMALES EXPLOTACION MIXTA</fullName>
+                <default>false</default>
+                <label>CULTIVO DE PRODUCTOS AGRICOLAS EN COMBINACION CON LA CRIA DE ANIMALES EXPLOTACION MIXTA</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE REMOLACHA AZUCARERA</fullName>
+                <default>false</default>
+                <label>CULTIVO DE REMOLACHA AZUCARERA</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE SEMILLAS DE CEREALES LEGUMBRES Y OLEAGINOSAS EXCEPTO SEMILLAS DE RAPS Y MARAVILLA</fullName>
+                <default>false</default>
+                <label>CULTIVO DE SEMILLAS DE CEREALES LEGUMBRES Y OLEAGINOSAS EXCEPTO SEMILLAS DE RAPS Y MARAVILLA</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE SEMILLAS DE FRUTAS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE SEMILLAS DE FRUTAS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE SEMILLAS DE HORTALIZAS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE SEMILLAS DE HORTALIZAS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE SEMILLAS DE MARAVILLA GIRASOL</fullName>
+                <default>false</default>
+                <label>CULTIVO DE SEMILLAS DE MARAVILLA GIRASOL</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE SEMILLAS DE RAPS</fullName>
+                <default>false</default>
+                <label>CULTIVO DE SEMILLAS DE RAPS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE TABACO</fullName>
+                <default>false</default>
+                <label>CULTIVO DE TABACO</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE TRIGO</fullName>
+                <default>false</default>
+                <label>CULTIVO DE TRIGO</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE UVA DESTINADA A LA PRODUCCION DE PISCO Y AGUARDIENTE</fullName>
+                <default>false</default>
+                <label>CULTIVO DE UVA DESTINADA A LA PRODUCCION DE PISCO Y AGUARDIENTE</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE UVA DESTINADA A LA PRODUCCION DE VINO</fullName>
+                <default>false</default>
+                <label>CULTIVO DE UVA DESTINADA A LA PRODUCCION DE VINO</label>
+            </value>
+            <value>
+                <fullName>CULTIVO DE UVA PARA MESA</fullName>
+                <default>false</default>
+                <label>CULTIVO DE UVA PARA MESA</label>
+            </value>
+            <value>
+                <fullName>CULTIVO REPRODUCCION Y MANEJO DE ALGAS MARINAS</fullName>
+                <default>false</default>
+                <label>CULTIVO REPRODUCCION Y MANEJO DE ALGAS MARINAS</label>
+            </value>
+            <value>
+                <fullName>CULTIVOS DE SEMILLAS DE FLORES CULTIVO DE SEMILLAS DE PLANTAS FORRAJERAS</fullName>
+                <default>false</default>
+                <label>CULTIVOS DE SEMILLAS DE FLORES CULTIVO DE SEMILLAS DE PLANTAS FORRAJERAS</label>
+            </value>
+            <value>
+                <fullName>CULTIVOS FORRAJEROS EN PRADERAS MEJORADAS O SEMBRADAS CULTIVOS SUPLEMENTARIOS FORRAJEROS</fullName>
+                <default>false</default>
+                <label>CULTIVOS FORRAJEROS EN PRADERAS MEJORADAS O SEMBRADAS CULTIVOS SUPLEMENTARIOS FORRAJEROS</label>
+            </value>
+            <value>
+                <fullName>CULTIVO Y CRIANZA DE PECES MARINOS</fullName>
+                <default>false</default>
+                <label>CULTIVO Y CRIANZA DE PECES MARINOS</label>
+            </value>
+            <value>
+                <fullName>CURTIDO Y ADOBO DE CUEROS ADOBO Y TENIDO DE PIELES</fullName>
+                <default>false</default>
+                <label>CURTIDO Y ADOBO DE CUEROS ADOBO Y TENIDO DE PIELES</label>
+            </value>
+            <value>
+                <fullName>DEMOLICION</fullName>
+                <default>false</default>
+                <label>DEMOLICION</label>
+            </value>
+            <value>
+                <fullName>DESRATIZACION DESINFECCION Y EXTERMINIO DE PLAGAS NO AGRICOLAS</fullName>
+                <default>false</default>
+                <label>DESRATIZACION DESINFECCION Y EXTERMINIO DE PLAGAS NO AGRICOLAS</label>
+            </value>
+            <value>
+                <fullName>DESTILACION RECTIFICACION Y MEZCLAS DE BEBIDAS ALCOHOLICAS EXCEPTO PISCO</fullName>
+                <default>false</default>
+                <label>DESTILACION RECTIFICACION Y MEZCLAS DE BEBIDAS ALCOHOLICAS EXCEPTO PISCO</label>
+            </value>
+            <value>
+                <fullName>DISTRIBUCION DE ENERGIA ELECTRICA</fullName>
+                <default>false</default>
+                <label>DISTRIBUCION DE ENERGIA ELECTRICA</label>
+            </value>
+            <value>
+                <fullName>EDICION DE DIARIOS REVISTAS Y OTRAS PUBLICACIONES PERIODICAS</fullName>
+                <default>false</default>
+                <label>EDICION DE DIARIOS REVISTAS Y OTRAS PUBLICACIONES PERIODICAS</label>
+            </value>
+            <value>
+                <fullName>EDICION DE DIRECTORIOS Y LISTAS DE CORREO</fullName>
+                <default>false</default>
+                <label>EDICION DE DIRECTORIOS Y LISTAS DE CORREO</label>
+            </value>
+            <value>
+                <fullName>EDICION DE LIBROS</fullName>
+                <default>false</default>
+                <label>EDICION DE LIBROS</label>
+            </value>
+            <value>
+                <fullName>EDICION DE PROGRAMAS INFORMATICOS</fullName>
+                <default>false</default>
+                <label>EDICION DE PROGRAMAS INFORMATICOS</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE ACEITES Y GRASAS DE ORIGEN VEGETAL Y ANIMAL EXCEPTO ELABORACION DE MANTEQUILLA</fullName>
+                <default>false</default>
+                <label>ELABORACION DE ACEITES Y GRASAS DE ORIGEN VEGETAL Y ANIMAL EXCEPTO ELABORACION DE MANTEQUILLA</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE ALMIDONES Y PRODUCTOS DERIVADOS DEL ALMIDON</fullName>
+                <default>false</default>
+                <label>ELABORACION DE ALMIDONES Y PRODUCTOS DERIVADOS DEL ALMIDON</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE AZUCAR</fullName>
+                <default>false</default>
+                <label>ELABORACION DE AZUCAR</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE BEBIDAS MALTEADAS Y DE MALTA</fullName>
+                <default>false</default>
+                <label>ELABORACION DE BEBIDAS MALTEADAS Y DE MALTA</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE BEBIDAS NO ALCOHOLICAS</fullName>
+                <default>false</default>
+                <label>ELABORACION DE BEBIDAS NO ALCOHOLICAS</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE CACAO CHOCOLATE Y DE PRODUCTOS DE CONFITERIA</fullName>
+                <default>false</default>
+                <label>ELABORACION DE CACAO CHOCOLATE Y DE PRODUCTOS DE CONFITERIA</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE CIGARROS Y CIGARRILLOS</fullName>
+                <default>false</default>
+                <label>ELABORACION DE CIGARROS Y CIGARRILLOS</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE COMIDAS Y PLATOS PREPARADOS ENVASADOS ROTULADOS Y CON INFORMACION NUTRICIONAL</fullName>
+                <default>false</default>
+                <label>ELABORACION DE COMIDAS Y PLATOS PREPARADOS ENVASADOS ROTULADOS Y CON INFORMACION NUTRICIONAL</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE HIELO EXCEPTO FABRICACION DE HIELO SECO</fullName>
+                <default>false</default>
+                <label>ELABORACION DE HIELO EXCEPTO FABRICACION DE HIELO SECO</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE LEVADURAS NATURALES O ARTIFICIALES</fullName>
+                <default>false</default>
+                <label>ELABORACION DE LEVADURAS NATURALES O ARTIFICIALES</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE MACARRONES FIDEOS ALCUZCUZ Y PRODUCTOS FARINACEOS SIMILARES</fullName>
+                <default>false</default>
+                <label>ELABORACION DE MACARRONES FIDEOS ALCUZCUZ Y PRODUCTOS FARINACEOS SIMILARES</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE OTROS PRODUCTOS ALIMENTICIOS N.C.P.</fullName>
+                <default>false</default>
+                <label>ELABORACION DE OTROS PRODUCTOS ALIMENTICIOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE OTROS PRODUCTOS DE MOLINERIA N.C.P.</fullName>
+                <default>false</default>
+                <label>ELABORACION DE OTROS PRODUCTOS DE MOLINERIA N.C.P.</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE OTROS PRODUCTOS DE TABACO N.C.P.</fullName>
+                <default>false</default>
+                <label>ELABORACION DE OTROS PRODUCTOS DE TABACO N.C.P.</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE PIENSOS PREPARADOS PARA ANIMALES</fullName>
+                <default>false</default>
+                <label>ELABORACION DE PIENSOS PREPARADOS PARA ANIMALES</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE PISCO INDUSTRIAS PISQUERAS</fullName>
+                <default>false</default>
+                <label>ELABORACION DE PISCO INDUSTRIAS PISQUERAS</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE PRODUCTOS DE PANADERIA Y PASTELERIA</fullName>
+                <default>false</default>
+                <label>ELABORACION DE PRODUCTOS DE PANADERIA Y PASTELERIA</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE PRODUCTOS LACTEOS</fullName>
+                <default>false</default>
+                <label>ELABORACION DE PRODUCTOS LACTEOS</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE TE CAFE MATE E INFUSIONES DE HIERBAS</fullName>
+                <default>false</default>
+                <label>ELABORACION DE TE CAFE MATE E INFUSIONES DE HIERBAS</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE VINAGRES MOSTAZAS MAYONESAS Y CONDIMENTOS EN GENERAL</fullName>
+                <default>false</default>
+                <label>ELABORACION DE VINAGRES MOSTAZAS MAYONESAS Y CONDIMENTOS EN GENERAL</label>
+            </value>
+            <value>
+                <fullName>ELABORACION DE VINOS</fullName>
+                <default>false</default>
+                <label>ELABORACION DE VINOS</label>
+            </value>
+            <value>
+                <fullName>ELABORACION Y CONSERVACION DE CARNE Y PRODUCTOS CARNICOS</fullName>
+                <default>false</default>
+                <label>ELABORACION Y CONSERVACION DE CARNE Y PRODUCTOS CARNICOS</label>
+            </value>
+            <value>
+                <fullName>ELABORACION Y CONSERVACION DE CRUSTACEOS MOLUSCOS Y OTROS PRODUCTOS ACUATICOS EN PLANTAS EN TIERRA</fullName>
+                <default>false</default>
+                <label>ELABORACION Y CONSERVACION DE CRUSTACEOS MOLUSCOS Y OTROS PRODUCTOS ACUATICOS EN PLANTAS EN TIERRA</label>
+            </value>
+            <value>
+                <fullName>ELABORACION Y CONSERVACION DE FRUTAS LEGUMBRES Y HORTALIZAS</fullName>
+                <default>false</default>
+                <label>ELABORACION Y CONSERVACION DE FRUTAS LEGUMBRES Y HORTALIZAS</label>
+            </value>
+            <value>
+                <fullName>ELABORACION Y CONSERVACION DE OTROS PESCADOS EN PLANTAS EN TIERRA EXCEPTO BARCOS FACTORIA</fullName>
+                <default>false</default>
+                <label>ELABORACION Y CONSERVACION DE OTROS PESCADOS EN PLANTAS EN TIERRA EXCEPTO BARCOS FACTORIA</label>
+            </value>
+            <value>
+                <fullName>ELABORACION Y CONSERVACION DE SALMONIDOS</fullName>
+                <default>false</default>
+                <label>ELABORACION Y CONSERVACION DE SALMONIDOS</label>
+            </value>
+            <value>
+                <fullName>ELABORACION Y PROCESAMIENTO DE ALGAS</fullName>
+                <default>false</default>
+                <label>ELABORACION Y PROCESAMIENTO DE ALGAS</label>
+            </value>
+            <value>
+                <fullName>EMPRESAS DE ASESORIA Y CONSULTORIA EN INVERSION FINANCIERA SOCIEDADES DE APOYO AL GIRO</fullName>
+                <default>false</default>
+                <label>EMPRESAS DE ASESORIA Y CONSULTORIA EN INVERSION FINANCIERA SOCIEDADES DE APOYO AL GIRO</label>
+            </value>
+            <value>
+                <fullName>EMPRESAS DE SERVICIOS DE INGENIERIA Y ACTIVIDADES CONEXAS DE CONSULTORIA TECNICA</fullName>
+                <default>false</default>
+                <label>EMPRESAS DE SERVICIOS DE INGENIERIA Y ACTIVIDADES CONEXAS DE CONSULTORIA TECNICA</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA CULTURAL</fullName>
+                <default>false</default>
+                <label>ENSENANZA CULTURAL</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA DEPORTIVA Y RECREATIVA</fullName>
+                <default>false</default>
+                <label>ENSENANZA DEPORTIVA Y RECREATIVA</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA PREESCOLAR PRIVADA</fullName>
+                <default>false</default>
+                <label>ENSENANZA PREESCOLAR PRIVADA</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA PREESCOLAR PUBLICA</fullName>
+                <default>false</default>
+                <label>ENSENANZA PREESCOLAR PUBLICA</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA PREUNIVERSITARIA</fullName>
+                <default>false</default>
+                <label>ENSENANZA PREUNIVERSITARIA</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA PRIMARIA SECUNDARIA CIENTIFICO HUMANISTA Y TECNICO PROFESIONAL PRIVADA</fullName>
+                <default>false</default>
+                <label>ENSENANZA PRIMARIA SECUNDARIA CIENTIFICO HUMANISTA Y TECNICO PROFESIONAL PRIVADA</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA PRIMARIA SECUNDARIA CIENTIFICO HUMANISTA Y TECNICO PROFESIONAL PUBLICA</fullName>
+                <default>false</default>
+                <label>ENSENANZA PRIMARIA SECUNDARIA CIENTIFICO HUMANISTA Y TECNICO PROFESIONAL PUBLICA</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA SUPERIOR EN CENTROS DE FORMACION TECNICA</fullName>
+                <default>false</default>
+                <label>ENSENANZA SUPERIOR EN CENTROS DE FORMACION TECNICA</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA SUPERIOR EN INSTITUTOS PROFESIONALES</fullName>
+                <default>false</default>
+                <label>ENSENANZA SUPERIOR EN INSTITUTOS PROFESIONALES</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA SUPERIOR EN UNIVERSIDADES PRIVADAS</fullName>
+                <default>false</default>
+                <label>ENSENANZA SUPERIOR EN UNIVERSIDADES PRIVADAS</label>
+            </value>
+            <value>
+                <fullName>ENSENANZA SUPERIOR EN UNIVERSIDADES PUBLICAS</fullName>
+                <default>false</default>
+                <label>ENSENANZA SUPERIOR EN UNIVERSIDADES PUBLICAS</label>
+            </value>
+            <value>
+                <fullName>ESTUDIOS DE MERCADO Y ENCUESTAS DE OPINION PUBLICA</fullName>
+                <default>false</default>
+                <label>ESTUDIOS DE MERCADO Y ENCUESTAS DE OPINION PUBLICA</label>
+            </value>
+            <value>
+                <fullName>EVACUACION Y TRATAMIENTO DE AGUAS SERVIDAS</fullName>
+                <default>false</default>
+                <label>EVACUACION Y TRATAMIENTO DE AGUAS SERVIDAS</label>
+            </value>
+            <value>
+                <fullName>EVALUACION DE RIESGOS Y DANOS INCLUYE ACTIVIDADES DE LIQUIDADORES DE SEGUROS</fullName>
+                <default>false</default>
+                <label>EVALUACION DE RIESGOS Y DANOS INCLUYE ACTIVIDADES DE LIQUIDADORES DE SEGUROS</label>
+            </value>
+            <value>
+                <fullName>EXPLOTACION DE ESTACIONAMIENTOS DE VEHICULOS AUTOMOTORES Y PARQUIMETROS</fullName>
+                <default>false</default>
+                <label>EXPLOTACION DE ESTACIONAMIENTOS DE VEHICULOS AUTOMOTORES Y PARQUIMETROS</label>
+            </value>
+            <value>
+                <fullName>EXPLOTACION DE FRIGORIFICOS PARA ALMACENAMIENTO Y DEPOSITO</fullName>
+                <default>false</default>
+                <label>EXPLOTACION DE FRIGORIFICOS PARA ALMACENAMIENTO Y DEPOSITO</label>
+            </value>
+            <value>
+                <fullName>EXPLOTACION DE MATADEROS DE AVES Y DE OTROS TIPOS DE ANIMALES N.C.P.</fullName>
+                <default>false</default>
+                <label>EXPLOTACION DE MATADEROS DE AVES Y DE OTROS TIPOS DE ANIMALES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>EXPLOTACION DE MATADEROS DE BOVINOS OVINOS EQUINOS CAPRINOS PORCINOS Y CAMELIDOS</fullName>
+                <default>false</default>
+                <label>EXPLOTACION DE MATADEROS DE BOVINOS OVINOS EQUINOS CAPRINOS PORCINOS Y CAMELIDOS</label>
+            </value>
+            <value>
+                <fullName>EXPLOTACION DE OTRAS MINAS Y CANTERAS N.C.P.</fullName>
+                <default>false</default>
+                <label>EXPLOTACION DE OTRAS MINAS Y CANTERAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>EXPLOTACION DE TERMINALES TERRESTRES DE PASAJEROS</fullName>
+                <default>false</default>
+                <label>EXPLOTACION DE TERMINALES TERRESTRES DE PASAJEROS</label>
+            </value>
+            <value>
+                <fullName>EXPLOTACION DE VIVEROS FORESTALES</fullName>
+                <default>false</default>
+                <label>EXPLOTACION DE VIVEROS FORESTALES</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE CARBON DE PIEDRA</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE CARBON DE PIEDRA</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE GAS NATURAL</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE GAS NATURAL</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE LIGNITO</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE LIGNITO</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE MADERA</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE MADERA</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE MANGANESO</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE MANGANESO</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE MINERALES DE HIERRO</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE MINERALES DE HIERRO</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE MINERALES DE URANIO Y TORIO</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE MINERALES DE URANIO Y TORIO</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE MINERALES PARA LA FABRICACION DE ABONOS Y PRODUCTOS QUIMICOS N.C.P.</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE MINERALES PARA LA FABRICACION DE ABONOS Y PRODUCTOS QUIMICOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE ORO Y PLATA</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE ORO Y PLATA</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE OTROS MINERALES METALIFEROS NO FERROSOS N.C.P. EXCEPTO ZINC PLOMO Y MANGANESO</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE OTROS MINERALES METALIFEROS NO FERROSOS N.C.P. EXCEPTO ZINC PLOMO Y MANGANESO</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE PETROLEO CRUDO</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE PETROLEO CRUDO</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE PIEDRA ARENA Y ARCILLA</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE PIEDRA ARENA Y ARCILLA</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE SAL</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE SAL</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE TURBA</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE TURBA</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION DE ZINC Y PLOMO</fullName>
+                <default>false</default>
+                <label>EXTRACCION DE ZINC Y PLOMO</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION Y PROCESAMIENTO DE COBRE</fullName>
+                <default>false</default>
+                <label>EXTRACCION Y PROCESAMIENTO DE COBRE</label>
+            </value>
+            <value>
+                <fullName>EXTRACCION Y PROCESAMIENTO DE LITIO</fullName>
+                <default>false</default>
+                <label>EXTRACCION Y PROCESAMIENTO DE LITIO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE ABONOS Y COMPUESTOS DE NITROGENO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE ABONOS Y COMPUESTOS DE NITROGENO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE ACCESORIOS DE VESTIR</fullName>
+                <default>false</default>
+                <label>FABRICACION DE ACCESORIOS DE VESTIR</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE AERONAVES NAVES ESPACIALES Y MAQUINARIA CONEXA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE AERONAVES NAVES ESPACIALES Y MAQUINARIA CONEXA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE APARATOS DE USO DOMESTICO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE APARATOS DE USO DOMESTICO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE APARATOS ELECTRONICOS DE CONSUMO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE APARATOS ELECTRONICOS DE CONSUMO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE ARMAS Y MUNICIONES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE ARMAS Y MUNICIONES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE ARTICULOS CONFECCIONADOS DE MATERIALES TEXTILES EXCEPTO PRENDAS DE VESTIR</fullName>
+                <default>false</default>
+                <label>FABRICACION DE ARTICULOS CONFECCIONADOS DE MATERIALES TEXTILES EXCEPTO PRENDAS DE VESTIR</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE ARTICULOS DE CUCHILLERIA HERRAMIENTAS DE MANO Y ARTICULOS DE FERRETERIA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE ARTICULOS DE CUCHILLERIA HERRAMIENTAS DE MANO Y ARTICULOS DE FERRETERIA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE ARTICULOS DE DEPORTE</fullName>
+                <default>false</default>
+                <label>FABRICACION DE ARTICULOS DE DEPORTE</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE ARTICULOS DE HORMIGON CEMENTO Y YESO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE ARTICULOS DE HORMIGON CEMENTO Y YESO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE ARTICULOS DE PIEL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE ARTICULOS DE PIEL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE ARTICULOS DE PUNTO Y GANCHILLO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE ARTICULOS DE PUNTO Y GANCHILLO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE BICICLETAS Y DE SILLAS DE RUEDAS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE BICICLETAS Y DE SILLAS DE RUEDAS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE BISUTERIA Y ARTICULOS CONEXOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE BISUTERIA Y ARTICULOS CONEXOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE CABLES DE FIBRA OPTICA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE CABLES DE FIBRA OPTICA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE CALZADO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE CALZADO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE CARBON VEGETAL EXCEPTO ACTIVADO FABRICACION DE BRIQUETAS DE CARBON VEGETAL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE CARBON VEGETAL EXCEPTO ACTIVADO FABRICACION DE BRIQUETAS DE CARBON VEGETAL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE CARROCERIAS PARA VEHICULOS AUTOMOTORES FABRICACION DE REMOLQUES Y SEMIRREMOLQUES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE CARROCERIAS PARA VEHICULOS AUTOMOTORES FABRICACION DE REMOLQUES Y SEMIRREMOLQUES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE CELULOSA Y OTRAS PASTAS DE MADERA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE CELULOSA Y OTRAS PASTAS DE MADERA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE CEMENTO CAL Y YESO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE CEMENTO CAL Y YESO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE COJINETES ENGRANAJES TRENES DE ENGRANAJES Y PIEZAS DE TRANSMISION</fullName>
+                <default>false</default>
+                <label>FABRICACION DE COJINETES ENGRANAJES TRENES DE ENGRANAJES Y PIEZAS DE TRANSMISION</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE COLCHONES FABRICACION DE OTROS MUEBLES N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE COLCHONES FABRICACION DE OTROS MUEBLES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE COMPONENTES Y TABLEROS ELECTRONICOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE COMPONENTES Y TABLEROS ELECTRONICOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE COMPUTADORES Y EQUIPO PERIFERICO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE COMPUTADORES Y EQUIPO PERIFERICO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE CUBIERTAS Y CAMARAS DE CAUCHO RECAUCHUTADO Y RENOVACION DE CUBIERTAS DE CAUCHO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE CUBIERTAS Y CAMARAS DE CAUCHO RECAUCHUTADO Y RENOVACION DE CUBIERTAS DE CAUCHO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE CUERDAS CORDELES BRAMANTES Y REDES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE CUERDAS CORDELES BRAMANTES Y REDES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE DISPOSITIVOS DE CABLEADO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE DISPOSITIVOS DE CABLEADO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE EQUIPO DE COMUNICACIONES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE EQUIPO DE COMUNICACIONES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE EQUIPO DE ELEVACION Y MANIPULACION</fullName>
+                <default>false</default>
+                <label>FABRICACION DE EQUIPO DE ELEVACION Y MANIPULACION</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE EQUIPO DE IRRADIACION Y EQUIPO ELECTRONICO DE USO MEDICO Y TERAPEUTICO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE EQUIPO DE IRRADIACION Y EQUIPO ELECTRONICO DE USO MEDICO Y TERAPEUTICO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE EQUIPO DE MEDICION PRUEBA NAVEGACION Y CONTROL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE EQUIPO DE MEDICION PRUEBA NAVEGACION Y CONTROL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE EQUIPO DE PROPULSION DE FLUIDOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE EQUIPO DE PROPULSION DE FLUIDOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE EQUIPO ELECTRICO DE ILUMINACION</fullName>
+                <default>false</default>
+                <label>FABRICACION DE EQUIPO ELECTRICO DE ILUMINACION</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE EXPLOSIVOS Y PRODUCTOS PIROTECNICOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE EXPLOSIVOS Y PRODUCTOS PIROTECNICOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE FIBRAS ARTIFICIALES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE FIBRAS ARTIFICIALES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE FIBRAS DE VIDRIO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE FIBRAS DE VIDRIO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE GAS DISTRIBUCION DE COMBUSTIBLES GASEOSOS POR TUBERIA EXCEPTO REGASIFICACION DE GNL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE GAS DISTRIBUCION DE COMBUSTIBLES GASEOSOS POR TUBERIA EXCEPTO REGASIFICACION DE GNL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE GENERADORES DE VAPOR EXCEPTO CALDERAS DE AGUA CALIENTE PARA CALEFACCION CENTRAL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE GENERADORES DE VAPOR EXCEPTO CALDERAS DE AGUA CALIENTE PARA CALEFACCION CENTRAL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE HERRAMIENTAS DE MANO MOTORIZADAS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE HERRAMIENTAS DE MANO MOTORIZADAS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE HOJAS DE MADERA PARA ENCHAPADO Y TABLEROS A BASE DE MADERA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE HOJAS DE MADERA PARA ENCHAPADO Y TABLEROS A BASE DE MADERA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE HORNOS CALDERAS Y QUEMADORES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE HORNOS CALDERAS Y QUEMADORES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE INSTRUMENTOS MUSICALES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE INSTRUMENTOS MUSICALES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE INSTRUMENTOS OPTICOS Y EQUIPO FOTOGRAFICO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE INSTRUMENTOS OPTICOS Y EQUIPO FOTOGRAFICO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE INSTRUMENTOS Y MATERIALES MEDICOS OFTALMOLOGICOS Y ODONTOLOGICOS N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE INSTRUMENTOS Y MATERIALES MEDICOS OFTALMOLOGICOS Y ODONTOLOGICOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE JABONES Y DETERGENTES PREPARADOS PARA LIMPIAR PERFUMES Y PREPARADOS DE TOCADOR</fullName>
+                <default>false</default>
+                <label>FABRICACION DE JABONES Y DETERGENTES PREPARADOS PARA LIMPIAR PERFUMES Y PREPARADOS DE TOCADOR</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE JOYAS Y ARTICULOS CONEXOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE JOYAS Y ARTICULOS CONEXOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE JUEGOS Y JUGUETES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE JUEGOS Y JUGUETES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE LOCOMOTORAS Y MATERIAL RODANTE</fullName>
+                <default>false</default>
+                <label>FABRICACION DE LOCOMOTORAS Y MATERIAL RODANTE</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MALETAS BOLSOS Y ARTICULOS SIMILARES ARTICULOS DE TALABARTERIA Y GUARNICIONERIA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MALETAS BOLSOS Y ARTICULOS SIMILARES ARTICULOS DE TALABARTERIA Y GUARNICIONERIA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MAQUINARIA AGROPECUARIA Y FORESTAL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MAQUINARIA AGROPECUARIA Y FORESTAL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MAQUINARIA METALURGICA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MAQUINARIA METALURGICA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MAQUINARIA PARA LA CONFORMACION DE METALES Y DE MAQUINAS HERRAMIENTA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MAQUINARIA PARA LA CONFORMACION DE METALES Y DE MAQUINAS HERRAMIENTA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MAQUINARIA PARA LA ELABORACION DE ALIMENTOS BEBIDAS Y TABACO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MAQUINARIA PARA LA ELABORACION DE ALIMENTOS BEBIDAS Y TABACO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MAQUINARIA PARA LA ELABORACION DE PRODUCTOS TEXTILES PRENDAS DE VESTIR Y CUEROS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MAQUINARIA PARA LA ELABORACION DE PRODUCTOS TEXTILES PRENDAS DE VESTIR Y CUEROS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MAQUINARIA PARA LA EXPLOTACION DE MINAS Y CANTERAS Y PARA OBRAS DE CONSTRUCCION</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MAQUINARIA PARA LA EXPLOTACION DE MINAS Y CANTERAS Y PARA OBRAS DE CONSTRUCCION</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MAQUINARIA Y EQUIPO DE OFICINA EXCEPTO COMPUTADORES Y EQUIPO PERIFERICO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MAQUINARIA Y EQUIPO DE OFICINA EXCEPTO COMPUTADORES Y EQUIPO PERIFERICO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MATERIALES DE CONSTRUCCION DE ARCILLA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MATERIALES DE CONSTRUCCION DE ARCILLA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MOTOCICLETAS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MOTOCICLETAS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MOTORES GENERADORES Y TRANSFORMADORES ELECTRICOS APARATOS DE DISTRIBUCION Y CONTROL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MOTORES GENERADORES Y TRANSFORMADORES ELECTRICOS APARATOS DE DISTRIBUCION Y CONTROL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MOTORES Y TURBINAS EXCEPTO PARA AERONAVES VEHICULOS AUTOMOTORES Y MOTOCICLETAS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MOTORES Y TURBINAS EXCEPTO PARA AERONAVES VEHICULOS AUTOMOTORES Y MOTOCICLETAS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE MUEBLES PRINCIPALMENTE DE MADERA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE MUEBLES PRINCIPALMENTE DE MADERA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTRAS BOMBAS COMPRESORES GRIFOS Y VALVULAS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTRAS BOMBAS COMPRESORES GRIFOS Y VALVULAS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTRAS SUSTANCIAS QUIMICAS BASICAS N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTRAS SUSTANCIAS QUIMICAS BASICAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS ARTICULOS DE PAPEL Y CARTON</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS ARTICULOS DE PAPEL Y CARTON</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS HILOS Y CABLES ELECTRICOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS HILOS Y CABLES ELECTRICOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS PRODUCTOS DE CAUCHO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS PRODUCTOS DE CAUCHO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS PRODUCTOS DE MADERA DE ARTICULOS DE CORCHO PAJA Y MATERIALES TRENZABLES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS PRODUCTOS DE MADERA DE ARTICULOS DE CORCHO PAJA Y MATERIALES TRENZABLES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS PRODUCTOS DE PORCELANA Y DE CERAMICA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS PRODUCTOS DE PORCELANA Y DE CERAMICA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS PRODUCTOS ELABORADOS DE METAL N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS PRODUCTOS ELABORADOS DE METAL N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS PRODUCTOS MINERALES NO METALICOS N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS PRODUCTOS MINERALES NO METALICOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS PRODUCTOS QUIMICOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS PRODUCTOS QUIMICOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS PRODUCTOS QUIMICOS N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS PRODUCTOS QUIMICOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS PRODUCTOS TEXTILES N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS PRODUCTOS TEXTILES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS TIPOS DE EQUIPO DE TRANSPORTE N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS TIPOS DE EQUIPO DE TRANSPORTE N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS TIPOS DE EQUIPO ELECTRICO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS TIPOS DE EQUIPO ELECTRICO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS TIPOS DE MAQUINARIA DE USO ESPECIAL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS TIPOS DE MAQUINARIA DE USO ESPECIAL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE OTROS TIPOS DE MAQUINARIA DE USO GENERAL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE OTROS TIPOS DE MAQUINARIA DE USO GENERAL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PAPEL Y CARTON ONDULADO Y DE ENVASES DE PAPEL Y CARTON</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PAPEL Y CARTON ONDULADO Y DE ENVASES DE PAPEL Y CARTON</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PAPEL Y CARTON PARA SU POSTERIOR USO INDUSTRIAL N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PAPEL Y CARTON PARA SU POSTERIOR USO INDUSTRIAL N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PARTES PIEZAS Y ACCESORIOS PARA VEHICULOS AUTOMOTORES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PARTES PIEZAS Y ACCESORIOS PARA VEHICULOS AUTOMOTORES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PARTES Y PIEZAS DE CARPINTERIA PARA EDIFICIOS Y CONSTRUCCIONES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PARTES Y PIEZAS DE CARPINTERIA PARA EDIFICIOS Y CONSTRUCCIONES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PILAS BATERIAS Y ACUMULADORES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PILAS BATERIAS Y ACUMULADORES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PINTURAS BARNICES Y PRODUCTOS DE REVESTIMIENTO TINTAS DE IMPRENTA Y MASILLAS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PINTURAS BARNICES Y PRODUCTOS DE REVESTIMIENTO TINTAS DE IMPRENTA Y MASILLAS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PLAGUICIDAS Y OTROS PRODUCTOS QUIMICOS DE USO AGROPECUARIO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PLAGUICIDAS Y OTROS PRODUCTOS QUIMICOS DE USO AGROPECUARIO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PLASTICOS Y CAUCHO SINTETICO EN FORMAS PRIMARIAS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PLASTICOS Y CAUCHO SINTETICO EN FORMAS PRIMARIAS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRENDAS DE VESTIR DE CUERO NATURAL O ARTIFICIAL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRENDAS DE VESTIR DE CUERO NATURAL O ARTIFICIAL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRENDAS DE VESTIR DE MATERIALES TEXTILES Y SIMILARES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRENDAS DE VESTIR DE MATERIALES TEXTILES Y SIMILARES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRODUCTOS DE HORNOS DE COQUE</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRODUCTOS DE HORNOS DE COQUE</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRODUCTOS DE LA REFINACION DEL PETROLEO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRODUCTOS DE LA REFINACION DEL PETROLEO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRODUCTOS DE PLASTICO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRODUCTOS DE PLASTICO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRODUCTOS DE VIDRIO N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRODUCTOS DE VIDRIO N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRODUCTOS FARMACEUTICOS SUSTANCIAS QUIMICAS MEDICINALES Y PRODUCTOS BOTANICOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRODUCTOS FARMACEUTICOS SUSTANCIAS QUIMICAS MEDICINALES Y PRODUCTOS BOTANICOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRODUCTOS METALICOS PARA USO ESTRUCTURAL</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRODUCTOS METALICOS PARA USO ESTRUCTURAL</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRODUCTOS PRIMARIOS DE ALUMINIO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRODUCTOS PRIMARIOS DE ALUMINIO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRODUCTOS PRIMARIOS DE COBRE</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRODUCTOS PRIMARIOS DE COBRE</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRODUCTOS PRIMARIOS DE METALES PRECIOSOS Y DE OTROS METALES NO FERROSOS N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRODUCTOS PRIMARIOS DE METALES PRECIOSOS Y DE OTROS METALES NO FERROSOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE PRODUCTOS REFRACTARIOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE PRODUCTOS REFRACTARIOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE RECIPIENTES DE MADERA</fullName>
+                <default>false</default>
+                <label>FABRICACION DE RECIPIENTES DE MADERA</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE RECIPIENTES DE METAL PARA GASES COMPRIMIDOS O LICUADOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE RECIPIENTES DE METAL PARA GASES COMPRIMIDOS O LICUADOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE RELOJES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE RELOJES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE ROPA DE TRABAJO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE ROPA DE TRABAJO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE SOPORTES MAGNETICOS Y OPTICOS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE SOPORTES MAGNETICOS Y OPTICOS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE TANQUES DEPOSITOS Y RECIPIENTES DE METAL N.C.P.</fullName>
+                <default>false</default>
+                <label>FABRICACION DE TANQUES DEPOSITOS Y RECIPIENTES DE METAL N.C.P.</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE TAPICES Y ALFOMBRAS</fullName>
+                <default>false</default>
+                <label>FABRICACION DE TAPICES Y ALFOMBRAS</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE TEJIDOS DE PUNTO Y GANCHILLO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE TEJIDOS DE PUNTO Y GANCHILLO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE VEHICULOS AUTOMOTORES</fullName>
+                <default>false</default>
+                <label>FABRICACION DE VEHICULOS AUTOMOTORES</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE VEHICULOS MILITARES DE COMBATE</fullName>
+                <default>false</default>
+                <label>FABRICACION DE VEHICULOS MILITARES DE COMBATE</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE VIDRIO HUECO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE VIDRIO HUECO</label>
+            </value>
+            <value>
+                <fullName>FABRICACION DE VIDRIO PLANO</fullName>
+                <default>false</default>
+                <label>FABRICACION DE VIDRIO PLANO</label>
+            </value>
+            <value>
+                <fullName>FINANCIERAS</fullName>
+                <default>false</default>
+                <label>FINANCIERAS</label>
+            </value>
+            <value>
+                <fullName>FONDO NACIONAL DE SALUD FONASA</fullName>
+                <default>false</default>
+                <label>FONDO NACIONAL DE SALUD FONASA</label>
+            </value>
+            <value>
+                <fullName>FONDOS DE PENSIONES</fullName>
+                <default>false</default>
+                <label>FONDOS DE PENSIONES</label>
+            </value>
+            <value>
+                <fullName>FONDOS Y SOCIEDADES DE INVERSION Y ENTIDADES FINANCIERAS SIMILARES</fullName>
+                <default>false</default>
+                <label>FONDOS Y SOCIEDADES DE INVERSION Y ENTIDADES FINANCIERAS SIMILARES</label>
+            </value>
+            <value>
+                <fullName>FORJA PRENSADO ESTAMPADO Y LAMINADO DE METALES PULVIMETALURGIA</fullName>
+                <default>false</default>
+                <label>FORJA PRENSADO ESTAMPADO Y LAMINADO DE METALES PULVIMETALURGIA</label>
+            </value>
+            <value>
+                <fullName>FOTOCOPIADO PREPARACION DE DOCUMENTOS Y OTRAS ACTIVIDADES ESPECIALIZADAS DE APOYO DE OFICINA</fullName>
+                <default>false</default>
+                <label>FOTOCOPIADO PREPARACION DE DOCUMENTOS Y OTRAS ACTIVIDADES ESPECIALIZADAS DE APOYO DE OFICINA</label>
+            </value>
+            <value>
+                <fullName>FUNDACIONES Y CORPORACIONES ASOCIACIONES QUE PROMUEVEN ACTIVIDADES CULTURALES O RECREATIVAS</fullName>
+                <default>false</default>
+                <label>FUNDACIONES Y CORPORACIONES ASOCIACIONES QUE PROMUEVEN ACTIVIDADES CULTURALES O RECREATIVAS</label>
+            </value>
+            <value>
+                <fullName>FUNDICION DE HIERRO Y ACERO</fullName>
+                <default>false</default>
+                <label>FUNDICION DE HIERRO Y ACERO</label>
+            </value>
+            <value>
+                <fullName>FUNDICION DE METALES NO FERROSOS</fullName>
+                <default>false</default>
+                <label>FUNDICION DE METALES NO FERROSOS</label>
+            </value>
+            <value>
+                <fullName>GENERACION DE ENERGIA ELECTRICA EN CENTRALES HIDROELECTRICAS</fullName>
+                <default>false</default>
+                <label>GENERACION DE ENERGIA ELECTRICA EN CENTRALES HIDROELECTRICAS</label>
+            </value>
+            <value>
+                <fullName>GENERACION DE ENERGIA ELECTRICA EN CENTRALES TERMOELECTRICAS</fullName>
+                <default>false</default>
+                <label>GENERACION DE ENERGIA ELECTRICA EN CENTRALES TERMOELECTRICAS</label>
+            </value>
+            <value>
+                <fullName>GENERACION DE ENERGIA ELECTRICA EN OTRAS CENTRALES N.C.P.</fullName>
+                <default>false</default>
+                <label>GENERACION DE ENERGIA ELECTRICA EN OTRAS CENTRALES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>GESTION DE OTRAS INSTALACIONES DEPORTIVAS N.C.P.</fullName>
+                <default>false</default>
+                <label>GESTION DE OTRAS INSTALACIONES DEPORTIVAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>GESTION DE SALAS DE BILLAR GESTION DE SALAS DE BOLOS BOWLING</fullName>
+                <default>false</default>
+                <label>GESTION DE SALAS DE BILLAR GESTION DE SALAS DE BOLOS BOWLING</label>
+            </value>
+            <value>
+                <fullName>GESTION DE SALAS DE POOL GESTION EXPLOTACION DE JUEGOS ELECTRONICOS</fullName>
+                <default>false</default>
+                <label>GESTION DE SALAS DE POOL GESTION EXPLOTACION DE JUEGOS ELECTRONICOS</label>
+            </value>
+            <value>
+                <fullName>HIPODROMOS</fullName>
+                <default>false</default>
+                <label>HIPODROMOS</label>
+            </value>
+            <value>
+                <fullName>IMPRESION DE LIBROS</fullName>
+                <default>false</default>
+                <label>IMPRESION DE LIBROS</label>
+            </value>
+            <value>
+                <fullName>INDUSTRIAS BASICAS DE HIERRO Y ACERO</fullName>
+                <default>false</default>
+                <label>INDUSTRIAS BASICAS DE HIERRO Y ACERO</label>
+            </value>
+            <value>
+                <fullName>INSTALACION DE MAQUINARIA Y EQUIPOS INDUSTRIALES</fullName>
+                <default>false</default>
+                <label>INSTALACION DE MAQUINARIA Y EQUIPOS INDUSTRIALES</label>
+            </value>
+            <value>
+                <fullName>INSTALACIONES DE GASFITERIA CALEFACCION Y AIRE ACONDICIONADO</fullName>
+                <default>false</default>
+                <label>INSTALACIONES DE GASFITERIA CALEFACCION Y AIRE ACONDICIONADO</label>
+            </value>
+            <value>
+                <fullName>INSTALACIONES ELECTRICAS</fullName>
+                <default>false</default>
+                <label>INSTALACIONES ELECTRICAS</label>
+            </value>
+            <value>
+                <fullName>INSTITUTO DE PREVISION SOCIAL IPS</fullName>
+                <default>false</default>
+                <label>INSTITUTO DE PREVISION SOCIAL IPS</label>
+            </value>
+            <value>
+                <fullName>INVESTIGACIONES Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS NATURALES Y LA INGENIERIA</fullName>
+                <default>false</default>
+                <label>INVESTIGACIONES Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS NATURALES Y LA INGENIERIA</label>
+            </value>
+            <value>
+                <fullName>INVESTIGACIONES Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS SOCIALES Y LAS HUMANIDADES</fullName>
+                <default>false</default>
+                <label>INVESTIGACIONES Y DESARROLLO EXPERIMENTAL EN EL CAMPO DE LAS CIENCIAS SOCIALES Y LAS HUMANIDADES</label>
+            </value>
+            <value>
+                <fullName>LAVADO Y LIMPIEZA INCLUIDA LA LIMPIEZA EN SECO DE PRODUCTOS TEXTILES Y DE PIEL</fullName>
+                <default>false</default>
+                <label>LAVADO Y LIMPIEZA INCLUIDA LA LIMPIEZA EN SECO DE PRODUCTOS TEXTILES Y DE PIEL</label>
+            </value>
+            <value>
+                <fullName>LEASING FINANCIERO</fullName>
+                <default>false</default>
+                <label>LEASING FINANCIERO</label>
+            </value>
+            <value>
+                <fullName>LIMPIEZA GENERAL DE EDIFICIOS</fullName>
+                <default>false</default>
+                <label>LIMPIEZA GENERAL DE EDIFICIOS</label>
+            </value>
+            <value>
+                <fullName>MANIPULACION DE LA CARGA</fullName>
+                <default>false</default>
+                <label>MANIPULACION DE LA CARGA</label>
+            </value>
+            <value>
+                <fullName>MANTENIMIENTO Y REPARACION DE MOTOCICLETAS</fullName>
+                <default>false</default>
+                <label>MANTENIMIENTO Y REPARACION DE MOTOCICLETAS</label>
+            </value>
+            <value>
+                <fullName>MANTENIMIENTO Y REPARACION DE VEHICULOS AUTOMOTORES</fullName>
+                <default>false</default>
+                <label>MANTENIMIENTO Y REPARACION DE VEHICULOS AUTOMOTORES</label>
+            </value>
+            <value>
+                <fullName>MOLIENDA DE ARROZ PRODUCCION DE HARINA DE ARROZ</fullName>
+                <default>false</default>
+                <label>MOLIENDA DE ARROZ PRODUCCION DE HARINA DE ARROZ</label>
+            </value>
+            <value>
+                <fullName>MOLIENDA DE TRIGO PRODUCCION DE HARINA SEMOLA Y GRANULOS</fullName>
+                <default>false</default>
+                <label>MOLIENDA DE TRIGO PRODUCCION DE HARINA SEMOLA Y GRANULOS</label>
+            </value>
+            <value>
+                <fullName>ORGANIZACION DE CONVENCIONES Y EXPOSICIONES COMERCIALES</fullName>
+                <default>false</default>
+                <label>ORGANIZACION DE CONVENCIONES Y EXPOSICIONES COMERCIALES</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES AUXILIARES DE LAS ACTIVIDADES DE SEGUROS Y FONDOS DE PENSIONES</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES AUXILIARES DE LAS ACTIVIDADES DE SEGUROS Y FONDOS DE PENSIONES</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES AUXILIARES DE LAS ACTIVIDADES DE SERVICIOS FINANCIEROS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES AUXILIARES DE LAS ACTIVIDADES DE SERVICIOS FINANCIEROS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES CREATIVAS ARTISTICAS Y DE ENTRETENIMIENTO N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES CREATIVAS ARTISTICAS Y DE ENTRETENIMIENTO N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE ALOJAMIENTO N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE ALOJAMIENTO N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE ALOJAMIENTO PARA TURISTAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE ALOJAMIENTO PARA TURISTAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE APOYO AL TRANSPORTE N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE APOYO AL TRANSPORTE N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE ASISTENCIA SOCIAL SIN ALOJAMIENTO</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE ASISTENCIA SOCIAL SIN ALOJAMIENTO</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE ATENCION EN INSTITUCIONES</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE ATENCION EN INSTITUCIONES</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE CONCESION DE CREDITO N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE CONCESION DE CREDITO N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE DOTACION DE RECURSOS HUMANOS</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE DOTACION DE RECURSOS HUMANOS</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE EDICION</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE EDICION</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE ESPARCIMIENTO Y RECREATIVAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE ESPARCIMIENTO Y RECREATIVAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE IMPRESION N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE IMPRESION N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE JUEGOS DE AZAR Y APUESTAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE JUEGOS DE AZAR Y APUESTAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE LIMPIEZA DE EDIFICIOS E INSTALACIONES INDUSTRIALES N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE LIMPIEZA DE EDIFICIOS E INSTALACIONES INDUSTRIALES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DEPORTIVAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DEPORTIVAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE SERVICIO DE BEBIDAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE SERVICIO DE BEBIDAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE SERVICIOS DE APOYO A LAS EMPRESAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE SERVICIOS DE APOYO A LAS EMPRESAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE SERVICIOS DE INFORMACION N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE SERVICIOS DE INFORMACION N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE SERVICIOS FINANCIEROS EXCEPTO LAS DE SEGUROS Y FONDOS DE PENSIONES N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE SERVICIOS FINANCIEROS EXCEPTO LAS DE SEGUROS Y FONDOS DE PENSIONES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE SERVICIOS PERSONALES N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE SERVICIOS PERSONALES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE TECNOLOGIA DE LA INFORMACION Y DE SERVICIOS INFORMATICOS</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE TECNOLOGIA DE LA INFORMACION Y DE SERVICIOS INFORMATICOS</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE TELECOMUNICACIONES</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE TELECOMUNICACIONES</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE TELECOMUNICACIONES N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE TELECOMUNICACIONES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE TRANSPORTE DE PASAJEROS POR VIA TERRESTRE N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE TRANSPORTE DE PASAJEROS POR VIA TERRESTRE N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE TRANSPORTE POR TUBERIAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE TRANSPORTE POR TUBERIAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE TRANSPORTE URBANO Y SUBURBANO DE PASAJEROS POR VIA TERRESTRE N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE TRANSPORTE URBANO Y SUBURBANO DE PASAJEROS POR VIA TERRESTRE N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE VENTA AL POR MENOR EN COMERCIOS NO ESPECIALIZADOS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE VENTA AL POR MENOR EN COMERCIOS NO ESPECIALIZADOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES DE VENTA POR MENOR NO REALIZADAS EN COMERCIOS PUESTOS DE VENTA O MERCADOS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES DE VENTA POR MENOR NO REALIZADAS EN COMERCIOS PUESTOS DE VENTA O MERCADOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES ESPECIALIZADAS DE CONSTRUCCION</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES ESPECIALIZADAS DE CONSTRUCCION</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES ESPECIALIZADAS DE DISENO N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES ESPECIALIZADAS DE DISENO N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS ACTIVIDADES PROFESIONALES CIENTIFICAS Y TECNICAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS ACTIVIDADES PROFESIONALES CIENTIFICAS Y TECNICAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS INDUSTRIAS MANUFACTURERAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTRAS INDUSTRIAS MANUFACTURERAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTRAS INSTALACIONES PARA OBRAS DE CONSTRUCCION</fullName>
+                <default>false</default>
+                <label>OTRAS INSTALACIONES PARA OBRAS DE CONSTRUCCION</label>
+            </value>
+            <value>
+                <fullName>OTROS PLANES DE SEGURIDAD SOCIAL DE AFILIACION OBLIGATORIA N.C.P.</fullName>
+                <default>false</default>
+                <label>OTROS PLANES DE SEGURIDAD SOCIAL DE AFILIACION OBLIGATORIA N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTROS SERVICIOS DE ALMACENAMIENTO Y DEPOSITO N.C.P.</fullName>
+                <default>false</default>
+                <label>OTROS SERVICIOS DE ALMACENAMIENTO Y DEPOSITO N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTROS SERVICIOS DE APOYO A LA SILVICULTURA N.C.P.</fullName>
+                <default>false</default>
+                <label>OTROS SERVICIOS DE APOYO A LA SILVICULTURA N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTROS SERVICIOS DE ATENCION DE LA SALUD HUMANA PRESTADOS POR EMPRESAS</fullName>
+                <default>false</default>
+                <label>OTROS SERVICIOS DE ATENCION DE LA SALUD HUMANA PRESTADOS POR EMPRESAS</label>
+            </value>
+            <value>
+                <fullName>OTROS SERVICIOS DE CORRETAJE DE VALORES Y COMMODITIES N.C.P.</fullName>
+                <default>false</default>
+                <label>OTROS SERVICIOS DE CORRETAJE DE VALORES Y COMMODITIES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTROS SERVICIOS DE ENSAYOS Y ANALISIS TECNICOS EXCEPTO ACTIVIDADES DE PLANTAS DE REVISION TECNICA</fullName>
+                <default>false</default>
+                <label>OTROS SERVICIOS DE ENSAYOS Y ANALISIS TECNICOS EXCEPTO ACTIVIDADES DE PLANTAS DE REVISION TECNICA</label>
+            </value>
+            <value>
+                <fullName>OTROS SERVICIOS DE RESERVAS Y ACTIVIDADES CONEXAS INCLUYE VENTA DE ENTRADAS PARA TEATRO Y OTROS</fullName>
+                <default>false</default>
+                <label>OTROS SERVICIOS DE RESERVAS Y ACTIVIDADES CONEXAS INCLUYE VENTA DE ENTRADAS PARA TEATRO Y OTROS</label>
+            </value>
+            <value>
+                <fullName>OTROS SERVICIOS DE TELECOMUNICACIONES ALAMBRICAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTROS SERVICIOS DE TELECOMUNICACIONES ALAMBRICAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTROS SERVICIOS DE TELECOMUNICACIONES INALAMBRICAS N.C.P.</fullName>
+                <default>false</default>
+                <label>OTROS SERVICIOS DE TELECOMUNICACIONES INALAMBRICAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTROS SERVICIOS DE TELECOMUNICACIONES POR SATELITE N.C.P.</fullName>
+                <default>false</default>
+                <label>OTROS SERVICIOS DE TELECOMUNICACIONES POR SATELITE N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTROS TIPOS DE CORRETAJES O REMATES AL POR MAYOR N.C.P.</fullName>
+                <default>false</default>
+                <label>OTROS TIPOS DE CORRETAJES O REMATES AL POR MAYOR N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTROS TIPOS DE ENSENANZA N.C.P.</fullName>
+                <default>false</default>
+                <label>OTROS TIPOS DE ENSENANZA N.C.P.</label>
+            </value>
+            <value>
+                <fullName>OTROS TIPOS DE INTERMEDIACION MONETARIA N.C.P.</fullName>
+                <default>false</default>
+                <label>OTROS TIPOS DE INTERMEDIACION MONETARIA N.C.P.</label>
+            </value>
+            <value>
+                <fullName>PELUQUERIA Y OTROS TRATAMIENTOS DE BELLEZA</fullName>
+                <default>false</default>
+                <label>PELUQUERIA Y OTROS TRATAMIENTOS DE BELLEZA</label>
+            </value>
+            <value>
+                <fullName>PESCA DE AGUA DULCE</fullName>
+                <default>false</default>
+                <label>PESCA DE AGUA DULCE</label>
+            </value>
+            <value>
+                <fullName>PESCA MARITIMA ARTESANAL</fullName>
+                <default>false</default>
+                <label>PESCA MARITIMA ARTESANAL</label>
+            </value>
+            <value>
+                <fullName>PESCA MARITIMA INDUSTRIAL EXCEPTO DE BARCOS FACTORIA</fullName>
+                <default>false</default>
+                <label>PESCA MARITIMA INDUSTRIAL EXCEPTO DE BARCOS FACTORIA</label>
+            </value>
+            <value>
+                <fullName>PORTALES WEB</fullName>
+                <default>false</default>
+                <label>PORTALES WEB</label>
+            </value>
+            <value>
+                <fullName>PREPARACION DEL TERRENO</fullName>
+                <default>false</default>
+                <label>PREPARACION DEL TERRENO</label>
+            </value>
+            <value>
+                <fullName>PREPARACION E HILATURA DE FIBRAS TEXTILES</fullName>
+                <default>false</default>
+                <label>PREPARACION E HILATURA DE FIBRAS TEXTILES</label>
+            </value>
+            <value>
+                <fullName>PROCESAMIENTO DE DATOS HOSPEDAJE Y ACTIVIDADES CONEXAS</fullName>
+                <default>false</default>
+                <label>PROCESAMIENTO DE DATOS HOSPEDAJE Y ACTIVIDADES CONEXAS</label>
+            </value>
+            <value>
+                <fullName>PRODUCCION DE AGUAS MINERALES Y OTRAS AGUAS EMBOTELLADAS</fullName>
+                <default>false</default>
+                <label>PRODUCCION DE AGUAS MINERALES Y OTRAS AGUAS EMBOTELLADAS</label>
+            </value>
+            <value>
+                <fullName>PRODUCCION DE HARINA DE PESCADO</fullName>
+                <default>false</default>
+                <label>PRODUCCION DE HARINA DE PESCADO</label>
+            </value>
+            <value>
+                <fullName>PROGRAMACION Y TRANSMISIONES DE TELEVISION</fullName>
+                <default>false</default>
+                <label>PROGRAMACION Y TRANSMISIONES DE TELEVISION</label>
+            </value>
+            <value>
+                <fullName>PROMOCION Y ORGANIZACION DE COMPETENCIAS DEPORTIVAS</fullName>
+                <default>false</default>
+                <label>PROMOCION Y ORGANIZACION DE COMPETENCIAS DEPORTIVAS</label>
+            </value>
+            <value>
+                <fullName>RADIOCOMUNICACIONES MOVILES</fullName>
+                <default>false</default>
+                <label>RADIOCOMUNICACIONES MOVILES</label>
+            </value>
+            <value>
+                <fullName>REASEGUROS</fullName>
+                <default>false</default>
+                <label>REASEGUROS</label>
+            </value>
+            <value>
+                <fullName>RECEPTORES JUDICIALES</fullName>
+                <default>false</default>
+                <label>RECEPTORES JUDICIALES</label>
+            </value>
+            <value>
+                <fullName>RECOGIDA DE DESECHOS NO PELIGROSOS</fullName>
+                <default>false</default>
+                <label>RECOGIDA DE DESECHOS NO PELIGROSOS</label>
+            </value>
+            <value>
+                <fullName>RECOGIDA DE DESECHOS PELIGROSOS</fullName>
+                <default>false</default>
+                <label>RECOGIDA DE DESECHOS PELIGROSOS</label>
+            </value>
+            <value>
+                <fullName>RECOLECCION DE PRODUCTOS FORESTALES DISTINTOS DE LA MADERA</fullName>
+                <default>false</default>
+                <label>RECOLECCION DE PRODUCTOS FORESTALES DISTINTOS DE LA MADERA</label>
+            </value>
+            <value>
+                <fullName>RECOLECCION Y EXTRACCION DE PRODUCTOS MARINOS</fullName>
+                <default>false</default>
+                <label>RECOLECCION Y EXTRACCION DE PRODUCTOS MARINOS</label>
+            </value>
+            <value>
+                <fullName>RECUPERACION Y RECICLAMIENTO DE DESPERDICIOS Y DESECHOS METALICOS</fullName>
+                <default>false</default>
+                <label>RECUPERACION Y RECICLAMIENTO DE DESPERDICIOS Y DESECHOS METALICOS</label>
+            </value>
+            <value>
+                <fullName>RECUPERACION Y RECICLAMIENTO DE OTROS DESPERDICIOS Y DESECHOS N.C.P.</fullName>
+                <default>false</default>
+                <label>RECUPERACION Y RECICLAMIENTO DE OTROS DESPERDICIOS Y DESECHOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>RECUPERACION Y RECICLAMIENTO DE PAPEL</fullName>
+                <default>false</default>
+                <label>RECUPERACION Y RECICLAMIENTO DE PAPEL</label>
+            </value>
+            <value>
+                <fullName>RECUPERACION Y RECICLAMIENTO DE VIDRIO</fullName>
+                <default>false</default>
+                <label>RECUPERACION Y RECICLAMIENTO DE VIDRIO</label>
+            </value>
+            <value>
+                <fullName>REGASIFICACION DE GAS NATURAL LICUADO GNL</fullName>
+                <default>false</default>
+                <label>REGASIFICACION DE GAS NATURAL LICUADO GNL</label>
+            </value>
+            <value>
+                <fullName>REGULACION DE LAS ACTIVIDADES DE ORGANISMOS QUE PRESTAN SERVICIOS SANITARIOS EDUCATIVOS CULTURALES</fullName>
+                <default>false</default>
+                <label>REGULACION DE LAS ACTIVIDADES DE ORGANISMOS QUE PRESTAN SERVICIOS SANITARIOS EDUCATIVOS CULTURALES</label>
+            </value>
+            <value>
+                <fullName>REGULACION Y FACILITACION DE LA ACTIVIDAD ECONOMICA</fullName>
+                <default>false</default>
+                <label>REGULACION Y FACILITACION DE LA ACTIVIDAD ECONOMICA</label>
+            </value>
+            <value>
+                <fullName>RELACIONES EXTERIORES</fullName>
+                <default>false</default>
+                <label>RELACIONES EXTERIORES</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE AERONAVES Y NAVES ESPACIALES</fullName>
+                <default>false</default>
+                <label>REPARACION DE AERONAVES Y NAVES ESPACIALES</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE APARATOS DE USO DOMESTICO EQUIPO DOMESTICO Y DE JARDINERIA</fullName>
+                <default>false</default>
+                <label>REPARACION DE APARATOS DE USO DOMESTICO EQUIPO DOMESTICO Y DE JARDINERIA</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE APARATOS ELECTRONICOS DE CONSUMO INCLUYE APARATOS DE TELEVISION Y RADIO</fullName>
+                <default>false</default>
+                <label>REPARACION DE APARATOS ELECTRONICOS DE CONSUMO INCLUYE APARATOS DE TELEVISION Y RADIO</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE BUQUES EMBARCACIONES MENORES Y ESTRUCTURAS FLOTANTES</fullName>
+                <default>false</default>
+                <label>REPARACION DE BUQUES EMBARCACIONES MENORES Y ESTRUCTURAS FLOTANTES</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE CALZADO Y DE ARTICULOS DE CUERO</fullName>
+                <default>false</default>
+                <label>REPARACION DE CALZADO Y DE ARTICULOS DE CUERO</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE COMPUTADORES Y EQUIPO PERIFERICO</fullName>
+                <default>false</default>
+                <label>REPARACION DE COMPUTADORES Y EQUIPO PERIFERICO</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE EQUIPO DE COMUNICACIONES INCLUYE LA REPARACION TELEFONOS CELULARES</fullName>
+                <default>false</default>
+                <label>REPARACION DE EQUIPO DE COMUNICACIONES INCLUYE LA REPARACION TELEFONOS CELULARES</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE EQUIPO DE MEDICION PRUEBA NAVEGACION Y CONTROL</fullName>
+                <default>false</default>
+                <label>REPARACION DE EQUIPO DE MEDICION PRUEBA NAVEGACION Y CONTROL</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE EQUIPO ELECTRICO EXCEPTO REPARACION DE EQUIPO Y ENSERES DOMESTICOS</fullName>
+                <default>false</default>
+                <label>REPARACION DE EQUIPO ELECTRICO EXCEPTO REPARACION DE EQUIPO Y ENSERES DOMESTICOS</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE MAQUINARIA AGROPECUARIA Y FORESTAL</fullName>
+                <default>false</default>
+                <label>REPARACION DE MAQUINARIA AGROPECUARIA Y FORESTAL</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE MAQUINARIA METALURGICA PARA LA MINERIA EXTRACCION DE PETROLEO Y PARA LA CONSTRUCCION</fullName>
+                <default>false</default>
+                <label>REPARACION DE MAQUINARIA METALURGICA PARA LA MINERIA EXTRACCION DE PETROLEO Y PARA LA CONSTRUCCION</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE MAQUINARIA PARA LA ELABORACION DE ALIMENTOS BEBIDAS Y TABACO</fullName>
+                <default>false</default>
+                <label>REPARACION DE MAQUINARIA PARA LA ELABORACION DE ALIMENTOS BEBIDAS Y TABACO</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE MAQUINARIA PARA PRODUCIR TEXTILES PRENDAS DE VESTIR ARTICULOS DE CUERO Y CALZADO</fullName>
+                <default>false</default>
+                <label>REPARACION DE MAQUINARIA PARA PRODUCIR TEXTILES PRENDAS DE VESTIR ARTICULOS DE CUERO Y CALZADO</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE MUEBLES Y ACCESORIOS DOMESTICOS</fullName>
+                <default>false</default>
+                <label>REPARACION DE MUEBLES Y ACCESORIOS DOMESTICOS</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE OTROS EFECTOS PERSONALES Y ENSERES DOMESTICOS</fullName>
+                <default>false</default>
+                <label>REPARACION DE OTROS EFECTOS PERSONALES Y ENSERES DOMESTICOS</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE OTROS EQUIPOS DE TRANSPORTE N.C.P. EXCEPTO VEHICULOS AUTOMOTORES</fullName>
+                <default>false</default>
+                <label>REPARACION DE OTROS EQUIPOS DE TRANSPORTE N.C.P. EXCEPTO VEHICULOS AUTOMOTORES</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE OTROS EQUIPOS ELECTRONICOS Y OPTICOS N.C.P.</fullName>
+                <default>false</default>
+                <label>REPARACION DE OTROS EQUIPOS ELECTRONICOS Y OPTICOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE OTROS TIPOS DE EQUIPO</fullName>
+                <default>false</default>
+                <label>REPARACION DE OTROS TIPOS DE EQUIPO</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE OTRO TIPO DE MAQUINARIA Y EQUIPOS INDUSTRIALES N.C.P.</fullName>
+                <default>false</default>
+                <label>REPARACION DE OTRO TIPO DE MAQUINARIA Y EQUIPOS INDUSTRIALES N.C.P.</label>
+            </value>
+            <value>
+                <fullName>REPARACION DE PRODUCTOS ELABORADOS DE METAL</fullName>
+                <default>false</default>
+                <label>REPARACION DE PRODUCTOS ELABORADOS DE METAL</label>
+            </value>
+            <value>
+                <fullName>REPRODUCCION DE GRABACIONES</fullName>
+                <default>false</default>
+                <label>REPRODUCCION DE GRABACIONES</label>
+            </value>
+            <value>
+                <fullName>REPRODUCCION Y CRIA DE MOLUSCOS CRUSTACEOS Y GUSANOS MARINOS</fullName>
+                <default>false</default>
+                <label>REPRODUCCION Y CRIA DE MOLUSCOS CRUSTACEOS Y GUSANOS MARINOS</label>
+            </value>
+            <value>
+                <fullName>SEGUROS DE VIDA</fullName>
+                <default>false</default>
+                <label>SEGUROS DE VIDA</label>
+            </value>
+            <value>
+                <fullName>SEGUROS GENERALES EXCEPTO ACTIVIDADES DE ISAPRES</fullName>
+                <default>false</default>
+                <label>SEGUROS GENERALES EXCEPTO ACTIVIDADES DE ISAPRES</label>
+            </value>
+            <value>
+                <fullName>SERVICIO DE LAVADO DE VEHICULOS AUTOMOTORES</fullName>
+                <default>false</default>
+                <label>SERVICIO DE LAVADO DE VEHICULOS AUTOMOTORES</label>
+            </value>
+            <value>
+                <fullName>SERVICIO DE TRANSPORTE DE VALORES EN VEHICULOS BLINDADOS</fullName>
+                <default>false</default>
+                <label>SERVICIO DE TRANSPORTE DE VALORES EN VEHICULOS BLINDADOS</label>
+            </value>
+            <value>
+                <fullName>SERVICIO NOTARIAL</fullName>
+                <default>false</default>
+                <label>SERVICIO NOTARIAL</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE ADIESTRAMIENTO GUARDERIA PELUQUERIA PASEO DE MASCOTAS EXCEPTO ACT. VETERINARIAS</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE ADIESTRAMIENTO GUARDERIA PELUQUERIA PASEO DE MASCOTAS EXCEPTO ACT. VETERINARIAS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE ARBITRAJE SINDICOS DE QUIEBRA Y PERITOS JUDICIALES OTRAS ACTIVIDADES JURIDICAS N.C.P.</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE ARBITRAJE SINDICOS DE QUIEBRA Y PERITOS JUDICIALES OTRAS ACTIVIDADES JURIDICAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE ARQUITECTURA DISENO DE EDIFICIOS DIBUJO DE PLANOS DE CONSTRUCCION ENTRE OTROS</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE ARQUITECTURA DISENO DE EDIFICIOS DIBUJO DE PLANOS DE CONSTRUCCION ENTRE OTROS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE ASESORAMIENTO Y REPRESENTACION JURIDICA</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE ASESORAMIENTO Y REPRESENTACION JURIDICA</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE CEMENTERIOS</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE CEMENTERIOS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE CORTA DE MADERA A CAMBIO DE UNA RETRIBUCION O POR CONTRATA</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE CORTA DE MADERA A CAMBIO DE UNA RETRIBUCION O POR CONTRATA</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE EXTINCION Y PREVENCION DE INCENDIOS FORESTALES</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE EXTINCION Y PREVENCION DE INCENDIOS FORESTALES</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE FORESTACION A CAMBIO DE UNA RETRIBUCION O POR CONTRATA</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE FORESTACION A CAMBIO DE UNA RETRIBUCION O POR CONTRATA</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE MEDICOS PRESTADOS DE FORMA INDEPENDIENTE</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE MEDICOS PRESTADOS DE FORMA INDEPENDIENTE</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE ODONTOLOGOS PRESTADOS DE FORMA INDEPENDIENTE</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE ODONTOLOGOS PRESTADOS DE FORMA INDEPENDIENTE</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE PRODUCCION DE OBRAS DE TEATRO CONCIERTOS ESPECTACULOS DE DANZA OTRAS PROD. ESCENICAS</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE PRODUCCION DE OBRAS DE TEATRO CONCIERTOS ESPECTACULOS DE DANZA OTRAS PROD. ESCENICAS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE PUBLICIDAD PRESTADOS POR EMPRESAS</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE PUBLICIDAD PRESTADOS POR EMPRESAS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE PUBLICIDAD PRESTADOS POR PROFESIONALES</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE PUBLICIDAD PRESTADOS POR PROFESIONALES</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE REVELADO IMPRESION Y AMPLIACION DE FOTOGRAFIAS</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE REVELADO IMPRESION Y AMPLIACION DE FOTOGRAFIAS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE SEGURIDAD PRIVADA PRESTADOS POR EMPRESAS</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE SEGURIDAD PRIVADA PRESTADOS POR EMPRESAS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE SEGURIDAD PRIVADA PRESTADOS POR INDEPENDIENTES</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE SEGURIDAD PRIVADA PRESTADOS POR INDEPENDIENTES</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE TRADUCCION E INTERPRETACION PRESTADOS POR EMPRESAS</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE TRADUCCION E INTERPRETACION PRESTADOS POR EMPRESAS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE TRANSPORTE A TURISTAS</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE TRANSPORTE A TURISTAS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE TRANSPORTE DE ESCOLARES</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE TRANSPORTE DE ESCOLARES</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE TRANSPORTE DE PASAJEROS EN TAXIS LIBRES Y RADIOTAXIS</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE TRANSPORTE DE PASAJEROS EN TAXIS LIBRES Y RADIOTAXIS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS DE TRANSPORTE DE TRABAJADORES</fullName>
+                <default>false</default>
+                <label>SERVICIOS DE TRANSPORTE DE TRABAJADORES</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS FUNERARIOS</fullName>
+                <default>false</default>
+                <label>SERVICIOS FUNERARIOS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS IMPUTADOS DE ALQUILER DE VIVIENDAS</fullName>
+                <default>false</default>
+                <label>SERVICIOS IMPUTADOS DE ALQUILER DE VIVIENDAS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS PERSONALES DE EDUCACION</fullName>
+                <default>false</default>
+                <label>SERVICIOS PERSONALES DE EDUCACION</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS PERSONALES DE FOTOGRAFIA</fullName>
+                <default>false</default>
+                <label>SERVICIOS PERSONALES DE FOTOGRAFIA</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS PERSONALES DE TRADUCCION E INTERPRETACION</fullName>
+                <default>false</default>
+                <label>SERVICIOS PERSONALES DE TRADUCCION E INTERPRETACION</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS PRESTADOS DE FORMA INDEPENDIENTE POR OTROS PROFESIONALES DE LA SALUD</fullName>
+                <default>false</default>
+                <label>SERVICIOS PRESTADOS DE FORMA INDEPENDIENTE POR OTROS PROFESIONALES DE LA SALUD</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS PRESTADOS POR CONCESIONARIOS DE CARRETERAS</fullName>
+                <default>false</default>
+                <label>SERVICIOS PRESTADOS POR CONCESIONARIOS DE CARRETERAS</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS PRESTADOS POR PERIODISTAS INDEPENDIENTES</fullName>
+                <default>false</default>
+                <label>SERVICIOS PRESTADOS POR PERIODISTAS INDEPENDIENTES</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS PROFESIONALES DE INGENIERIA Y ACTIVIDADES CONEXAS DE CONSULTORIA TECNICA</fullName>
+                <default>false</default>
+                <label>SERVICIOS PROFESIONALES DE INGENIERIA Y ACTIVIDADES CONEXAS DE CONSULTORIA TECNICA</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS RELACIONADOS CON LA ACUICULTURA MARINA</fullName>
+                <default>false</default>
+                <label>SERVICIOS RELACIONADOS CON LA ACUICULTURA MARINA</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS RELACIONADOS CON LA PESCA MARITIMA</fullName>
+                <default>false</default>
+                <label>SERVICIOS RELACIONADOS CON LA PESCA MARITIMA</label>
+            </value>
+            <value>
+                <fullName>SERVICIOS Y ACTIVIDADES DE FOTOGRAFIA</fullName>
+                <default>false</default>
+                <label>SERVICIOS Y ACTIVIDADES DE FOTOGRAFIA</label>
+            </value>
+            <value>
+                <fullName>SILVICULTURA Y OTRAS ACTIVIDADES FORESTALES EXCEPTO EXPLOTACION DE VIVEROS FORESTALES</fullName>
+                <default>false</default>
+                <label>SILVICULTURA Y OTRAS ACTIVIDADES FORESTALES EXCEPTO EXPLOTACION DE VIVEROS FORESTALES</label>
+            </value>
+            <value>
+                <fullName>SUMINISTRO DE COMIDAS POR ENCARGO SERVICIOS DE BANQUETERIA</fullName>
+                <default>false</default>
+                <label>SUMINISTRO DE COMIDAS POR ENCARGO SERVICIOS DE BANQUETERIA</label>
+            </value>
+            <value>
+                <fullName>SUMINISTRO DE VAPOR Y DE AIRE ACONDICIONADO</fullName>
+                <default>false</default>
+                <label>SUMINISTRO DE VAPOR Y DE AIRE ACONDICIONADO</label>
+            </value>
+            <value>
+                <fullName>SUMINISTRO INDUSTRIAL DE COMIDAS POR ENCARGO CONCESION DE SERVICIOS DE ALIMENTACION</fullName>
+                <default>false</default>
+                <label>SUMINISTRO INDUSTRIAL DE COMIDAS POR ENCARGO CONCESION DE SERVICIOS DE ALIMENTACION</label>
+            </value>
+            <value>
+                <fullName>TEJEDURA DE PRODUCTOS TEXTILES</fullName>
+                <default>false</default>
+                <label>TEJEDURA DE PRODUCTOS TEXTILES</label>
+            </value>
+            <value>
+                <fullName>TELEFONIA FIJA</fullName>
+                <default>false</default>
+                <label>TELEFONIA FIJA</label>
+            </value>
+            <value>
+                <fullName>TELEFONIA LARGA DISTANCIA</fullName>
+                <default>false</default>
+                <label>TELEFONIA LARGA DISTANCIA</label>
+            </value>
+            <value>
+                <fullName>TELEFONIA MOVIL CELULAR</fullName>
+                <default>false</default>
+                <label>TELEFONIA MOVIL CELULAR</label>
+            </value>
+            <value>
+                <fullName>TELEFONIA MOVIL SATELITAL</fullName>
+                <default>false</default>
+                <label>TELEFONIA MOVIL SATELITAL</label>
+            </value>
+            <value>
+                <fullName>TELEVISION DE PAGO INALAMBRICA</fullName>
+                <default>false</default>
+                <label>TELEVISION DE PAGO INALAMBRICA</label>
+            </value>
+            <value>
+                <fullName>TELEVISION DE PAGO POR CABLE</fullName>
+                <default>false</default>
+                <label>TELEVISION DE PAGO POR CABLE</label>
+            </value>
+            <value>
+                <fullName>TELEVISION DE PAGO SATELITAL</fullName>
+                <default>false</default>
+                <label>TELEVISION DE PAGO SATELITAL</label>
+            </value>
+            <value>
+                <fullName>TERMINACION Y ACABADO DE EDIFICIOS</fullName>
+                <default>false</default>
+                <label>TERMINACION Y ACABADO DE EDIFICIOS</label>
+            </value>
+            <value>
+                <fullName>TRANSMISION DE ENERGIA ELECTRICA</fullName>
+                <default>false</default>
+                <label>TRANSMISION DE ENERGIA ELECTRICA</label>
+            </value>
+            <value>
+                <fullName>TRANSMISIONES DE RADIO</fullName>
+                <default>false</default>
+                <label>TRANSMISIONES DE RADIO</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE DE CARGA MARITIMO Y DE CABOTAJE</fullName>
+                <default>false</default>
+                <label>TRANSPORTE DE CARGA MARITIMO Y DE CABOTAJE</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE DE CARGA POR CARRETERA</fullName>
+                <default>false</default>
+                <label>TRANSPORTE DE CARGA POR CARRETERA</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE DE CARGA POR FERROCARRIL</fullName>
+                <default>false</default>
+                <label>TRANSPORTE DE CARGA POR FERROCARRIL</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE DE CARGA POR VIA AEREA</fullName>
+                <default>false</default>
+                <label>TRANSPORTE DE CARGA POR VIA AEREA</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE DE CARGA POR VIAS DE NAVEGACION INTERIORES</fullName>
+                <default>false</default>
+                <label>TRANSPORTE DE CARGA POR VIAS DE NAVEGACION INTERIORES</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE DE PASAJEROS EN BUSES INTERURBANOS</fullName>
+                <default>false</default>
+                <label>TRANSPORTE DE PASAJEROS EN BUSES INTERURBANOS</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE DE PASAJEROS MARITIMO Y DE CABOTAJE</fullName>
+                <default>false</default>
+                <label>TRANSPORTE DE PASAJEROS MARITIMO Y DE CABOTAJE</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE DE PASAJEROS POR VIA AEREA</fullName>
+                <default>false</default>
+                <label>TRANSPORTE DE PASAJEROS POR VIA AEREA</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE DE PASAJEROS POR VIAS DE NAVEGACION INTERIORES</fullName>
+                <default>false</default>
+                <label>TRANSPORTE DE PASAJEROS POR VIAS DE NAVEGACION INTERIORES</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE DE PASAJEROS VIA TAXI COLECTIVO</fullName>
+                <default>false</default>
+                <label>TRANSPORTE DE PASAJEROS VIA TAXI COLECTIVO</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE INTERURBANO DE PASAJEROS POR FERROCARRIL</fullName>
+                <default>false</default>
+                <label>TRANSPORTE INTERURBANO DE PASAJEROS POR FERROCARRIL</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE POR GASODUCTOS</fullName>
+                <default>false</default>
+                <label>TRANSPORTE POR GASODUCTOS</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE POR OLEODUCTOS</fullName>
+                <default>false</default>
+                <label>TRANSPORTE POR OLEODUCTOS</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE URBANO Y SUBURBANO DE PASAJEROS VIA LOCOMOCION COLECTIVA</fullName>
+                <default>false</default>
+                <label>TRANSPORTE URBANO Y SUBURBANO DE PASAJEROS VIA LOCOMOCION COLECTIVA</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTE URBANO Y SUBURBANO DE PASAJEROS VIA METRO Y METROTREN</fullName>
+                <default>false</default>
+                <label>TRANSPORTE URBANO Y SUBURBANO DE PASAJEROS VIA METRO Y METROTREN</label>
+            </value>
+            <value>
+                <fullName>TRATAMIENTO DE SEMILLAS PARA PROPAGACION</fullName>
+                <default>false</default>
+                <label>TRATAMIENTO DE SEMILLAS PARA PROPAGACION</label>
+            </value>
+            <value>
+                <fullName>TRATAMIENTO Y ELIMINACION DE DESECHOS NO PELIGROSOS</fullName>
+                <default>false</default>
+                <label>TRATAMIENTO Y ELIMINACION DE DESECHOS NO PELIGROSOS</label>
+            </value>
+            <value>
+                <fullName>TRATAMIENTO Y ELIMINACION DE DESECHOS PELIGROSOS</fullName>
+                <default>false</default>
+                <label>TRATAMIENTO Y ELIMINACION DE DESECHOS PELIGROSOS</label>
+            </value>
+            <value>
+                <fullName>TRATAMIENTO Y REVESTIMIENTO DE METALES MAQUINADO</fullName>
+                <default>false</default>
+                <label>TRATAMIENTO Y REVESTIMIENTO DE METALES MAQUINADO</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE ANIMALES VIVOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE ANIMALES VIVOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE ARTICULOS DE PAPELERIA Y ESCRITORIO</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE ARTICULOS DE PAPELERIA Y ESCRITORIO</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE ARTICULOS DE PERFUMERIA DE TOCADOR Y COSMETICOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE ARTICULOS DE PERFUMERIA DE TOCADOR Y COSMETICOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE ARTICULOS ELECTRICOS Y ELECTRONICOS PARA EL HOGAR</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE ARTICULOS ELECTRICOS Y ELECTRONICOS PARA EL HOGAR</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE BEBIDAS ALCOHOLICAS Y NO ALCOHOLICAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE BEBIDAS ALCOHOLICAS Y NO ALCOHOLICAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE CARNE Y PRODUCTOS CARNICOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE CARNE Y PRODUCTOS CARNICOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE COMBUSTIBLES SOLIDOS LIQUIDOS Y GASEOSOS Y PRODUCTOS CONEXOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE COMBUSTIBLES SOLIDOS LIQUIDOS Y GASEOSOS Y PRODUCTOS CONEXOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE COMPUTADORES EQUIPO PERIFERICO Y PROGRAMAS INFORMATICOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE COMPUTADORES EQUIPO PERIFERICO Y PROGRAMAS INFORMATICOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE DESECHOS METALICOS CHATARRA</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE DESECHOS METALICOS CHATARRA</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE DESPERDICIOS DESECHOS Y OTROS PRODUCTOS N.C.P.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE DESPERDICIOS DESECHOS Y OTROS PRODUCTOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE DIARIOS Y REVISTAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE DIARIOS Y REVISTAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE EQUIPO DE TRANSPORTEEXCEPTO VEHICULOS AUTOMOTORES MOTOCICLETAS Y BICICLETAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE EQUIPO DE TRANSPORTEEXCEPTO VEHICULOS AUTOMOTORES MOTOCICLETAS Y BICICLETAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE EQUIPO PARTES Y PIEZAS ELECTRONICOS Y DE TELECOMUNICACIONES</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE EQUIPO PARTES Y PIEZAS ELECTRONICOS Y DE TELECOMUNICACIONES</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE FRUTAS Y VERDURAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE FRUTAS Y VERDURAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE HUEVOS LACTEOS ABARROTES Y DE OTROS ALIMENTOS N.C.P.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE HUEVOS LACTEOS ABARROTES Y DE OTROS ALIMENTOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE INSTRUMENTOS CIENTIFICOS Y QUIRURGICOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE INSTRUMENTOS CIENTIFICOS Y QUIRURGICOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE LIBROS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE LIBROS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE MADERA EN BRUTO Y PRODUCTOS PRIMARIOS DE LA ELABORACION DE MADERA</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE MADERA EN BRUTO Y PRODUCTOS PRIMARIOS DE LA ELABORACION DE MADERA</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE MAQUINARIA EQUIPO Y MATERIALES AGROPECUARIOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE MAQUINARIA EQUIPO Y MATERIALES AGROPECUARIOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE MAQUINARIA METALURGICA PARA LA MINERIA EXTRACCION DE PETROLEO Y CONSTRUCCION</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE MAQUINARIA METALURGICA PARA LA MINERIA EXTRACCION DE PETROLEO Y CONSTRUCCION</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE MAQUINARIA PARA LA ELABORACION DE ALIMENTOS BEBIDAS Y TABACO</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE MAQUINARIA PARA LA ELABORACION DE ALIMENTOS BEBIDAS Y TABACO</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE MAQUINARIA PARA LA INDUSTRIA TEXTIL DEL CUERO Y DEL CALZADO</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE MAQUINARIA PARA LA INDUSTRIA TEXTIL DEL CUERO Y DEL CALZADO</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE MAQUINARIA Y EQUIPO DE OFICINA VENTA AL POR MAYOR DE MUEBLES DE OFICINA</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE MAQUINARIA Y EQUIPO DE OFICINA VENTA AL POR MAYOR DE MUEBLES DE OFICINA</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE MATERIALES DE CONSTRUCCION ARTICULOS DE FERRETERIA GASFITERIA Y CALEFACCION</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE MATERIALES DE CONSTRUCCION ARTICULOS DE FERRETERIA GASFITERIA Y CALEFACCION</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE MATERIAS PRIMAS AGRICOLAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE MATERIAS PRIMAS AGRICOLAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE METALES Y MINERALES METALIFEROS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE METALES Y MINERALES METALIFEROS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE MUEBLES EXCEPTO MUEBLES DE OFICINA</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE MUEBLES EXCEPTO MUEBLES DE OFICINA</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE OTRAS MATERIAS PRIMAS AGROPECUARIAS N.C.P.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE OTRAS MATERIAS PRIMAS AGROPECUARIAS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE OTROS ENSERES DOMESTICOS N.C.P.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE OTROS ENSERES DOMESTICOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE OTROS TIPOS DE MAQUINARIA Y EQUIPO N.C.P.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE OTROS TIPOS DE MAQUINARIA Y EQUIPO N.C.P.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE PRODUCTOS DE CONFITERIA</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE PRODUCTOS DE CONFITERIA</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE PRODUCTOS DEL MAR PESCADOS MARISCOS Y ALGAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE PRODUCTOS DEL MAR PESCADOS MARISCOS Y ALGAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE PRODUCTOS FARMACEUTICOS Y MEDICINALES</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE PRODUCTOS FARMACEUTICOS Y MEDICINALES</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE PRODUCTOS QUIMICOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE PRODUCTOS QUIMICOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE PRODUCTOS TEXTILES PRENDAS DE VESTIR Y CALZADO</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE PRODUCTOS TEXTILES PRENDAS DE VESTIR Y CALZADO</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE TABACO</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE TABACO</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR DE VEHICULOS AUTOMOTORES</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR DE VEHICULOS AUTOMOTORES</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MAYOR NO ESPECIALIZADA</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MAYOR NO ESPECIALIZADA</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ALIMENTOS BEBIDAS Y TABACO EN PUESTOS DE VENTA Y MERCADOS INCLUYE FERIAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ALIMENTOS BEBIDAS Y TABACO EN PUESTOS DE VENTA Y MERCADOS INCLUYE FERIAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ALIMENTOS EN COMERCIOS ESPECIALIZADOS ALMACENES PEQUENOS Y MINIMARKET</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ALIMENTOS EN COMERCIOS ESPECIALIZADOS ALMACENES PEQUENOS Y MINIMARKET</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ALIMENTO Y ACCESORIOS PARA MASCOTAS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ALIMENTO Y ACCESORIOS PARA MASCOTAS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ANTIGUEDADES EN COMERCIOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ANTIGUEDADES EN COMERCIOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE APARATOS ELECTRICOS TEXTILES PARA EL HOGAR Y OTROS ENSERES DOMESTICOS N.C.P.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE APARATOS ELECTRICOS TEXTILES PARA EL HOGAR Y OTROS ENSERES DOMESTICOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ARMAS Y MUNICIONES EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ARMAS Y MUNICIONES EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ARTICULOS DE CAZA Y PESCA EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ARTICULOS DE CAZA Y PESCA EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ARTICULOS DE FERRETERIA Y MATERIALES DE CONSTRUCCION</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ARTICULOS DE FERRETERIA Y MATERIALES DE CONSTRUCCION</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ARTICULOS DE JOYERIA BISUTERIA Y RELOJERIA EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ARTICULOS DE JOYERIA BISUTERIA Y RELOJERIA EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ARTICULOS DE PAPELERIA Y ESCRITORIO EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ARTICULOS DE PAPELERIA Y ESCRITORIO EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ARTICULOS DE PERFUMERIA DE TOCADOR Y COSMETICOS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ARTICULOS DE PERFUMERIA DE TOCADOR Y COSMETICOS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ARTICULOS OPTICOS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ARTICULOS OPTICOS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ARTICULOS ORTOPEDICOS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ARTICULOS ORTOPEDICOS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE BEBIDAS ALCOHOLICAS Y NO ALCOHOLICAS EN COMERCIOS ESPECIALIZADOS BOTILLERIAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE BEBIDAS ALCOHOLICAS Y NO ALCOHOLICAS EN COMERCIOS ESPECIALIZADOS BOTILLERIAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE BICICLETAS Y SUS REPUESTOS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE BICICLETAS Y SUS REPUESTOS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE CALZADO EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE CALZADO EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE CARBON LENA Y OTROS COMBUSTIBLES DE USO DOMESTICO EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE CARBON LENA Y OTROS COMBUSTIBLES DE USO DOMESTICO EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE CARTERAS MALETAS Y OTROS ACCESORIOS DE VIAJE EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE CARTERAS MALETAS Y OTROS ACCESORIOS DE VIAJE EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE COMBUSTIBLES PARA VEHICULOS AUTOMOTORES EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE COMBUSTIBLES PARA VEHICULOS AUTOMOTORES EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE COMPUTADORES EQUIPO PERIFERICO PROGRAMAS INFORMATICOS Y EQUIPO DE TELECOM.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE COMPUTADORES EQUIPO PERIFERICO PROGRAMAS INFORMATICOS Y EQUIPO DE TELECOM.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE DIARIOS Y REVISTAS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE DIARIOS Y REVISTAS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE EQUIPO DE SONIDO Y DE VIDEO EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE EQUIPO DE SONIDO Y DE VIDEO EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE FLORES PLANTAS ARBOLES SEMILLAS Y ABONOS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE FLORES PLANTAS ARBOLES SEMILLAS Y ABONOS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE GAS LICUADO EN BOMBONAS CILINDROS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE GAS LICUADO EN BOMBONAS CILINDROS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE GRABACIONES DE MUSICA Y DE VIDEO EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE GRABACIONES DE MUSICA Y DE VIDEO EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE INSTRUMENTOS MUSICALES EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE INSTRUMENTOS MUSICALES EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE JUEGOS Y JUGUETES EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE JUEGOS Y JUGUETES EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE LIBROS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE LIBROS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE MASCOTAS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE MASCOTAS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE MUEBLES Y COLCHONES EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE MUEBLES Y COLCHONES EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE OTROS ARTICULOS DE SEGUNDA MANO EN COMERCIOS N.C.P.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE OTROS ARTICULOS DE SEGUNDA MANO EN COMERCIOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE OTROS ARTICULOS Y EQUIPOS DE DEPORTE N.C.P.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE OTROS ARTICULOS Y EQUIPOS DE DEPORTE N.C.P.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE OTROS PRODUCTOS EN COMERCIOS ESPECIALIZADOS N.C.P.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE OTROS PRODUCTOS EN COMERCIOS ESPECIALIZADOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE OTROS PRODUCTOS EN PUESTOS DE VENTA Y MERCADOS INCLUYE FERIAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE OTROS PRODUCTOS EN PUESTOS DE VENTA Y MERCADOS INCLUYE FERIAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE PINTURAS BARNICES Y LACAS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE PINTURAS BARNICES Y LACAS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE PRENDAS Y ACCESORIOS DE VESTIR EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE PRENDAS Y ACCESORIOS DE VESTIR EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE PRODUCTOS DE VIDRIO EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE PRODUCTOS DE VIDRIO EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE PRODUCTOS FARMACEUTICOS Y MEDICINALES EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE PRODUCTOS FARMACEUTICOS Y MEDICINALES EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE PRODUCTOS TEXTILES PRENDAS DE VESTIR Y CALZADO EN PUESTOS DE VENTA Y MERCADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE PRODUCTOS TEXTILES PRENDAS DE VESTIR Y CALZADO EN PUESTOS DE VENTA Y MERCADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE RECUERDOS ARTESANIAS Y ARTICULOS RELIGIOSOS EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE RECUERDOS ARTESANIAS Y ARTICULOS RELIGIOSOS EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE ROPA USADA EN COMERCIOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE ROPA USADA EN COMERCIOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE TABACO Y PRODUCTOS DE TABACO EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE TABACO Y PRODUCTOS DE TABACO EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE TAPICES ALFOMBRAS Y CUBRIMIENTOS PARA PAREDES Y PISOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE TAPICES ALFOMBRAS Y CUBRIMIENTOS PARA PAREDES Y PISOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE TELAS LANAS HILOS Y SIMILARES EN COMERCIOS ESPECIALIZADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE TELAS LANAS HILOS Y SIMILARES EN COMERCIOS ESPECIALIZADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR DE VEHICULOS AUTOMOTORES NUEVOS O USADOS INCLUYE COMPRAVENTA</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR DE VEHICULOS AUTOMOTORES NUEVOS O USADOS INCLUYE COMPRAVENTA</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR EN COMERCIOS DE ALIMENTOS BEBIDAS O TABACO SUPERMERCADOS E HIPERMERCADOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR EN COMERCIOS DE ALIMENTOS BEBIDAS O TABACO SUPERMERCADOS E HIPERMERCADOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR EN COMERCIOS DE VESTUARIO Y PRODUCTOS PARA EL HOGAR GRANDES TIENDAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR EN COMERCIOS DE VESTUARIO Y PRODUCTOS PARA EL HOGAR GRANDES TIENDAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE CARNE Y PRODUCTOS CARNICOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE CARNE Y PRODUCTOS CARNICOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE FRUTAS Y VERDURAS VERDULERIAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE FRUTAS Y VERDURAS VERDULERIAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE HUEVOS CONFITES Y PRODUCTOS ALIMENTICIOS N.C.P.</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE HUEVOS CONFITES Y PRODUCTOS ALIMENTICIOS N.C.P.</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE PESCADO MARISCOS Y PRODUCTOS CONEXOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE PESCADO MARISCOS Y PRODUCTOS CONEXOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE PRODUCTOS DE PANADERIA Y PASTELERIA</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR EN COMERCIOS ESPECIALIZADOS DE PRODUCTOS DE PANADERIA Y PASTELERIA</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR MEDIANTE MAQUINAS EXPENDEDORAS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR MEDIANTE MAQUINAS EXPENDEDORAS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR POR COMISIONISTAS NO DEPENDIENTES DE COMERCIOS</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR POR COMISIONISTAS NO DEPENDIENTES DE COMERCIOS</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR POR CORREO POR INTERNET Y VIA TELEFONICA</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR POR CORREO POR INTERNET Y VIA TELEFONICA</label>
+            </value>
+            <value>
+                <fullName>VENTA AL POR MENOR REALIZADA POR INDEPENDIENTES EN LA LOCOMOCION COLECTIVA LEY 20.388</fullName>
+                <default>false</default>
+                <label>VENTA AL POR MENOR REALIZADA POR INDEPENDIENTES EN LA LOCOMOCION COLECTIVA LEY 20.388</label>
+            </value>
+            <value>
+                <fullName>VENTA DE MOTOCICLETAS</fullName>
+                <default>false</default>
+                <label>VENTA DE MOTOCICLETAS</label>
+            </value>
+            <value>
+                <fullName>VENTA DE PARTES PIEZAS Y ACCESORIOS DE MOTOCICLETAS</fullName>
+                <default>false</default>
+                <label>VENTA DE PARTES PIEZAS Y ACCESORIOS DE MOTOCICLETAS</label>
+            </value>
+            <value>
+                <fullName>VENTA DE PARTES PIEZAS Y ACCESORIOS PARA VEHICULOS AUTOMOTORES</fullName>
+                <default>false</default>
+                <label>VENTA DE PARTES PIEZAS Y ACCESORIOS PARA VEHICULOS AUTOMOTORES</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

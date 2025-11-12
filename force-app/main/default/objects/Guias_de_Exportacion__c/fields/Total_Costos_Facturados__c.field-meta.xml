@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Costos_Facturados__c</fullName>
+    <label>Total Costos Facturados</label>
+    <summarizedField>Costo_de_Exportacion__c.Valor__c</summarizedField>
+    <summaryFilterItems>
+        <field>Costo_de_Exportacion__c.Estado__c</field>
+        <operation>equals</operation>
+        <value>Facturado</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Costo_de_Exportacion__c.Guias_de_Exportacion__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

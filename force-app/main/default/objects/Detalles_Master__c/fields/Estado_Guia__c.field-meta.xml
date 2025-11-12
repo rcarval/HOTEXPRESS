@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado_Guia__c</fullName>
+    <label>Estado Guía</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Documental</fullName>
+                <default>false</default>
+                <label>Documental</label>
+            </value>
+            <value>
+                <fullName>Menor a 30</fullName>
+                <default>false</default>
+                <label>Menor a 30</label>
+            </value>
+            <value>
+                <fullName>Facturada</fullName>
+                <default>false</default>
+                <label>Facturada</label>
+            </value>
+            <value>
+                <fullName>Abandonado</fullName>
+                <default>false</default>
+                <label>Abandonado</label>
+            </value>
+            <value>
+                <fullName>Anulado</fullName>
+                <default>false</default>
+                <label>Anulado</label>
+            </value>
+            <value>
+                <fullName>Retenido por RUT</fullName>
+                <default>false</default>
+                <label>Retenido por RUT</label>
+            </value>
+            <value>
+                <fullName>Retenido por Aduana</fullName>
+                <default>false</default>
+                <label>Retenido por Aduana</label>
+            </value>
+            <value>
+                <fullName>Retenido por Visación</fullName>
+                <default>false</default>
+                <label>Retenido por Visación</label>
+            </value>
+            <value>
+                <fullName>Retenido en escaner</fullName>
+                <default>false</default>
+                <label>Retenido en escaner</label>
+            </value>
+            <value>
+                <fullName>En cadena de custodia</fullName>
+                <default>false</default>
+                <label>En cadena de custodia</label>
+            </value>
+            <value>
+                <fullName>Paquete No Recibido</fullName>
+                <default>false</default>
+                <label>Paquete No Recibido</label>
+            </value>
+            <value>
+                <fullName>Retenido por error ISP</fullName>
+                <default>false</default>
+                <label>Retenido por error ISP</label>
+            </value>
+            <value>
+                <fullName>Retenido por peso</fullName>
+                <default>false</default>
+                <label>Retenido por peso</label>
+            </value>
+            <value>
+                <fullName>Sobrante</fullName>
+                <default>false</default>
+                <label>Sobrante</label>
+            </value>
+            <value>
+                <fullName>Alto valor</fullName>
+                <default>false</default>
+                <label>Alto valor</label>
+            </value>
+            <value>
+                <fullName>RUT no conseguido Retenido</fullName>
+                <default>false</default>
+                <label>RUT no conseguido Retenido</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

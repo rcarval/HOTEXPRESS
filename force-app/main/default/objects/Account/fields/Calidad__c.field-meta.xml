@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Calidad__c</fullName>
+    <label>Calidad</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ESTANDAR</fullName>
+                <default>false</default>
+                <label>ESTANDAR</label>
+            </value>
+            <value>
+                <fullName>PREFERENCIAL</fullName>
+                <default>false</default>
+                <label>PREFERENCIAL</label>
+            </value>
+            <value>
+                <fullName>PREMIUM</fullName>
+                <default>false</default>
+                <label>PREMIUM</label>
+            </value>
+            <value>
+                <fullName>PROSPECTO</fullName>
+                <default>false</default>
+                <label>PROSPECTO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

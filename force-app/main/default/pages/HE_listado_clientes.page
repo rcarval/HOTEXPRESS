@@ -1,0 +1,814 @@
+<apex:page controller="HE_listado_clientes" action="{!Obtenerclientes}">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <!-- jQuery CDN -->
+            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" />
+            
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Historial de Facturas</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <apex:pageMessages ></apex:pageMessages>
+            <!-- Import the Design System style sheet -->
+            <apex:slds />
+            <script>
+            $j = jQuery.noConflict();
+            $j(document).ready(function($) {
+                $("#loading").hide(); 
+                  $("#costosporguia").hide(); 
+                $("#fechafacturacion").datepicker({ dateFormat: 'dd-mm-yy' });
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; 
+                var yyyy = today.getFullYear();
+                if(dd<10) 
+                {
+                    dd='0'+dd;
+                } 
+                if(mm<10) 
+                {
+                    mm='0'+mm;
+                } 
+                today = dd+'-'+mm+'-'+yyyy;
+                $("#fechafacturacion").val(today );
+                $("#indicar_factura").show();
+                $("#estado_factura").hide();
+                
+                <apex:repeat value="{!historialdefacturas}" var="hi">
+                    if({!hi.requiereOC}==true){
+                        $("#{!hi.id}_oc").prop( "disabled", false );
+                    }else{
+                        $("#{!hi.id}_oc").prop( "disabled", true );
+                    }
+                    if({!hi.requiereHES}==true){
+                        $("#{!hi.id}_hes").prop( "disabled", false );
+                    }else{
+                        $("#{!hi.id}_hes").prop( "disabled", true );
+                    }
+                
+               
+                $("#cerrar").on('click',function(){
+                     $("#costosporguia").hide(); 
+                    });
+                <apex:repeat value="{!hi.listarguias}" var="rep">
+                    console.log('si entro1');
+                $("#{!hi.id}_{!rep.idguia}_check").on('click',function(){
+                    if( $(this).is(':checked') ){
+                        var cantidad = parseInt($("#{!hi.id}_cantidad").html());
+                        $("#{!hi.id}_cantidad").html(cantidad+1);
+                        var montoguia = parseInt($("#{!hi.id}_{!rep.idguia}_montoCLP").html().replace('.','').replace('.','').replace('.',''));
+                        console.log('montoguia='+montoguia);
+                        var monto = parseInt($("#{!hi.id}_monto").html());
+                        console.log('monto='+monto);
+                        var montototal=monto+montoguia;
+                        console.log('montototal='+montototal);
+                        $("#{!hi.id}_monto").html(montototal);
+                        
+                        console.log('chequeado');
+                    }else{
+                        var cantidad = parseInt($("#{!hi.id}_cantidad").html());
+                        $("#{!hi.id}_cantidad").html(cantidad-1);
+                        var montoguia = parseInt($("#{!hi.id}_{!rep.idguia}_montoCLP").html().replace('.','').replace('.','').replace('.',''));
+                        console.log('montoguia='+montoguia);
+                        var monto = parseInt($("#{!hi.id}_monto").html());
+                        console.log('monto='+monto);
+                        var montototal=monto-montoguia;
+                        console.log('montototal='+montototal);
+                        $("#{!hi.id}_monto").html(montototal);
+                        
+                        console.log('no chequeado');
+                    }
+                    
+                });
+                
+                   $("#{!hi.id}_{!rep.idguia}_button").on('click',function(){
+                        var id_cliente = $(this).attr("value");
+                        var id_guia = $(this).attr("value2");
+                       $("#resultado_costos tr>td").remove();
+                         $.ajax({
+                            type: "POST",
+                            dataType: "json",
+                            url: "HE_ConsultarcostoGuiaVF?idG="+id_guia,
+                             data: { idG: id_guia },
+                            success: function(data){ 
+                                console.log(data);
+                                if(data.success){ 
+                                for(var i=0;i<data.costos.length;i++){
+                                      $tabla = $("#resultado_costos").find('tbody:last');
+                                  
+                                    
+                                $tr = $('<tr code="'+data.costos[i].Id+'">');
+                                $col = $('<td>').attr('align','center').html('<input type="hidden" value="'+data.costos[i].Name+'" id="nombrecosto_'+data.costos[i].Id+'" />'+data.costos[i].Name);
+                                $tr.append($col);
+                                $col = $('<td>').attr('align','center').html('<input type="hidden" value="'+data.costos[i].Descripcion+'" id="nombrecosto_'+data.costos[i].Id+'" />'+data.costos[i].Descripcion);
+                                $tr.append($col);
+                                $col = $('<td>').attr('align','center').html('<input type="hidden" value="'+data.costos[i].Valor+'" id="codigocosto_'+data.costos[i].Id+'" />'+data.costos[i].Valor);
+                                $tr.append($col);
+                               
+                               $tabla.append($tr);
+                            }
+                                 $("#costosporguia").show(); 
+                                      console.log('value='+id_cliente);
+                                 console.log('value2='+id_guia);
+                                }
+                            }
+                        });
+                       
+                        
+                     
+                       
+                       
+                       /* if( $(this).is(':checked') ){
+                        var cantidad = parseInt($("#{!hi.id}_cantidad").html());
+                        $("#{!hi.id}_cantidad").html(cantidad+1);
+                        var montoguia = parseInt($("#{!hi.id}_{!rep.idguia}_montoCLP").html().replace('.','').replace('.','').replace('.',''));
+                        console.log('montoguia='+montoguia);
+                        var monto = parseInt($("#{!hi.id}_monto").html());
+                        console.log('monto='+monto);
+                        var montototal=monto+montoguia;
+                        console.log('montototal='+montototal);
+                        $("#{!hi.id}_monto").html(montototal);
+                        
+                        console.log('chequeado');
+                    }else{
+                        var cantidad = parseInt($("#{!hi.id}_cantidad").html());
+                        $("#{!hi.id}_cantidad").html(cantidad-1);
+                        var montoguia = parseInt($("#{!hi.id}_{!rep.idguia}_montoCLP").html().replace('.','').replace('.','').replace('.',''));
+                        console.log('montoguia='+montoguia);
+                        var monto = parseInt($("#{!hi.id}_monto").html());
+                        console.log('monto='+monto);
+                        var montototal=monto-montoguia;
+                        console.log('montototal='+montototal);
+                        $("#{!hi.id}_monto").html(montototal);
+                        
+                        console.log('no chequeado');
+                    }*/
+                    
+                }); 
+                </apex:repeat>       
+                </apex:repeat> 
+                
+                <apex:repeat value="{!historialdefacturas}" var="hi">
+                    <apex:repeat value="{!hi.listarguias}" var="rep">
+                        
+                        $("#{!hi.id}_pre_factura").on('click',function(){
+                        var prefactura = [];
+                        var codigoconsulta = $(this).attr("value");
+                        console.log(codigoconsulta);
+                        $("#facturas > tbody > tr").each(function(index, item){
+                            var code1 = $(this).attr("code");
+                            console.log(code1);
+                            if(codigoconsulta==code1){
+                                $("#det_factura > tbody > tr").each(function(index, item){
+                                    var code2 = $(this).attr("code");
+                                    var idguia = $(this).attr("guia");
+                                    var check = $("#"+code2+"_check").is(':checked');
+                                    console.log(code2);
+                                    if(code2.includes(code1)){
+                                        console.log('entro aca');
+                                        if(check==true){
+                                            prefactura.push({
+                                                "idguiaconsulta": idguia
+                                            });
+                                        }
+                                    }
+                                });
+                            }      
+                            
+                        });
+                        
+                        if(prefactura.length > 0){
+                            var datos=JSON.stringify(prefactura);
+                            window.open("HE_Prefactura?id="+codigoconsulta+"&&data="+datos+"&&VD="+'{!Vdolar}'); 
+                        }  
+                        
+                        console.log(prefactura);   
+                    });
+                
+                
+               
+                
+                </apex:repeat>       
+                </apex:repeat> 
+                //Expandable function
+                <apex:repeat value="{!historialdefacturas}" var="hi">
+                    var montof = parseInt($("#{!hi.id}_monto").html());
+                $("#{!hi.id}_monto").html(formatNumber(montof));
+                
+                
+                
+                
+                $("#{!hi.id}_expandableParent").on('click',function(){
+                    var eva = $(this).attr('aria-expanded');
+                    if(eva == 'true'){
+                        $("#{!hi.id}_expandableParent").attr('aria-expanded','false');
+                        $("#{!hi.id}_expandableChild").attr('aria-hidden','false');
+                        $("#{!hi.id}_expandableDiv").removeClass('slds-is-open');
+                        <apex:repeat value="{!hi.listarguias}" var="rep">
+                            
+                            
+                            
+                            var montopre = $("#{!hi.id}_{!rep.idguia}_montoCLP").html();
+                        $("#{!hi.id}_{!rep.idguia}_montoCLP").html(montopre.replace('.','').replace('.','').replace('.',''));
+                        
+                        var montopretot = $("#{!hi.id}_{!rep.idguia}_montototal").html();
+                        
+                        $("#{!hi.id}_{!rep.idguia}_montototal").html(montopretot);
+                        </apex:repeat>
+                    }else{
+                        $("#{!hi.id}_expandableParent").attr('aria-expanded','true');
+                        $("#{!hi.id}_expandableChild").attr('aria-hidden','true');
+                        $("#{!hi.id}_expandableDiv").addClass('slds-is-open');
+                        <apex:repeat value="{!hi.listarguias}" var="rep">
+                            var montopre = parseInt($("#{!hi.id}_{!rep.idguia}_montoCLP").html());
+                        $("#{!hi.id}_{!rep.idguia}_montoCLP").html(formatNumber(montopre));
+                        
+                        var montopretot = parseInt($("#{!hi.id}_{!rep.idguia}_montototal").html());
+                        $("#{!hi.id}_{!rep.idguia}_montototal").html(formatNumber(montopretot));
+                        </apex:repeat>
+                    }
+                });
+                
+                
+                </apex:repeat>
+                
+                //Funcion para agregarle separador de miles a los numeros
+                function formatNumber(nStr) {
+                    nStr += '';
+                    x1 = nStr;
+                    var rgx = /(\d+)(\d{3})/;
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + '.' + '$2');
+                    }
+                    return x1;
+                }
+                
+                
+                
+                
+                
+                
+                $("#factura_cliente").on('click',function(){
+                    console.log("entro");
+                    $("#loading").show();
+                    myFunction();
+                });
+                function myFunction() {
+                    var prodsfacturables = []; 
+                    var fechafacturacion=$("#fechafacturacion").val();
+                    $("#facturas > tbody > tr").each(function(index, item){
+                        
+                        var code1 = $(this).attr("code");
+                        var nombre = $("#"+code1+"_name").html();
+                        var rut = $("#"+code1+"_RUT").html();
+                         var giro = $("#"+code1+"_giro").html();
+                        var monto = $("#"+code1+"_monto").html();
+                        var comuna = $("#"+code1+"_comuna").html();
+                        var direccion = $("#"+code1+"_direccion").html();
+                        var oc = $("#"+code1+"_oc").val();
+                        var hes = $("#"+code1+"_hes").val();
+                        var vdolar = {!Vdolar};
+                        var comentario = $("#"+code1+"_comentario").val();
+                        console.log("code1");
+                        console.log(code1);
+                        console.log(nombre);
+                        console.log(rut);
+                        console.log(monto);
+                        console.log(oc);
+                        console.log(comentario);
+                        var guias = []; 
+                        $("#det_factura > tbody > tr").each(function(index, item){
+                            var code2 = $(this).attr("code");
+                            console.log("code2");
+                            console.log(code2);
+                            var idguia = $(this).attr("guia");
+                            
+                            if(code2.includes(code1)){
+                                var numeroguia = $("#"+code2+"_nguia").html();
+                                var check = $("#"+code2+"_check").is(':checked');
+                                var monto1 = $("#"+code2+"_montoUSD").html();
+                                var monto2 = $("#"+code2+"_montoCLP").html().replace('.','').replace('.','').replace('.','');
+                                var destino = $("#"+code2+"_destino").html();
+                                var tipo = $("#"+code2+"_tipo").html();
+                                var fecha = $("#"+code2+"_fecha").html();
+                                
+                                console.log("id codigo guia ");  
+                                console.log( code2);
+                                console.log( idguia);
+                                console.log(numeroguia);
+                                console.log(check);
+                                console.log(monto);
+                                if(check==true){ 
+                                    guias.push({
+                                        "idguia": idguia,
+                                        "idproducto": numeroguia,
+                                        "pais_destino": destino,
+                                        "tipo": tipo,
+                                        "fecha": fecha,
+                                        "montoUSD": monto1,
+                                        "montoCLP": monto2
+                                    });
+                                }  
+                            }
+                        });
+                        if(parseInt(monto)>0){
+                            prodsfacturables.push({  
+                                "id":code1,
+                                "name":nombre,
+                                "RUT":rut,
+                                "comuna":comuna,
+                                "direccion":direccion,
+                                "contadorpendientes":1,
+                                "vdolar": vdolar,
+                                "giro": giro,
+                                "oc": oc,
+                                "hes": hes,
+                                "fechafacturacion":fechafacturacion,
+                                "comentario": comentario,
+                                "listarguias":guias
+                            });
+                        }
+                        
+                        
+                    });
+                    // console.log(prodsfacturables);
+                    
+                    
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: "HE_enviar_facturacion",
+                        data: { datos: JSON.stringify(prodsfacturables) },
+                        success: function(data) {
+                            $("#estado_factura").show();
+                            $("#indicar_factura").hide();
+                            $("#loading").hide();
+                            console.log("respuesta de factura"); 
+                            console.log(data.length);
+                            for(var i=0;i<data.length;i++){
+                                $tabla = $("#resultado_facturas").find('tbody:last');
+                                $tr = $('<tr code="'+data[i].id+'" idfactura="'+data[i].numerofactura+'">');
+                                
+                                $col = $('<td>').attr('align','center').html('<input type="hidden" value="'+data[i].name+'" id="nombrecliente_'+data[i].id+'" />'+data[i].name);
+                                $tr.append($col);
+                                $col = $('<td>').attr('align','center').html('<input type="hidden" value="'+data[i].RUT+'" id="codigo_'+data[i].id+'" />'+data[i].RUT);
+                                $tr.append($col);
+                                $col = $('<td>').attr('align','center').html('<input type="hidden" value="'+data[i].estadofactura+'" id="codigo_'+data[i].id+'" />'+data[i].estadofactura);
+                                $tr.append($col);
+                                $col = $('<td>').attr('align','center').html('<input type="hidden" value="'+data[i].numerofactura+'" id="codigo_'+data[i].id+'" />'+data[i].numerofactura);
+                                $tr.append($col);
+                                $col = $('<td width="50px">').attr('align','center').html('<input width="50px" type="hidden" value="'+data[i].descripcionfactura+'" id="codigo_'+data[i].id+'" />'+data[i].descripcionfactura);
+                                $tr.append($col);
+                                $col = $('<td>').attr('align','center').html('<button  class="delafactura"  value="'+data[i].numerofactura+'" codigo="'+data[i].numerofactura+'" id="ver documento_'+data[i].numerofactura+'" >ver Factura</button>');
+                                $tr.append($col);
+                                $tabla.append($tr);
+                            }
+                            
+                            /*      if(data.success){
+                            
+                                  window.location.assign("HE_visualizar_PDF_Factura");
+                            }else{
+                                alert("Existe un error al guardar: "+data.msg);
+                            }*/
+                        }
+                    });
+                    
+                    // window.location.assign("HE_visualizar_PDF_Factura");
+                    
+                }
+                
+                $(document).on('click', "#resultado_facturas button.delafactura", function() {
+                    var code = $(this).attr('codigo');
+                    console.log(code);
+                    window.open("HE_visualizar_PDF_Factura?id="+code);
+                    // window.location.assign("HE_visualizar_PDF_Factura?id="+code);
+                });         
+                
+                $("#volver").on('click',function(){
+                    //  window.location.assign("HE_listado_clientes");
+                    window.location.assign("HE_Consulta_Clientes_Facturar");
+                });
+                $("#volver_2").on('click',function(){
+                    // window.location.assign("HE_listado_clientes")
+                    window.location.assign("HE_Consulta_Clientes_Facturar");;  
+                });
+                $("#salir").on('click',function(){
+                    window.location.assign("/");  
+                });
+            });
+            
+            </script>
+            <style>
+              .state-green td, .state-green th{
+                background-color: #AEFFB3;
+                }
+                .state-tobefinished td, .state-tobefinished th{
+                background-color: #FFDF80;
+                }
+                .imagenes{
+                text-align: center;
+                width: 100%;
+                max-width: 100%;
+                position: relative;
+                }
+                .imagen{
+                padding-left: 70px;
+                float: left;
+                height: 220px;
+                width: 220px;
+                }
+                .imagen img{
+                position: relative;
+                }
+                .clearBoth{
+                clear: both; 
+                }
+                .cuadrado{
+                background-color: #FCFCFC;
+                width:150px;
+                height:150px;
+                border-radius: 100% ;
+                border:1px solid #54C8D1;
+                -webkit-box-shadow: 10px 7px 33px -17px rgba(0,0,0,0.75);
+                -moz-box-shadow: 10px 7px 33px -17px rgba(0,0,0,0.75);
+                box-shadow: 10px 7px 33px -17px rgba(0,0,0,0.75);
+                }
+                .cuadrado:hover {
+                background-color: #E6E5E6;
+                color: white;
+                opacity: 0.8;
+                }
+                .thumb {
+                width:150px;
+                height:150px !important;
+                border-radius: 100%;
+                }
+                .thumb > .crop {
+                position:absolute;
+                left: -100%;
+                right: -100%;
+                top: -100%;
+                bottom: -100%;
+                margin: auto;
+                min-height: 100%;
+                min-width: 100%;
+                }
+                
+            </style>
+        </head>
+        <body>
+            <div id="indicar_factura" class="slds-scope">
+                <div class="slds-page-header">
+                    <div class="slds-page-header__row">
+                        <div class="slds-page-header__col-title">
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-orders">
+                                        <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/standard-sprite/svg/symbols.svg#orders')}"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-page-header__name">
+                                        <div class="slds-page-header__name-title">
+                                            <h1>
+                                                <span class="slds-page-header__title slds-truncate" title="Factura ">Clientes a  Facturar</span>
+                                            </h1>
+                                            <span>Clientes</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="slds-page-header__col-actions">
+                            <div class="slds-page-header__controls">
+                                <div class="slds-page-header__control">
+                                    <ul class="slds-button-group-list">
+                                        
+                                        <fieldset class="slds-form-element">
+                                            <legend class="slds-form-element__legend slds-form-element__label">Fecha Facturación</legend>
+                                            <div class="slds-form-element__control">
+                                                <div class="slds-checkbox_button-group">
+                                                    <div class="slds-form-element">
+                                                        <div class="slds-form-element__control">
+                                                            <div class="slds-form-element__static">
+                                                                <input type="text" id="fechafacturacion" class="slds-input" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                
+                
+                <div class="slds" style="margin: 3rem 0;!important;z-index:8001 !important;">
+                    <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <div class="slds-box slds-theme_default">
+                            <p class="slds-text-heading_medium slds-text-align_center">Clientes a Facturar</p>
+                            <apex:repeat value="{!historialdefacturas}" var="hi">
+                                <div class="slds-section" id="{!hi.id}_expandableDiv">
+                                    <h3 class="slds-section__title">
+                                        <button id="{!hi.id}_expandableParent"  class="slds-button slds-section__title-action">
+                                            <svg class="slds-section__title-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true">
+                                                <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#switch')}"></use>
+                                            </svg>
+                                            <span  style="width:100% !important">
+                                                <table class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal" id="facturas">
+                                                    <thead>
+                                                        <tr>
+                                                            
+                                                            <th width="15%">Cliente</th>
+                                                            <th width="10%">RUT</th>
+                                                            <th width="10%" style="display:none" >Giro</th>
+                                                            <th width="10%">Comuna</th>
+                                                            <th width="10%">Dirección</th>
+                                                            <th width="10%">Guías sin facturar</th>
+                                                            <th width="10%">Guías a Facturar</th>
+                                                            <th width="7%">Monto</th>
+                                                             <th width="7%">HES</th>
+                                                            <th width="6%">N° OC</th>
+                                                            <th width="10%">Comentario</th>
+                                                            <th width="10%"> </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr   code="{!hi.id}" idProducto="{!hi.id}">
+                                                            
+                                                            <td><span id="{!hi.id}_name" >{!hi.name}</span></td>
+                                                            <td><span id="{!hi.id}_RUT" >{!hi.RUT}</span> </td>
+                                                            <td style="display:none"><span id="{!hi.id}_giro" >{!hi.giro}</span> </td>
+                                                            <td><span id="{!hi.id}_comuna" >{!hi.comuna}</span> </td>
+                                                            <td><span id="{!hi.id}_direccion" >{!hi.direccion}</span> </td>
+                                                            <td><span id="{!hi.id}_contadorpendientes">{!hi.contadorpendientes}</span> </td>
+                                                            <td><span id="{!hi.id}_cantidad" >0</span></td>
+                                                            <td><span id="{!hi.id}_monto" >0</span></td>
+                                                            <td><input id="{!hi.id}_hes" value="" width="6%" /></td>
+                                                            <td><input id="{!hi.id}_oc" value=""  width="6%"/></td>
+                                                            <td><input id="{!hi.id}_comentario" value=""/> </td>
+                                                            <td><button  id="{!hi.id}_pre_factura" value="{!hi.id}">ver prefactura</button> </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </span>
+                                        </button>
+                                    </h3>
+                                    <div aria-hidden="true" class="slds-section__content" id="{!hi.id}_expandableChild">
+                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered repuestos"   id="det_factura">
+                                            <thead>
+                                                <tr >
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" > id Guia</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" >Destino</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" >Tipo</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" >Fecha envio</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" >Cantidad</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" >Peso</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" >Monto USD </div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" >Monto CLP </div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" >  <!--<input  id="{!hi.id}_check" type="checkbox"/>-->Facturar</div>
+                                                    </th>
+                                                    <th class="slds-text-title_caps" scope="col">
+                                                        <div class="slds-truncate" >Ver Costos</div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <apex:repeat value="{!hi.listarguias}" var="rep">
+                                                    <tr class="slds-hint-parent"  code="{!hi.id}_{!rep.idguia}" guia="{!rep.idguia}">
+                                                        <td >
+                                                            <a href="/{!rep.idguia}" target="_blank" id="{!hi.id}_{!rep.idguia}_nguia" >{!rep.idproducto}</a>
+                                                            <!--    <div class="slds-truncate" id="{!hi.id}_{!rep.idguia}_nguia" >{!rep.idproducto}</div>-->
+                                                        </td>
+                                                        <td>
+                                                            <div class="slds-truncate" id="{!hi.id}_{!rep.idguia}_destino" >{!rep.pais_destino}</div>
+                                                        </td>
+                                                        <td >
+                                                            <div class="slds-truncate" id="{!hi.id}_{!rep.idguia}_tipo" >{!rep.tipo}</div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="slds-truncate" id="{!hi.id}_{!rep.idguia}_fecha" >{!rep.fecha}</div>
+                                                        </td>
+                                                        <td >
+                                                            <div class="slds-truncate"  id="{!hi.id}_{!rep.idguia}_can">{!rep.cantidad}</div>
+                                                        </td>
+                                                        <td >
+                                                            <div class="slds-truncate"  id="{!hi.id}_{!rep.idguia}_peso">{!rep.peso}</div>
+                                                        </td>
+                                                        <td >
+                                                            <div class="slds-truncate"  id="{!hi.id}_{!rep.idguia}_montoUSD">{!rep.montoUSD}</div>
+                                                        </td>
+                                                        <td >
+                                                            <div class="slds-truncate"  id="{!hi.id}_{!rep.idguia}_montoCLP">{!rep.montoCLP}</div>
+                                                        </td>
+                                                        <td >
+                                                            <input  id="{!hi.id}_{!rep.idguia}_check" type="checkbox"/> 
+                                                            <!-- <div class="slds-truncate"   id="{!hi.id}{!rep.idguia}_check"> </div>-->
+                                                        </td>
+                                                        <td >
+                                                             
+                                                            <button id="{!hi.id}_{!rep.idguia}_button"  value="{!hi.id}" value2='{!rep.idguia}' >Ver Cosstos</button>
+                                                        </td>
+                                                    </tr>
+                                                </apex:repeat>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </apex:repeat>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="slds-docked-form-footer">
+                    <button class="slds-button slds-button_text-destructive" id="volver">Volver</button>
+                    
+                    <button class="slds-button slds-button_success"  id="factura_cliente"    >Facturar Clientes</button>
+                    
+                    
+                </div>
+            </div>
+            <div id="estado_factura" style="margin: 3rem 0;!important;z-index:8001 !important;"> 
+                <div class="slds-page-header">
+                    <div class="slds-page-header__row">
+                        <div class="slds-page-header__col-title">
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-orders">
+                                        <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+                                            <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/standard-sprite/svg/symbols.svg#orders')}"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <div class="slds-page-header__name">
+                                        <div class="slds-page-header__name-title">
+                                            <h1>
+                                                <span class="slds-page-header__title slds-truncate" title="Factura ">Estado Factura</span>
+                                            </h1>
+                                            <span>facturas </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <br/> 
+                <br/>
+                <br/>
+                <div>
+                    <div class="slds-grid slds-grid_vertical">
+                        <div class="slds-col">
+                            <div class="slds-box slds-theme_default">        
+                                <span  style="width:100% !important">
+                                    <table class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal" id="resultado_facturas">
+                                        <thead>
+                                            <tr>
+                                                
+                                                <th width="15%">nombre cliente</th>
+                                                <th width="10%">RUT</th>
+                                                <th width="10%">estado</th>
+                                                <th width="10%">Numero de Factura</th>
+                                                <th width="10%">Descripcion</th>
+                                                <th width="10%">ver</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                
+                                                <td></td>
+                                                <td></td>
+                                                <td> </td>
+                                                <td></td>
+                                                <td>  </td>
+                                                <th ></th>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-docked-form-footer">
+                    <button class="slds-button slds-button_text-destructive" id="volver_2">Volver</button>
+                    
+                    <button class="slds-button slds-button_text-destructive"  id="salir">Salir</button>
+                    
+                    
+                </div>
+                
+            </div>
+            <!----------------------------------------------------loading------------------------------------------------------->
+            
+            <div style="height:50rem" id="loading">
+                <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <div class="slds-align_absolute-center" style="height:5rem">
+                                
+                                <img  src="{!$Resource.loading}" width="100" height="100" />
+                            </div>
+                            <div class="slds-align_absolute-center" style="height:5rem">
+                                
+                                <p class="slds-text-align_center"> el proceso puede tardar unos minutos....</p>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+            <!----------------------------------------------------fin loading------------------------------------------------------->
+                <!----------------------------------------------------costos------------------------------------------------------->
+            
+            <div  style="height:70rem" id="costosporguia">
+                                                        
+              <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+                    <div class="slds-modal__container">
+                                    
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <div class="slds-align_absolute-center" >
+                             <span  style="width:100% !important">
+                                 <table class="slds-table slds-table_bordered slds-max-medium-table_stacked-horizontal" id="resultado_costos">
+                                        <thead>
+                                            <tr>
+                                                <th width="10%">Costo</th>
+                                                <th width="15%">Descripcion</th>
+                                                <th width="10%">Valor</th>
+                                                 <th width="10%"></th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                 
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </span>
+                                
+                                                         
+                            </div>
+                           <div class="slds-modal__footer">
+                             <button class="slds-button slds-button_text-destructive" id="cerrar">cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                       
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+            <!----------------------------------------------------fin costos------------------------------------------------------->
+            
+        </body>
+    </html>
+</apex:page>

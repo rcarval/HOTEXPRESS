@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Servicio__c</fullName>
+    <label>Servicio</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Courier Importación</fullName>
+                <default>false</default>
+                <label>Courier Importación</label>
+            </value>
+            <value>
+                <fullName>Courier Exportación</fullName>
+                <default>false</default>
+                <label>Courier Exportación</label>
+            </value>
+            <value>
+                <fullName>Casillero Importación</fullName>
+                <default>false</default>
+                <label>Casillero Importación</label>
+            </value>
+            <value>
+                <fullName>Carga Aérea Importación</fullName>
+                <default>false</default>
+                <label>Carga Aérea Importación</label>
+            </value>
+            <value>
+                <fullName>Carga Aérea Exportación</fullName>
+                <default>false</default>
+                <label>Carga Aérea Exportación</label>
+            </value>
+            <value>
+                <fullName>Carga Marítima Importación</fullName>
+                <default>false</default>
+                <label>Carga Marítima Importación</label>
+            </value>
+            <value>
+                <fullName>Carga Marítima Exportación</fullName>
+                <default>false</default>
+                <label>Carga Marítima Exportación</label>
+            </value>
+            <value>
+                <fullName>Distribución Nacional</fullName>
+                <default>false</default>
+                <label>Distribución Nacional</label>
+            </value>
+            <value>
+                <fullName>Otro</fullName>
+                <default>false</default>
+                <label>Otro</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_Documento__c</fullName>
+    <label>Tipo Documento</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>33</fullName>
+                <default>false</default>
+                <label>FACTURA ELECTRÓNICA</label>
+            </value>
+            <value>
+                <fullName>34</fullName>
+                <default>false</default>
+                <label>FACTURA ELECTRÓNICA EXENTA</label>
+            </value>
+            <value>
+                <fullName>39</fullName>
+                <default>false</default>
+                <label>BOLETA ELECTRÓNICA</label>
+            </value>
+            <value>
+                <fullName>41</fullName>
+                <default>false</default>
+                <label>BOLETA ELECTRÓNICA EXENTA</label>
+            </value>
+            <value>
+                <fullName>45</fullName>
+                <default>false</default>
+                <label>FACTURA DE COMPRA</label>
+            </value>
+            <value>
+                <fullName>46</fullName>
+                <default>false</default>
+                <label>FACTURA DE COMPRA ELECTRÓNICA</label>
+            </value>
+            <value>
+                <fullName>52</fullName>
+                <default>false</default>
+                <label>GUÍA DE DESPACHO ELECTRÓNICA</label>
+            </value>
+            <value>
+                <fullName>56</fullName>
+                <default>false</default>
+                <label>NOTA DEBITO ELECTRÓNICA</label>
+            </value>
+            <value>
+                <fullName>61</fullName>
+                <default>false</default>
+                <label>NOTA DE CREDITO ELECTRÓNICA</label>
+            </value>
+            <value>
+                <fullName>EXPORTACIONES COURIER</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>EXPORTACIONES COURIER</label>
+            </value>
+            <value>
+                <fullName>FACTURA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FACTURA</label>
+            </value>
+            <value>
+                <fullName>FACTURA EXENTA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FACTURA EXENTA</label>
+            </value>
+            <value>
+                <fullName>IMPORTACIONES  IMPUESTOS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>IMPORTACIONES  IMPUESTOS</label>
+            </value>
+            <value>
+                <fullName>IMPORTACIONES FLETES</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>IMPORTACIONES FLETES</label>
+            </value>
+            <value>
+                <fullName>IMPORTACIONES FLETES Y GASTOS TERMINALES</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>IMPORTACIONES FLETES Y GASTOS TERMINALES</label>
+            </value>
+            <value>
+                <fullName>IMPUESTOS EN DESTINO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>IMPUESTOS EN DESTINO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

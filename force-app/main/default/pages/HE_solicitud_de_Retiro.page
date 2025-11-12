@@ -1,0 +1,781 @@
+<apex:page standardStylesheets="false" controller="HE_Solicitud_de_Retiro" action="{!datos}" showHeader="false" sidebar="false" >
+    
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Nuevo envio</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!-- Import the Design System style sheet -->
+            <apex:slds />
+            <!-- jQuery CDN -->
+            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+            <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.1.114/styles/kendo.default-v2.min.css"/>
+            <apex:includeScript value="https://code.jquery.com/jquery-1.12.4.min.js" />
+            <apex:includeScript value="https://kendo.cdn.telerik.com/2020.1.114/js/kendo.all.min.js"/>
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" />
+            <link rel="stylesheet" href="{!$Resource.HE + '/css/dashboard.css'}"/>
+            
+            
+            
+            
+            <script>
+            $j = jQuery.noConflict();
+            $j(document).ready(function($) {
+                $("#Nuevadireccion").hide();
+                $("#guia").hide();
+                var contador=0;
+                
+                
+                data={!resultJSON};
+                direccion=[];
+                guias=[];
+                console.log(data); 
+                $.each( data, function( key, c ) {
+                    direccion.push({
+                        id: c.id,
+                        nombre: c.nombre, 
+                        Direccion:c.Direccion,  
+                        Ciudad :c.Ciudad,
+                        Estado_Provincia:c.Estado_Provincia, 
+                        codigo_Postal:c.codigo_Postal, 
+                        Pais:c.Pais 
+                    });
+                    
+                    
+                });
+                data2={!resultJSONGuia};
+                console.log(data2);
+                $.each( data2, function( key, c ) {  
+                    guias.push({
+                        id: c.id,
+                        nombre: c.nombre, 
+                        nguia:c.nguia,
+                        Remitente:c.Remitente,
+                        destinatario:c.destinatario,
+                        pais:c.pais,
+                        check:"checked"
+                    });
+                });
+                
+                for(i=0;i<guias.length;i++) { 
+                    var td = '';
+                    var tr =  $('<tr code="'+guias[i].id+'" idProducto="'+guias[i].id+'">');
+                    td = $("<td ></td>").html('<input type="checkbox" id="Inret_'+guias[i].id+'"  name="Inret_'+guias[i].id+'" '+guias[i].check+'  />');
+                    tr.append(td);
+                    td = $("<td></td>").html('<output id="nguia_'+guias[i].id+'" name="nguia_'+guias[i].id+'" type="text" class="form-control "  >'+guias[i].nombre+'</output>');
+                    tr.append(td);
+                    td = $("<td ></td>").html('<output id="origen_'+guias[i].id+'" name="origen_'+guias[i].id+'" type="text" class="form-control " >'+guias[i].Remitente+'</output>');
+                    tr.append(td);
+                    td = $("<td ></td>").html('<output id="destino_'+guias[i].id+'" name="destino_'+guias[i].id+'" type="text" class="form-control "   >'+guias[i].destinatario+'</output>');
+                    tr.append(td);
+                    td = $("<td></td>").html('<output id="pais_'+guias[i].id+'" name="pais_'+guias[i].id+'" type="text" class="form-control "   >'+guias[i].pais+'</output>');
+                    tr.append(td);
+                    
+                    $("#tb2").append(tr);
+                    
+                }
+                
+                console.log(direccion);
+                
+                for(i=0;i<direccion.length;i++) { 
+                    document.getElementById("direcciones").options[document.getElementById("direcciones").options.length]=new Option(direccion[i].nombre , direccion[i].id);
+                }
+                
+                
+                
+                $("#Editar").on('click',function(){ 
+                    var  direcion= $("#direcciones").val();
+                    if(direcion!="0"){ 
+                        var nom =  $("#Nombre").html();
+                        var dir = $("#direccion").html();
+                        var ciu = $("#ciudad").html();
+                        var est =$("#Estado_Provincia").html();
+                        var cod = $("#codigo_Postal").html();
+                        var pais =$("#Pais").html();
+                        
+                        $("#nom").val(nom);
+                        $("#direc").val(dir);    
+                        $("#ciud").val(ciu);   
+                        $("#est_prov").val(est);
+                        $("#codpost").val(cod);
+                        $("#PaisNE").val(pais); 
+                        $("#agregardireccion").hide();
+                        $("#editardireccion").show();
+                        $("#Nuevadireccion").show();
+                    }else{
+                        alert("selecione una direccion");
+                    }
+                });
+                
+                $("#Nueva_Direcion").on('click',function(){
+                    $("#nom").val("");
+                    $("#direc").val("");    
+                    $("#ciud").val("");   
+                    $("#est_prov").val("");
+                    $("#codpost").val("");
+                    $("#PaisNE").val("");
+                    $("#agregardireccion").show();
+                    $("#editardireccion").hide();
+                    $("#Nuevadireccion").show();
+                });
+                
+                $("#direcciones").on('click',function(){
+                    var dir = $("#direcciones").val();
+                    console.log(dir );
+                   
+                    for(var i=0; i<direccion.length; i++){ 
+                        if(direccion[i].id==dir){
+                            $("#Nombre").html(direccion[i].nombre);
+                            $("#direccion").html(direccion[i].Direccion);    
+                            $("#ciudad").html(direccion[i].Ciudad);   
+                            $("#Estado_Provincia").html(direccion[i].Estado_Provincia);
+                            $("#codigo_Postal").html(direccion[i].codigo_Postal);
+                            $("#Pais").html(direccion[i].Pais);
+                            if(direccion[i].id=="0"){
+                                $("#Nombre").html(""); 
+                            }
+                        }
+                    }                    
+                });
+                $("#agregardireccion").on('click',function(){
+                    var direcion = $("#direcciones").val();
+                    var nom =  $("#nom").val();
+                    var dir = $("#direc").val();
+                    var ciu = $("#ciud").val();
+                    var est =$("#est_prov").val();
+                    var cod = $("#codpost").val();
+                    var pais =$("#PaisNE").val();
+                    var paisnombre = $('#PaisNE>option:selected').text();
+                    var OwnerId = "{!acc.OwnerId}";
+                    var datos = {
+                        "nombre": nom,
+                        "Ciudad":ciu,
+                        "codigo_Postal":cod,
+                        "Direccion": dir,
+                        "Estado_Provincia": est,
+                        "Pais": pais,
+                        "id":"{!idc}",
+                        "OwnerId": OwnerId,
+                        "tipo": "nuevo"
+                        
+                    };
+                    console.log(datos);
+                    $.ajax({
+                        dataType: "json",
+                        url: "{!$Page.HE_AgregaEditaDir_JSON}",
+                        data: { datos: JSON.stringify(datos) },
+                        success: function(data) {
+                            console.log(data);
+                            if(data.success){
+                                
+                                contador=data.iddirecion;
+                                direccion.push({
+                                    id:contador,
+                                    nombre:nom, 
+                                    Direccion:dir,  
+                                    Ciudad :ciu,
+                                    Estado_Provincia:est, 
+                                    codigo_Postal:cod, 
+                                    Pais:pais 
+                                    
+                                }); 
+                                console.log(direccion );
+                                document.getElementById("direcciones").options[document.getElementById("direcciones").options.length]=new Option(nom ,contador);
+                                $("#direcciones").val(contador);
+                                $("#direcciones").click();
+                                $("#Nuevadireccion").hide();
+                            }else{
+                                alert("Existe un error al guardar: "+data.msg);
+                            }
+                        }
+                    });
+                    
+                });
+                
+                $("#editardireccion").on('click',function(){
+                    var dirselect = $("#direcciones").val();
+                    
+                    var nom =  $("#nom").val();
+                    var dir = $("#direc").val();
+                    var ciu = $("#ciud").val();
+                    var est =$("#est_prov").val();
+                    var cod = $("#codpost").val();
+                    var pais =$("#PaisNE").val();
+                    
+                    for(i=0;i<direccion.length;i++) { 
+                        if(direccion[i].id==dirselect){
+                            direccion[i].nombre=nom;
+                            direccion[i].Direccion=dir;  
+                            direccion[i].Ciudad =ciu;
+                            direccion[i].Estado_Provincia=est; 
+                            direccion[i].codigo_Postal=cod; 
+                            direccion[i].Pais=pais;   
+                            
+                            
+                        }
+                    }
+                    console.log(direccion );
+                    $("#direcciones").empty();
+                    for(i=0;i<direccion.length;i++) { 
+                        document.getElementById("direcciones").options[document.getElementById("direcciones").options.length]=new Option(direccion[i].nombre , direccion[i].id);
+                    }
+                    $("#direcciones").val(dirselect);
+                    $("#direcciones").click();
+                    $("#Nuevadireccion").hide();
+                    
+                });
+                
+                
+                $("#cancelardireccion").on('click',function(){
+                    $("#Nuevadireccion").hide();
+                    
+                });
+                
+                $("#Solicitar_Retiro").on('click',function(){
+                    var  dirselect = $("#direcciones").val();
+                    var nom =  $("#Nombre").html();
+                    var dir = $("#direccion").html();
+                    var idc = "{!idc}";
+                    var idp = "{!idp}";
+                    
+                    var ciu = $("#ciudad").html();
+                    var est =$("#Estado_Provincia").html();
+                    var cod = $("#codigo_Postal").html();
+                    var pais =$("#Pais").html();
+                    var fecha = $("#fecha").val();
+                    var h_retiro = $("#h_retiro").val();
+                    //var hi =$("#horaI").val();
+                    //var hf = $("#horaF").val();
+                    var Ncont =$("#Ncontret").val();
+                    var INrem =$("#Inret").val();
+                    var peso_aprox =$("#peso_aprox").val();
+                    var can_paquetes =$("#can_paquetes").val();
+                    var OwnerId = "{!acc.OwnerId}";
+                    var prods = [];
+                    for(i=0;i<guias.length;i++) { 
+                        console.log('i'+i);
+                        
+                        var nguia = $("#nguia"+guias[i].id).val();
+                        var origen = $("#origen"+guias[i].id).val();
+                        var destino = $("#destino"+guias[i].id).val();
+                        console.log('nguiaaa='+nguia);
+                        
+                        if(nguia!=null){
+                            console.log('nguia'+nguia);
+                            console.log('origen'+origen);
+                            console.log('destino'+destino);
+                            prods.push({
+                                "id": guias[i].id,
+                                "nguia": nguia,
+                                "origen": origen,
+                                "destino": destino 
+                            });
+                            
+                        }
+                    }
+                    
+                    console.log('prods'+prods);
+                    var datos = {
+                        "dirid": dirselect,
+                        "nombre": nom,
+                        "direccion": dir,
+                        "ciudad": ciu,
+                        "Estado_Provincia": est,
+                        "codigo_Postal": cod,
+                        "Pais": pais,
+                        "fecha": fecha,
+                        "idc": idc,
+                        "idp": idp,
+                        "h_retiro": h_retiro,
+                        "Ncontret": Ncont,
+                        "Inret": INrem,
+                        "peso_aprox": peso_aprox,
+                        "can_paquetes": can_paquetes,
+                        "prods": prods,
+                        "OwnerId": OwnerId
+                        
+                        
+                    };
+                    console.log(datos);
+                    var d = new Date();
+                    var strDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+                    console.log(strDate);
+                    console.log(fecha);
+                    if(fecha==''){
+                        alert("seleccione una fecha");
+                        return;
+                    }
+                    /*if(fecha > strDate){
+                        alert("la fecha no debe ser mayor a la actual: " + strDate);
+                        return;
+                    }*/
+                    if(dirselect=='0'){
+                        alert("seleccione direcion de retiro");
+                        return;
+                    }
+                    /* if(peso_aprox==''){
+                        alert("ingrese peso aproximado del o los  paquetes  retirar  ");
+                        return;
+                    }
+                    if(can_paquetes==''){
+                        alert("ingrese cantidad de paquetes ");
+                        return;
+                    }*/
+                    if(Ncont=='' || Ncont==' ' || Ncont==null){
+                        alert("ingrese nombre contacto retiro");
+                        return;
+                    }
+                    /*f(Inret==''){
+                        alert("ingrese indicaciones de retiro ");
+                        return;
+                    }*/
+                    
+                    console.log("llamada a clase dir4eciones");
+                    $.ajax({
+                        dataType: "json",
+                        url: "{!$Page.HE_direcionesVF}?",
+                        data: { datos: JSON.stringify(datos) },
+                        success: function(data) {
+                            console.log(data);
+                            if(data.success){
+                                alert('solicitud ingresada correctamente');   
+                                window.location.replace("HE_Inicio?idc={!idc}&&idp={!idp}");                                
+                            }else{
+                                alert("Existe un error al guardar: "+data.msg);
+                            }
+                            
+                            
+                        }
+                    }); 
+                });
+                
+                $('#addMore').on('click', function(){ 
+                    $("#guia").show();                    
+                    // agregarFila();
+                }); 
+                $('#cancelarGuia').on('click', function(){ 
+                    $("#guia").hide();
+                }); 
+                $("#agregarguias").on('click',function(){
+                    var prods = [];
+                    $('#tb td').remove(); 
+                    //   $("#tb2 > tbody > tr").each(function(index, item){
+                    for(i=0;i<guias.length;i++) { 
+                        console.log('i'+i);
+                        var id = guias[i].id ;
+                        var nguia = $("#nguia_"+guias[i].id).val();
+                        var origen = $("#origen_"+guias[i].id).val();
+                        var destino = $("#destino_"+guias[i].id).val();
+                        var check =false;
+                        console.log('id'+id);
+                        $('input:checkbox[name=Inret_'+guias[i].id+']:checked').each(function(){
+                            if (this.checked) {
+                                check=true;
+                                console.log('nguia'+nguia);
+                                console.log('origen'+origen);
+                                console.log('destino'+destino);
+                                console.log('check '+check);
+                                agregarFila(id,nguia,origen,destino);
+                            }else{
+                                check=false;
+                            }
+                        }); 
+                        
+                        
+                        
+                        
+                    }
+                    $("#guia").hide();
+                    //});
+                });
+                
+                
+            });
+            ids=0;
+            function agregarFila(id,nguia, origen, destino) {
+                //var data = $("#tb tr:eq(1)").clone(true).appendTo("#tb");
+                //data.find("input").val('');
+                console.log('id='+id);
+                console.log('nguia'+nguia);
+                console.log('origen'+origen);
+                console.log('destino'+destino); 
+                var td = '';
+                var tr = $("<tr></tr>");
+                td = $("<td></td>").html('<output id="nguia'+id+'" name="nguia'+id+'" type="hidden" class="form-control " >'+nguia+'</output>');
+                tr.append(td);
+                td = $("<td></td>").html('<output id="origen'+id+'" name="origen'+id+'" type="hidden" class="form-control " >'+origen+'</output>');
+                tr.append(td);
+                td = $("<td></td>").html('<output id="destino'+id+'" name="destino'+id+'" type="hidden" class="form-control "  >'+destino+'</output>');
+                tr.append(td);
+                td = $("<td></td>").html('<button class="remove slds-button slds-button_destructive" href="javascript:void(0);">Eliminar</button>');
+                tr.append(td);
+                $("#tb").append(tr);
+                
+                
+                
+                
+                ids = ids + 1;
+                $("#myListNumber").val(ids);
+            }
+            $(document).on('click', '.remove', function() {
+                console.log($("#myListNumber").val());
+                var ids = parseInt($("#myListNumber").val());
+                console.log(ids);
+                var trIndex = $(this).closest("tr").index();
+                
+                $(this).closest("tr").remove();
+                $("#myListNumber").val(ids); 
+                
+            });
+                function nuevo_envio() {
+                console.log('nuevo_envio');
+                 $("#loading").show();
+                window.location.replace("{!$Page.HE_Nuevo_Envio}?idc={!idc}&&idp={!idp}");   
+            }
+            function nueva_solicitud() {
+                console.log('nueva_solicitud');
+                 $("#loading").show();
+                window.location.replace("{!$Page.HE_solicitud_de_Retiro}?idc={!idc}&&idp={!idp}");   
+            }
+            function mis_documentos() {
+                console.log('mis_documentos');
+                 $("#loading").show();
+                window.location.replace("{!$Page.HE_Mis_Documentos}?idc={!idc}&&idp={!idp}");   
+            }
+              function inicio() {
+                console.log('inicio');
+                 $("#loading").show();
+                window.location.replace("{!$Page.HE_Inicio}?idc={!idc}&&idp={!idp}");   
+            }
+            </script>
+        </head>
+        <body class="">
+            <div class="page">
+                <div class="page-main">
+                    
+                    <div class="header py-4">
+                        <div class="container">
+                            <div class="d-flex">
+                                <a class="header-brand" href="inicio">
+                                    <img src="{!$Resource.HE + '/images/logohotexpress.png'}" width="120" alt="logo"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                
+                                <div class="col-lg order-lg-first">
+                                    <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="inicio()"  class="nav-link">Inicio</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="nuevo_envio()" class="nav-link">Nuevo Envío</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a href="#" onclick="nueva_solicitud()" class="nav-link">Nueva Solicitud de retiro</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="mis_documentos()" class="nav-link">Mis documentos</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!---Contenido--->
+                    <!---Contenido--->
+                    <!---Contenido--->
+                    <!---Contenido--->
+                    <div class="my-3 my-md-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Direccion de retiro en Chile</h3>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label">
+                                                            Seleccione dirección
+                                                        </label>
+                                                        <select class="custom-select" id="direcciones"  name="direcciones">
+                                                            
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Nombre:</label>
+                                                        <div class="form-control-plaintext"> <ouput id="Nombre"></ouput></div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Dirección:</label>
+                                                        <div class="form-control-plaintext"><ouput id="direccion"></ouput></div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Ciudad:</label>
+                                                        <div class="form-control-plaintext"> <ouput id="ciudad"></ouput></div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Estado/Provincia:</label>
+                                                        <div class="form-control-plaintext"><ouput id="Estado_Provincia"></ouput></div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">Código postal:</label>
+                                                        <div class="form-control-plaintext"><ouput id="codigo_Postal"></ouput>  </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6">
+                                                        <label class="form-label">País:</label>
+                                                        <div class="form-control-plaintext"><ouput id="Pais"></ouput></div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="form-footer col-md-3">
+                                                                <button class="btn btn-primary btn-block" id="Nueva_Direcion" >Nueva dirección</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="my-3 my-md-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label">Fecha:</label>
+                                                        <input type="date" class="form-control" id="fecha" name="trip-start"/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label">
+                                                            Seleccione direción
+                                                        </label>
+                                                        <select class="custom-select" id="h_retiro">
+                                                            <option value="10:30 - 11:30">10:30 - 11:29</option>
+                                                            <option value="11:30 - 12:30">11:30 - 12:29</option>
+                                                            <option value="12:30 - 13:30">12:30 - 13:29</option>
+                                                            <option value="13:30 - 14:30">13:30 - 14:29</option>
+                                                            <option value="14:30 - 15:30">14:30 - 15:29</option>
+                                                            <option value="15:30 - 16:30">15:30 - 16:29</option>
+                                                            <option value="16:30 - 17:30">16:30 - 17:29</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-4">
+                                                        <label class="form-label">Nombre del contacto para el retiro:</label>
+                                                        <input type="text" class="form-control" name="text-input" id="Ncontret" />
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label">Cantidad de paquetes:</label>
+                                                        <input type="text" class="form-control" name="text-input" id="can_paquetes" />
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-2">
+                                                        <label class="form-label">Peso aproximado (kg):</label>
+                                                        <input type="text" class="form-control" name="text-input" id="peso_aprox"/>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-12">
+                                                        <hr/>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <label class="form-label">Agregar guía</label>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-12">
+                                                        <input type="hidden" id="myListNumber" value="0" />
+                                                        <table class="table table-striped" id="tb">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Nº guía</th>
+                                                                    <th scope="col">Origen</th>
+                                                                    <th scope="col">Destino</th>
+                                                                    <th scope="col"><button class="btn btn-primary" href="javascript:void(0);"  id="addMore" >Agregar guías</button></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">nº</th>
+                                                                    <td>origen</td>
+                                                                    <td>destino</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-left">
+                                                <button type="submit" class="btn btn-primary" id="Solicitar_Retiro">Solicitar retiro</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                   
+                </div>
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row align-items-center flex-row-reverse">
+                            <div class="col-auto ml-lg-auto">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <ul class="list-inline list-inline-dots mb-0">
+                                            <li class="list-inline-item"><a href="http://www.hotexpress.cl/terminosycondiciones">Terminos y condiciones de envíos</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+                                © 2021 <a href="http://www.hotexpress.cl/">HotExpress</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!--- ESTRUCTURA BOTON NUEVA DIRECCIÓN---->
+            <div style="height:50rem" id="Nuevadireccion">
+                <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <div class="col-md-12">
+                                <div class="card-body">
+                                    <div class="row">
+                                        
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">Nombre:</label>
+                                            <input type="text" class="form-control" id="nom"  name="nom" />
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">Dirección:</label>
+                                            <input type="text" class="form-control" name="text-input"  id="direc" />
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">Ciudad:</label>
+                                            <input type="text" class="form-control" name="text-input" id="ciud"/>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">Estado/Provincia:</label>
+                                            <input type="text" class="form-control" name="text-input" id="est_prov"/>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">Código postal:</label>
+                                            <input type="text" class="form-control"   id="codpost"/>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6">
+                                            <label class="form-label">
+                                                País
+                                            </label>
+                                            <select class="custom-select" id="PaisNE" >
+                                                <option value=" ">Seleccione...</option>
+                                                <apex:repeat value="{!listpais}" var="p">
+                                                    <option value="{!p.id}">{!p.name}</option> 
+                                                </apex:repeat>  
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="text-left">
+                                            <button class="btn btn-primary" id="agregardireccion">Agregar</button>
+                                            <button class="btn btn-primary" id="cancelardireccion">Cancelar</button>
+                                            <button class="btn btn-primary" id="editardireccion">editar</button>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+            <!------------------------------------------------------------------------------------------>
+            
+            <!--- ESTRUCUTRA BOTON AGREGAR GUIAS-->
+            <div style="height:50rem" id="guia">
+                <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <div class="form-group col-md-12">
+                                <label class="form-label">Guías</label>
+                            </div>
+                            <div   id="divtabla2">
+                                <div class="form-group col-md-12">
+                                    <table class="table table-striped" id="tb2">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"></th>
+                                                <th scope="col">Nº guía</th>
+                                                <th scope="col">Origen</th>
+                                                <th scope="col">Destino</th>
+                                                <th scope="col">País destino</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <div class="text-left">
+                                <button type="submit" class="btn btn-primary" id="agregarguias">Agregar</button> 
+                                <button type="submit" class="btn btn-primary" id="cancelarGuia">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>  
+            <!------------------------------------------------------------------------------------------>    
+            
+        </body>
+    </html>
+</apex:page>

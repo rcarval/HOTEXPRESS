@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Guias_de_Exportacion__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Guías de Exportación</label>
+    <referenceTo>Guias_de_Exportacion__c</referenceTo>
+    <relationshipLabel>Solicitudes Retiros</relationshipLabel>
+    <relationshipName>Guias_de_Exportacion_Retiro</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Nombre_Zonas__c</fullName>
+    <label>Nombre Zona</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SUR AMERICA 1</fullName>
+                <default>false</default>
+                <label>SUR AMERICA 1</label>
+            </value>
+            <value>
+                <fullName>SUR AMERICA 2</fullName>
+                <default>false</default>
+                <label>SUR AMERICA 2</label>
+            </value>
+            <value>
+                <fullName>CENTRO Y NORTE AMERICA, CARIBE</fullName>
+                <default>false</default>
+                <label>CENTRO Y NORTE AMERICA, CARIBE</label>
+            </value>
+            <value>
+                <fullName>EUROPA</fullName>
+                <default>false</default>
+                <label>EUROPA</label>
+            </value>
+            <value>
+                <fullName>ASIA</fullName>
+                <default>false</default>
+                <label>ASIA</label>
+            </value>
+            <value>
+                <fullName>RESTO DEL MUNDO</fullName>
+                <default>false</default>
+                <label>RESTO DEL MUNDO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

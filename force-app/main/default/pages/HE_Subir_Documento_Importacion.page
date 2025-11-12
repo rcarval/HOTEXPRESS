@@ -1,0 +1,104 @@
+<apex:page standardController="Master_Importacion__c" extensions="HE_Subir_Documento_Importacion" id="page1"   lightningStylesheets="true" showHeader="true" > 
+       <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+        var maxStringSize = 6000000;    //Maximum String size is 6,000,000 characters
+        var maxFileSize = 4350000;      //After Base64 Encoding, this is the max file size
+        var chunkSize = 950000;         //Maximum Javascript Remoting message size is 1,000,000 characters
+        var attachment;
+        var attachmentName;
+        var fileSize;
+        var positionIndex;
+        var doneUploading;
+        var xmls;
+        function uploadFile() {
+            var file = document.getElementById("attachmentFile").files[0];
+            
+            console.log(file);
+            if(file != undefined) {
+                
+                if(file.size <= maxFileSize) {
+                    attachmentName = file.name;
+                    var fileReader = new FileReader();
+                    fileReader.onloadend = function(e) { 
+                        attachment = window.btoa(this.result);
+                        positionIndex=0;
+                        fileSize = attachment.length;
+                        console.log("Total Attachment Length: " + fileSize);
+                        doneUploading = false;
+                        if(fileSize < maxStringSize) {
+                              console.log("entro ");
+                            uploadAttachment(null);
+                        } else {
+                            alert("El archivo codificado es muy grande.  El maximo es " + maxStringSize + " y el archivo pesa " + fileSize + ".");
+                        }
+                    }
+                    fileReader.onerror = function(e) {
+                        alert("Ocurrio un error leyendo el archivo.  Intentelo nuevamente.");
+                    }
+                    fileReader.onabort = function(e) {
+                        alert("Ocurrio un error leyendo el archivo.  Intentelo nuevamente.");
+                    }
+                    fileReader.readAsBinaryString(file);
+                } else {
+                    alert("El archivo debe pesar hasta 4.3MB.  Este archivo es muy grande.  Intentelo nuevamente.");
+                }
+            } else {
+                alert("Debes seleccionar un archivo antes de subirlo.");
+            }
+        }
+        function uploadAttachment(fileId) {
+              console.log("entro 2");
+            var attachmentBody = "";
+            if(fileSize <= positionIndex + chunkSize) {
+                attachmentBody = attachment.substring(positionIndex);
+                doneUploading = true;
+            } else {
+                attachmentBody = attachment.substring(positionIndex, positionIndex + chunkSize);
+            }
+            console.log("Uploading " + attachmentBody.length + " chars of " + fileSize);
+              console.log("Uploading " + attachmentBody + " chars of " + fileSize);
+            //     var bytes = dojox.encoding.base64.decode(attachmentBody);
+            //console.log("cadena " + bytes);
+
+            HE_Subir_Documento_Importacion.estado('{!Master_Importacion__c.Id}', attachmentBody, attachmentName, fileId,xmls, 
+                function(result, event) {
+                    console.log("result "+result);
+                     console.log("event "+event);
+                     alert(result);
+                   
+                },
+                {buffer: true, escape: true, timeout: 120000}
+            );
+        }
+            function processFiles(files) {
+var file = files[0];
+
+var reader = new FileReader();
+
+reader.onload = function (e) {
+// Cuando éste evento se dispara, los datos están ya disponibles.
+// Se trata de copiarlos a una área <div> en la página.
+var output = document.getElementById("fileOutput");
+ xmls=e.target.result;
+output.textContent = e.target.result;
+    
+};
+reader.readAsText(file);
+}
+    </script> 
+            </head>
+             <body>      
+   <h2>Subir archivo</h2>
+  <br /> <br />
+  <p>
+      <input type="file" id="attachmentFile" accept="text/html" onchange="processFiles(this.files)"/> <br />
+      <button onclick="uploadFile()">Subir archivo</button>
+       </p>
+      <div id="fileOutput"></div>
+ 
+
+           </body>
+    </html>
+</apex:page>

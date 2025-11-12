@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>servicio dhl</label>
+    <protected>false</protected>
+    <values>
+        <field>EndPoint__c</field>
+        <value xsi:type="xsd:string">https://xmlpitest-ea.dhl.com/XMLShippingServlet</value>
+    </values>
+    <values>
+        <field>Password__c</field>
+        <value xsi:type="xsd:string">ytQEkPR8nP</value>
+    </values>
+    <values>
+        <field>ShipperAccountNumberDDP__c</field>
+        <value xsi:type="xsd:string">968039504</value>
+    </values>
+    <values>
+        <field>ShipperAccountNumber__c</field>
+        <value xsi:type="xsd:string">673010319</value>
+    </values>
+    <values>
+        <field>SiteID__c</field>
+        <value xsi:type="xsd:string">v62_0pog1WibRN</value>
+    </values>
+    <values>
+        <field>nombre_contacto__c</field>
+        <value xsi:type="xsd:string">prueba servicio dhl</value>
+    </values>
+    <values>
+        <field>servicio__c</field>
+        <value xsi:type="xsd:string">Shipment_Validation</value>
+    </values>
+    <values>
+        <field>tel_fono_contacto__c</field>
+        <value xsi:type="xsd:string">123452</value>
+    </values>
+</CustomMetadata>

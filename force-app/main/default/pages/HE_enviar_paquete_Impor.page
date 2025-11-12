@@ -1,0 +1,64 @@
+<apex:page standardController="Solicitud_de_Pickup__c" extensions="HE_enviar_paquetes_Impor" action="{!validar_ruta}">
+    <apex:pageMessages ></apex:pageMessages>
+    
+    <body>
+        <apex:form rendered="{!mostrar}">
+        
+   <!--     <div id="printDiv">
+             <p >{!zpl2}</p>
+</div>
+             <br/>
+            <br/>
+    <button  id="imrimir" onclick="myFunction('printDiv')">imprimir  v 1 </button>   
+             <br/>
+            <br/>
+<apex:commandLink  value="Print"/>
+     
+
+            <br/>
+       
+        
+        
+        
+<textarea id="zplcode" cols="40" rows="20">{!zpl2}
+</textarea>
+            <br/>
+        <input type="button" value="imprimir  v 2" onclick="printZpl(document.getElementById('zplcode').value)" /><br/>
+          <br/>
+            <br/>
+            <br/>
+            <br/>-->
+      <!-- <apex:commandButton action="{!consultarZPL}" value="ver etiqueta" ></apex:commandButton>-->
+            <br/>
+            <br/>
+    <iframe src="data:application/pdf;base64,{!ZPL2Imagen}" height="1000px"  width="1500px"></iframe>
+        
+     </apex:form>    
+    </body>
+     <script>
+    function myFunction(printDiv) {
+      var printContent = document.getElementById(printDiv).innerHTML;
+      var w = window.open();
+      w.document.write(printContent);
+      w.print();
+      w.close();
+  }
+    </script>
+
+  <script type="text/javascript">
+    function printZpl(zpl) {
+      var printWindow = window.open();
+      printWindow.document.open('text/plain')
+      printWindow.document.write(zpl);
+      printWindow.document.close();
+      printWindow.focus();
+      printWindow.print();
+      printWindow.close();
+    }
+  </script>
+   
+    
+ 
+
+
+</apex:page>

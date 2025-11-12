@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Master_Importacion__c</fullName>
+    <label>Master Importación</label>
+    <referenceTo>Master_Importacion__c</referenceTo>
+    <relationshipLabel>Detalles Guías Importación</relationshipLabel>
+    <relationshipName>Detalles_Gu_as_Importaci_n</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

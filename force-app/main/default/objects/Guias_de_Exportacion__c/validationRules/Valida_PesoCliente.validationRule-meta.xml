@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valida_PesoCliente</fullName>
+    <active>true</active>
+    <description>Regla valida que peso cliente no sea inferior a peso agente</description>
+    <errorConditionFormula>IF(   Peso_Cliente__c &lt; Peso_Agente__c 
+		, true, false)</errorConditionFormula>
+    <errorMessage>El peso cliente no puede ser inferior al peso agente</errorMessage>
+</ValidationRule>

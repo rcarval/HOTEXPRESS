@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estatus__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(and(text(Estado__c)=&apos;Por Cobrar&apos;,Dias_Vencidos__c&lt;60,Dias_Vencidos__c&gt;31), IMAGE(&quot;/resource/1542133951000/amarillo&quot;, &quot;Amarillo&quot; , 21, 21) ,  
+IF(and(text(Estado__c)=&apos;Por Cobrar&apos;,Dias_Vencidos__c&gt;=60), IMAGE(&quot;/resource/1542133920000/Rojo&quot;,&quot;rojo&quot; , 21, 21), 
+
+IF(text(Estado__c)=&apos;Pagada&apos;, IMAGE(&quot;/resource/1542133991000/Verde&quot;, &quot;Verde&quot; , 19,19), 
+
+&quot;&quot;)) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Estatus</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

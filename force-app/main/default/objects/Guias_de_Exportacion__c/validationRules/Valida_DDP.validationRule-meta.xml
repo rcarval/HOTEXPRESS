@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valida_DDP</fullName>
+    <active>true</active>
+    <description>Regla valida que no se pueda marcar DDP cuando el tipo de contenido sea Documento</description>
+    <errorConditionFormula>IF(and(text( Tipo_Contenido__c)=&apos;Documentos&apos;,DDP__c=true)    
+		, true, false)</errorConditionFormula>
+    <errorMessage>No puede registra DDP en una guía con tipo contenido documentos.</errorMessage>
+</ValidationRule>

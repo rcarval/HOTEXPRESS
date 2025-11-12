@@ -1,0 +1,497 @@
+<apex:page standardStylesheets="false" controller="HE_Login"  showHeader="false" sidebar="false"  action="{!capturaid}"  >
+    
+    
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+            <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+            <meta name="msapplication-TileColor" content="#2d89ef"/>
+            <meta name="theme-color" content="#4188c9"/>
+            <title>Inicio | HotExpress</title>
+            <apex:slds />
+            
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext"/>
+            <apex:includeScript value="https://code.jquery.com/jquery-1.12.4.min.js" />
+            <!--<apex:includeScript value="{!$Resource.HE + '/js/core.js'}" />-->
+           <!-- <apex:includeScript value="{!$Resource.HE + '/js/dashboard.js'}" />-->
+            <!--<apex:includeScript value="{!$Resource.HE + '/js/require.min.js'}" />-->
+           <!--<link rel="stylesheet" href="{!$Resource.HE + '/css/dashboard.rtl.css'}"/>-->
+            <link rel="stylesheet" href="{!$Resource.HE + '/css/dashboard.css'}"/>
+            
+            <apex:includeScript value="https://kendo.cdn.telerik.com/2020.1.114/js/kendo.all.min.js"/>
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" />
+            
+            <script>
+            // requirejs.config({
+            //    baseUrl: '.'
+            //});
+            </script>
+            <script>
+            $j = jQuery.noConflict();
+            $j(document).ready(function($) {
+                $("#Nuevadireccion").hide();
+                $("#guia").hide();
+                $("#alerta").hide();
+                $("#estado_guia").hide();
+                $("#loading").hide();
+
+                
+                $("#cuentacliente").val('{!idc}');
+                var datos = [];
+                datos=JSON.parse('{!JSONrespuentacuentas}');
+                
+                console.log(datos );
+                console.log(datos);
+                
+                $("#consultar").on('click',function(){
+                    
+                    var num =  $("#num_guia").val();
+                    console.log(num);
+                    if(num==null || num=='' ){
+                        alert("ingrese numero de GUIA " );
+                        return;
+                        }
+                        
+                    
+                    $.ajax({
+                        dataType: "json",
+                        
+                        url: "{!$Page.HE_ConsultarGuia_JSON}?datos="+num,
+                        data: { datos: num },
+                        success: function(data) {
+                            console.log(data);
+                            if(data.success){
+                                $("#origen").html(data.Origen+','+data.PaisO);  
+                                $("#destino").html(data.Destino+','+data.PaisD);  
+                                $("#fecha").html( data.Fecha);  
+                                $("#estado").html(data.Estado); 
+                                 $("#ver_Factura").val(data.Id_guia); 
+                                
+                                $("#alerta").hide();  
+                                $("#estado_guia").show();
+                                if(data.historial.length>0){
+                               
+                            var tabla='';
+                            tabla+= "<table class='table table-striped table-bordered table-hover' >";
+                            tabla+= "<tr><th >Codigo_Tracking</th>";
+                            tabla+= "<th >Estado</th>";
+                            tabla+= "<th >Fecha</th>";
+                            tabla+= "<th>Detalle</th></tr>";
+                            for(var i=0;i<data.historial.length;i++){
+                              console.log(data.historial[i]);  
+                             tabla+="<tr style='border: 1px'><td >"+data.historial[i].Codigo_Tracking+"</td>";        
+                             tabla+="<td>" +data.historial[i].Estado+"</td>";    
+                             tabla+="<td >" +data.historial[i].Fecha+"</td>";    
+                             tabla+="<td >" +data.historial[i].Detalle+"</td>";    
+                             tabla+="</tr>";
+                            }
+                             tabla+="</table>";
+                                 console.log(tabla); 
+                                $("#tabladatos").html(tabla);
+                               }
+                            }else{
+                                $("#texto").html('Guia no encontrada ');  
+                                $("#alerta").show();  
+                                $("#estado_guia").hide();
+                            }
+                        }
+                    });
+                    
+                    $("#guia").show();
+                });
+                $("#cerrar,#cerrar2").on('click',function(){
+                    $("#guia").hide();
+                });
+                $('#cuentacliente').on('change', function(){
+                     $("#loading").show();
+                    var valor=$("#cuentacliente").val(); 
+                    for(i=0;i<datos.length;i++) {
+                        if(datos[i].IDcuenta==valor){
+                            $("#loading").hide();
+                            window.location.replace("{!$Page.HE_Inicio}?idc="+datos[i].IDcuenta+"&&idp="+datos[i].IDcontacto+"");     
+                        }
+                        
+                    }  
+                     
+                }); 
+                
+                
+                
+            });
+            
+            
+            function nuevo_envio() {
+                console.log('nuevo_envio');
+                 $("#loading").show();
+                window.location.replace("{!$Page.HE_Nuevo_Envio}?idc={!idc}&&idp={!idp}");   
+            }
+            function nueva_solicitud() {
+                console.log('nueva_solicitud');
+                 $("#loading").show();
+                window.location.replace("{!$Page.HE_solicitud_de_Retiro}?idc={!idc}&&idp={!idp}");   
+            }
+            function mis_documentos() {
+                console.log('mis_documentos');
+                 $("#loading").show();
+                window.location.replace("{!$Page.HE_Mis_Documentos}?idc={!idc}&&idp={!idp}");   
+            }
+              function inicio() {
+                console.log('inicio');
+                 $("#loading").show();
+                window.location.replace("{!$Page.HE_Inicio}?idc={!idc}&&idp={!idp}");   
+            }
+            function ver_factura(dato){
+                    console.log('ver_factura');
+                   console.log(dato);
+                     window.open("{!$Page.HE_factura_expo}?id="+dato,"ventana1","width=1000,height=500,scrollbars=NO"); 
+                    
+                    }
+            </script> 
+            
+        </head>
+        <body class="">
+            <div class="page">
+                <div class="page-main">
+                    
+                    <div class="header py-4">
+                        <div class="container">
+                            <div class="d-flex">
+                                <a class="header-brand" href="#" onclick="inicio()">
+                                    <img src="{!$Resource.HE + '/images/logohotexpress.png'}" width="120" alt="logo"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                
+                                <div class="col-lg order-lg-first">
+                                    <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="inicio()"  class="nav-link">Inicio</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="nuevo_envio()" class="nav-link">Nuevo Envío</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a href="#" onclick="nueva_solicitud()" class="nav-link">Nueva Solicitud de retiro</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a  href="#" onclick="mis_documentos()" class="nav-link">Mis documentos</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!---Contenido--->
+                    <!---Contenido--->
+                    <!---Contenido--->
+                    <!---Contenido--->
+                    <div class="my-3 my-md-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Consultar Guia:</h3>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <input  id="num_guia"  name="num_guia" type="text" class="form-control"/>
+                                                        <span class="input-group-append">
+                                                            <button class="btn btn-primary" type="button" id="consultar" >Consultar</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="my-3 my-md-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Cuenta cliente:</h3>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <select class="form-control custom-select" id="cuentacliente">
+                                                        <apex:repeat value="{!cuentasdecont}" var="cn">
+                                                            <option value="{!cn.AccountId}">{!cn.Account.name}</option>
+                                                        </apex:repeat>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="my-3 my-md-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Opciones:</h3>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <center>
+                                                            <a   href="#"   onclick="nuevo_envio()">
+                                                                Nuevo envío
+                                                                <br/>
+                                                                <br/>
+                                                                <img src="{!$Resource.HE + '/images/logo_avion.png'}" width="100"/>
+                                                                <br/>
+                                                                <br/>
+                                                            </a>
+                                                        </center>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <center>
+                                                            <a  href="#" onclick="nueva_solicitud()">
+                                                                Nueva solicitud de retiro
+                                                                <br/>
+                                                                <br/>
+                                                                <img src="{!$Resource.HE + '/images/logo_camion.png'}" width="100" />
+                                                                <br/>
+                                                                <br/>
+                                                            </a>
+                                                        </center>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <center>
+                                                            <a  href="#" onclick="mis_documentos()">
+                                                                Mis documentos
+                                                                <br/>
+                                                                <br/>
+                                                                <img src="{!$Resource.HE + '/images/logo_caja.png'}" width="100" />
+                                                                <br/>
+                                                                <br/>
+                                                            </a>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!---//Contenido--->
+                    <!---//Contenido--->
+                    <!---//Contenido--->
+                    <!---//Contenido--->
+                    
+                </div>
+                <footer class="footer">
+                    <div class="container">
+                        <div class="row align-items-center flex-row-reverse">
+                            <div class="col-auto ml-lg-auto">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <ul class="list-inline list-inline-dots mb-0">
+                                            <li class="list-inline-item"><a href="http://www.hotexpress.cl/terminosycondiciones">Terminos y condiciones de envíos</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+                                © 2021 <a href="http://www.hotexpress.cl/">HotExpress</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            
+         
+        </body>
+        
+        
+                         <!----------------------------------------------------guias----------------------------------------------------------->
+            
+      <!--  <div style="height:70rem" id="guia">
+                <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+                    <div class="slds-modal__container">
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <div class="slds-box" style="height:30rem">
+                                <span id="textLoading" class="slds-text-title_caps slds-text-align_center">Estado Guia </span>
+                                <br/>
+                                <br/> 
+                                
+                                <div  id="alerta" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+                                    <span class="slds-assistive-text">warning</span>
+                                    <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small" title="Description of icon when needed">
+                                        <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                            
+                                        </svg>
+                                    </span>
+                                    <h2 id="texto"></h2>
+                                    <div class="slds-notify__close">
+                                        <button class="slds-button slds-button_icon slds-button_icon-small" title="Close">
+                                            <svg class="slds-button__icon" aria-hidden="true">
+                                              
+                                            </svg>
+                                            <span class="slds-assistive-text">Close</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                
+                                <div  id="estado_guia">
+                                    <div class="slds-form__item" role="listitem">
+                                        <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                            <label class="slds-form-element__label" for="single-form-element-id-02">Estado :</label>
+                                            <div class="slds-form-element__control">
+                                                <ouput  id="estado" class="slds-ouput" ></ouput>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form__item" role="listitem">
+                                        <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                            <label class="slds-form-element__label" for="single-form-element-id-02">Fecha Envio :</label>
+                                            <div class="slds-form-element__control">
+                                                <ouput  id="fecha" class="slds-ouput" ></ouput>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-form__row">
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                <label class="slds-form-element__label" for="single-form-element-id-02">Origen :</label>
+                                                <div class="slds-form-element__control">
+                                                    <ouput  id="origen" class="slds-ouput" ></ouput>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-form__item" role="listitem">
+                                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                                <label class="slds-form-element__label" for="single-form-element-id-02">Destino :</label>
+                                                <div class="slds-form-element__control">
+                                                    <ouput  id="destino" class="slds-ouput" ></ouput>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div id="tabladatos"> </div>
+                                    <button id="ver_Factura" value="" onclick="ver_factura(this.value);">ver Factura</button>
+                                </div>
+                            </div>
+                            
+                            <button class="slds-button slds-button_text-destructive" id="cerrar">cerrar</button>   
+                            
+                        </div>
+                    </div>
+                    
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+            -->
+            
+            
+            <!----------------------------------------------------fin guias------------------------------------------------------->  
+            <!----------------------------------------------------------------------------------------------------------------->
+        
+  <div style="height:70rem" id="guia">
+                <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+                    <div class="slds-modal__container">
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+<div class="modal-title h4">Rastreo de guías</div>
+<button type="button" class="close"  id="cerrar">
+<span aria-hidden="true">×</span>
+<span class="sr-only">Close</span>
+</button>
+</div>
+<div class="slds-modal__content slds-p-around_medium modal-body">
+<ul style="margin-bottom: 1em;">
+<li>
+<b>Resultado: Exito</b>
+</li>
+<li>
+<b>Estado</b>: 
+ <ouput  id="estado" ></ouput>
+</li>
+<li>
+<b>Fecha</b>: 
+<ouput  id="fecha"  ></ouput>
+</li>
+<li>
+<b>Origen</b>: 
+<ouput  id="origen"  ></ouput>
+</li>
+<li>
+<b>Destino</b>: 
+ <ouput  id="destino"  ></ouput>
+</li>
+</ul>
+  <div id="tabladatos"> </div>
+
+</div>
+<div class=" slds-modal__content slds-p-around_medium modal-footer">
+<button type="button" class="btn btn-secondary close" id="cerrar2">Cerrar</button>
+      
+</div>
+</div>
+      
+                    
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+        <!----------------------------------------------------------------------------------------------------------------->
+            <!----------------------------------------------------loading------------------------------------------------------->
+            
+            <div style="height:50rem" id="loading">
+                <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <div class="slds-align_absolute-center" style="height:5rem">
+                                
+                                <img  src="{!$Resource.loading}" width="100" height="100" />
+                            </div>
+                            <div class="slds-align_absolute-center" style="height:5rem">
+                                
+                                <p class="slds-text-align_center"> espere un momento....</p>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+            <!----------------------------------------------------fin loading------------------------------------------------------->
+     
+            
+    </html>
+    
+</apex:page>

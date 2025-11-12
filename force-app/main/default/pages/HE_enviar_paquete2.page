@@ -1,0 +1,104 @@
+<apex:page standardController="Guias_de_Exportacion__c" extensions="HE_enviar_paquetes2" action="{!validar_ruta}">
+    <apex:pageMessages ></apex:pageMessages>
+    
+    <body>
+        <apex:form rendered="{!mostrar}">
+        
+   <!--     <div id="printDiv">
+             <p >{!zpl2}</p>
+</div>
+             <br/>
+            <br/>
+    <button  id="imrimir" onclick="myFunction('printDiv')">imprimir  v 1 </button>   
+             <br/>
+            <br/>
+<apex:commandLink  value="Print"/>
+            <br/>
+<textarea id="zplcode" cols="40" rows="20">{!zpl2}
+</textarea>
+            <br/>
+        <input type="button" value="imprimir  v 2" onclick="printZpl(document.getElementById('zplcode').value)" /><br/>
+          <br/>
+            <br/>
+            <br/>
+            <br/>-->
+      <!-- <apex:commandButton action="{!consultarZPL}" value="ver etiqueta" ></apex:commandButton>-->
+            <br/>
+         <iframe src="data:application/pdf;base64,{!ZPL2Imagen}" height="1000px"  width="1500px"></iframe>
+     
+     </apex:form>
+        
+      <apex:form >
+        <div style="text-align: center; margin-top: 50px;">
+            <apex:commandButton value="Volver a la Guía de Exportación" 
+                action="{!volverGuia}" 
+                id="btnVolver"
+                styleClass="boton-salesforce"
+            />
+        </div>
+    </apex:form>
+
+    <style>
+        .boton-salesforce {
+            background-color: #0070d2;
+            color: white;
+            border: none;
+            padding: 12px 24px 12px 50px; /* espacio a la izquierda para el ícono */
+            height: 50px;
+            font-size: 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Salesforce.com_logo.svg/1200px-Salesforce.com_logo.svg.png');
+            background-repeat: no-repeat;
+            background-position: 15px center;
+            background-size: 24px 24px;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .boton-salesforce:hover {
+            background-color: #005fb2;
+            transform: scale(1.02);
+        }
+    </style>
+        
+    </body>
+     <script>
+    
+    const urls = {!urlsJS};
+
+    window.onload = function () {
+        if (urls && urls.length > 0) {
+            urls.forEach(function(url) {
+                window.open(url, '_blank');
+            });
+        }
+    };
+
+    
+    function myFunction(printDiv) {
+      var printContent = document.getElementById(printDiv).innerHTML;
+      var w = window.open();
+      w.document.write(printContent);
+      w.print();
+      w.close();
+  }
+    </script>
+
+  <script type="text/javascript">
+    function printZpl(zpl) {
+      var printWindow = window.open();
+      printWindow.document.open('text/plain')
+      printWindow.document.write(zpl);
+      printWindow.document.close();
+      printWindow.focus();
+      printWindow.print();
+      printWindow.close();
+    }
+  </script>
+   
+    
+ 
+
+
+</apex:page>

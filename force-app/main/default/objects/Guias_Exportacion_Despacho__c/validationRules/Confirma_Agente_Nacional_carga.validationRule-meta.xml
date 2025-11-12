@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Confirma_Agente_Nacional_carga</fullName>
+    <active>false</active>
+    <errorConditionFormula>if
+(
+or ( text(Guias_de_Exportacion__r.Agente__c ) &lt;&gt; &apos;Servicio Carga&apos;,
+text (Guias_de_Exportacion__r.Agente__c ) &lt;&gt; &apos;Nacional&apos;),true,false)</errorConditionFormula>
+    <errorMessage>Solo puede añadir guías nacionales o de carga</errorMessage>
+</ValidationRule>

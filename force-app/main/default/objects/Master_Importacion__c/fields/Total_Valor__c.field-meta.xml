@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Valor__c</fullName>
+    <label>Total Valor</label>
+    <summarizedField>Detalles_Guias_Importacion__c.Valor__c</summarizedField>
+    <summaryForeignKey>Detalles_Guias_Importacion__c.Master_Importacion__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
